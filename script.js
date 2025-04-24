@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // 通常ページの場合
                 const isHomePage = document.querySelector('.fixed-header') !== null;
                 if (!isHomePage) {
-                    window.location.href = 'lessons.html';
+                    window.location.href = 'index.html#lessons';
                 } else {
                     // ホームページ内のスクロールの場合
                     document.getElementById('lessons').scrollIntoView({ behavior: 'smooth' });
@@ -121,11 +121,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (regularNavLinks.length > 0) {
         regularNavLinks.forEach(link => {
             const href = link.getAttribute('href');
-            // Lessonsページへのリンクをホームページのスクロールに変更
-            if (href === 'lessons.html') {
+            if (href === 'instruments.html' || href === 'lessons.html' || href === 'about.html' || href === 'contact.html') {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    window.location.href = 'index.html#lessons';
+                    // ページ名からセクションIDを取得
+                    const sectionId = href.replace('.html', '');
+                    // ホームページにリダイレクトし、該当セクションにスクロール
+                    window.location.href = `index.html#${sectionId}`;
                 });
             }
         });
@@ -151,4 +153,26 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+    
+    // URLハッシュがある場合、そのセクションに自動スクロール
+    if (window.location.hash) {
+        const targetId = window.location.hash.substring(1);
+        const targetSection = document.getElementById(targetId);
+        
+        if (targetSection) {
+            // ページ読み込み後に少し遅延させてスクロール
+            setTimeout(() => {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+                
+                // ナビゲーションリンクのアクティブ状態を更新
+                const navLinks = document.querySelectorAll('.nav-link');
+                navLinks.forEach(link => {
+                    if (link.getAttribute('href') === `#${targetId}`) {
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        link.classList.add('active');
+                    }
+                });
+            }, 100);
+        }
+    }
 });
