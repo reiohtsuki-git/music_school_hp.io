@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission - Music School</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Music School</h1>
+        </div>
+    </header>
+
+    <main>
+        <section class="admission-container">
+            <h2>入会フォーム</h2>
+            
+            <form id="admissionForm">
+                <div class="form-group">
+                    <label for="email">ID（Emailアドレス）</label>
+                    <input type="email" id="email" name="email" placeholder="sample@test.co.jp" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">PW</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="passwordConfirm">PW確認用</label>
+                    <input type="password" id="passwordConfirm" name="passwordConfirm" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="course">ご希望のレッスン</label>
+                    <select id="course" name="course" required>
+                        <option value="">コースを選択してください。▼</option>
+                        <option value="guitar">Guitar Lesson</option>
+                        <option value="bass">Bass Lesson</option>
+                        <option value="dtm">DTM Lesson</option>
+                        <option value="compose">Compose Lesson</option>
+                    </select>
+                    <a href="#" id="fee-link" class="fee-link">料金表</a>
+                </div>
+                
+                <div class="form-group payment-section">
+                    <h3>お支払い方法</h3>
+                    <div class="payment-method">
+                        <div class="credit-card">
+                            <label>
+                                <input type="radio" name="payment" value="credit" checked>
+                                クレジットカード情報入力
+                            </label>
+                            
+                            <div class="card-details">
+                                <div class="card-number">
+                                    <label for="cardNumber">カード番号</label>
+                                    <input type="text" id="cardNumber" name="cardNumber" placeholder="0000 0000 0000 0000">
+                                    <div class="card-icons">
+                                        <!-- カードアイコン -->
+                                    </div>
+                                </div>
+                                
+                                <div class="card-expiry">
+                                    <label>有効期限</label>
+                                    <div class="expiry-inputs">
+                                        <input type="text" id="expMonth" name="expMonth" placeholder="月" maxlength="2">
+                                        <input type="text" id="expYear" name="expYear" placeholder="年" maxlength="2">
+                                    </div>
+                                </div>
+                                
+                                <div class="card-security">
+                                    <label for="securityCode">セキュリティコード</label>
+                                    <input type="text" id="securityCode" name="securityCode" maxlength="4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="admission-button">入会</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Music School. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
