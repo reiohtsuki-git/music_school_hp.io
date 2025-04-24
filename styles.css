@@ -80,6 +80,11 @@ header {
     font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
 }
 
+.logo h1 i {
+    margin-right: 8px;
+    color: var(--secondary);
+}
+
 nav ul {
     display: flex;
 }
@@ -163,9 +168,98 @@ main {
 footer {
     background-color: var(--text-dark);
     color: var(--white);
-    text-align: center;
-    padding: 2.5rem;
+    padding: 0;
     margin-top: 4rem;
+}
+
+.footer-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 4rem 2rem 2rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+}
+
+.footer-logo h2 {
+    color: var(--white);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.footer-logo h2 i {
+    color: var(--secondary);
+    margin-right: 10px;
+}
+
+.footer-logo p {
+    color: #B0B0B0;
+    font-size: var(--fs-xs);
+    max-width: 80%;
+}
+
+.footer-links h3,
+.footer-social h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+    position: relative;
+    padding-bottom: 0.8rem;
+}
+
+.footer-links h3::after,
+.footer-social h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--secondary);
+}
+
+.footer-links ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links ul li a {
+    color: #B0B0B0;
+    transition: all 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: var(--white);
+    padding-left: 5px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: var(--white);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: var(--primary);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    background-color: rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: var(--fs-xs);
 }
 
 /* ホームページスタイル */
@@ -285,6 +379,10 @@ footer {
     position: relative;
 }
 
+.instrument-card h3 i {
+    margin-right: 10px;
+}
+
 .instrument-image {
     height: 350px;
     display: flex;
@@ -334,6 +432,11 @@ footer {
     padding-bottom: 0.8rem;
 }
 
+.lesson-item h3 i {
+    margin-right: 10px;
+    color: var(--secondary);
+}
+
 .lesson-content {
     margin-top: 1.5rem;
 }
@@ -363,6 +466,15 @@ footer {
     position: relative;
     overflow: hidden;
     z-index: 1;
+}
+
+.join-button i {
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.join-button:hover i {
+    transform: translateX(5px);
 }
 
 .join-button::before {
@@ -448,6 +560,11 @@ footer {
     font-weight: 600;
 }
 
+.feature-item h4 i {
+    margin-right: 10px;
+    color: var(--secondary);
+}
+
 .feature-item p {
     margin-bottom: 0;
     font-size: var(--fs-xs);
@@ -479,6 +596,11 @@ footer {
     color: var(--text-dark);
 }
 
+.form-group label i {
+    margin-right: 8px;
+    color: var(--primary);
+}
+
 .form-group input,
 .form-group textarea,
 .form-group select {
@@ -499,6 +621,11 @@ footer {
     box-shadow: 0 0 0 3px rgba(93, 79, 237, 0.15);
 }
 
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #CED4DA;
+}
+
 .submit-button {
     background-color: var(--primary);
     color: var(--white);
@@ -511,6 +638,10 @@ footer {
     transition: all 0.3s ease;
     display: block;
     margin: 0 auto;
+}
+
+.submit-button i {
+    margin-right: 8px;
 }
 
 .submit-button:hover {
@@ -661,6 +792,15 @@ footer {
     .feature-list {
         grid-template-columns: 1fr;
     }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .footer-logo p {
+        max-width: 100%;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -737,4 +877,111 @@ footer {
         padding: 1rem 2.5rem;
         font-size: var(--fs-s);
     }
+    
+    .feature-item {
+        padding: 1.5rem;
+    }
+    
+    .footer-content {
+        padding: 2rem 1rem;
+    }
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content h2,
+.hero-content p,
+.hero-content .join-button {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.hero-content p {
+    animation-delay: 0.2s;
+}
+
+.hero-content .join-button {
+    animation-delay: 0.4s;
+    opacity: 0;
+}
+
+.hero-image {
+    animation: fadeIn 0.8s ease 0.6s forwards;
+    opacity: 0;
+}
+
+.instrument-card {
+    animation: fadeIn 0.6s ease forwards;
+    opacity: 0;
+}
+
+.instrument-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.instrument-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.instrument-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.instrument-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.lesson-item {
+    animation: fadeIn 0.6s ease forwards;
+    opacity: 0;
+}
+
+.lesson-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.lesson-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.lesson-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.lesson-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.feature-item {
+    animation: fadeIn 0.6s ease forwards;
+    opacity: 0;
+}
+
+.feature-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.feature-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.feature-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.feature-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.feature-item:nth-child(5) {
+    animation-delay: 0.5s;
 }
