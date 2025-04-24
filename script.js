@@ -81,8 +81,59 @@ document.addEventListener('DOMContentLoaded', () => {
     if (instrumentCards.length > 0) {
         instrumentCards.forEach(card => {
             card.addEventListener('click', () => {
-                window.location.href = 'lessons.html';
+                // 通常ページの場合
+                const isHomePage = document.querySelector('.fixed-header') !== null;
+                if (!isHomePage) {
+                    window.location.href = 'lessons.html';
+                } else {
+                    // ホームページ内のスクロールの場合
+                    document.getElementById('lessons').scrollIntoView({ behavior: 'smooth' });
+                }
             });
         });
     }
+    
+    // ナビゲーションリンクのスクロール処理
+    const navLinks = document.querySelectorAll('.nav-link');
+    if (navLinks.length > 0) {
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // クリックしたリンクのセクションIDを取得
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    // ナビゲーションリンクのアクティブ状態を更新
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // 指定セクションにスクロール
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    }
+    
+    // スクロール位置に基づくナビゲーションリンクのアクティブ状態更新
+    window.addEventListener('scroll', function() {
+        const scrollPosition = window.scrollY;
+        
+        // ホームページの場合のみ処理
+        if (document.querySelector('.fixed-header') !== null) {
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            sections.forEach((section, index) => {
+                const sectionTop = section.offsetTop - 100; // ヘッダーの高さを考慮
+                const sectionBottom = sectionTop + section.offsetHeight;
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    navLinks[index].classList.add('active');
+                }
+            });
+        }
+    });
 });
