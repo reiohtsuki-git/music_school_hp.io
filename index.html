@@ -7,29 +7,147 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
+    <header class="fixed-header">
         <div class="logo">
             <h1>Music School</h1>
         </div>
         <nav>
             <ul>
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="instruments.html">Instruments</a></li>
-                <li><a href="lessons.html">Lessons</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#home" class="active nav-link">Home</a></li>
+                <li><a href="#instruments" class="nav-link">Instruments</a></li>
+                <li><a href="#lessons" class="nav-link">Lessons</a></li>
+                <li><a href="#about" class="nav-link">About Us</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section class="hero">
+        <section id="home" class="section hero">
             <div class="hero-content">
                 <h2>音楽を、もっと自由に。</h2>
                 <p>自宅で学べる、プロの音楽レッスン。</p>
             </div>
             <div class="hero-image">
-                <!-- 画像エリア -->
+                <img src="images/hero.jpg" alt="Music School">
+            </div>
+        </section>
+
+        <section id="instruments" class="section">
+            <h2 class="section-title">レッスンについて</h2>
+            <div class="instruments-grid">
+                <div class="instrument-card">
+                    <h3>Guitar Lesson</h3>
+                    <div class="instrument-image">
+                        <img src="images/guitar.jpg" alt="Guitar Lesson">
+                    </div>
+                </div>
+
+                <div class="instrument-card">
+                    <h3>Bass Lesson</h3>
+                    <div class="instrument-image">
+                        <img src="images/bass.jpg" alt="Bass Lesson">
+                    </div>
+                </div>
+
+                <div class="instrument-card">
+                    <h3>DTM Lesson</h3>
+                    <div class="instrument-image">
+                        <img src="images/dtm.jpg" alt="DTM Lesson">
+                    </div>
+                </div>
+
+                <div class="instrument-card">
+                    <h3>Compose Lesson</h3>
+                    <div class="instrument-image">
+                        <img src="images/compose.jpg" alt="Compose Lesson">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="lessons" class="section">
+            <h2 class="section-title">レッスン内容</h2>
+            <div class="lessons-container">
+                <div class="lesson-item">
+                    <h3>Guitar Lesson</h3>
+                    <div class="lesson-content">
+                        <p>ギターレッスンでは、初心者から上級者まで、あなたのレベルに合わせた指導を行います。</p>
+                        <p>基本的な弾き方からテクニック、音楽理論まで幅広く学べます。</p>
+                    </div>
+                </div>
+
+                <div class="lesson-item">
+                    <h3>Bass Lesson</h3>
+                    <div class="lesson-content">
+                        <p>ベースレッスンでは、リズム感や音程感覚を養いながら、バンドの要となる演奏技術を習得します。</p>
+                    </div>
+                </div>
+
+                <div class="lesson-item">
+                    <h3>DTM Lesson</h3>
+                    <div class="lesson-content">
+                        <p>DTMレッスンでは、音楽制作ソフトの基本操作から、プロ品質の楽曲制作まで学べます。</p>
+                    </div>
+                </div>
+
+                <div class="lesson-item">
+                    <h3>Compose Lesson</h3>
+                    <div class="lesson-content">
+                        <p>作曲レッスンでは、メロディーの作り方、コード進行、楽曲構成など、作曲の基礎から応用まで学べます。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="join-button-container">
+                <a href="admission.html" class="join-button">入会する</a>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <h2 class="section-title">あなたの音楽の夢、私たちがサポートします。</h2>
+            <div class="about-content">
+                <p>音楽を学ぶことは、人生を豊かにし、自己表現を広げる素晴らしい方法です。</p>
+                <p>私たちのオンライン音楽教室では、どこでも、誰でも、好きな時間にレッスンを受けることができます。</p>
+
+                <h3>なぜ、私たちの音楽教室が選ばれるのか？</h3>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <h4>1.プロフェッショナルな講師陣</h4>
+                        <p>経験豊富な講師陣が、あなたの音楽のスキルを次のレベルへと導きます。</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="join-button-container">
+                <a href="admission.html" class="join-button">入会する</a>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <h2 class="section-title">お問い合わせ</h2>
+            <div class="contact-form">
+                <p>ご質問やご不明点がありましたら、お気軽にお問い合わせください。</p>
+                
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">お名前</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">内容</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-button">送信</button>
+                </form>
             </div>
         </section>
     </main>
