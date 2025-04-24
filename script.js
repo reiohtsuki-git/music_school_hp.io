@@ -116,6 +116,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
+    // 通常のナビゲーションメニューの変更
+    const regularNavLinks = document.querySelectorAll('nav ul li a:not(.nav-link)');
+    if (regularNavLinks.length > 0) {
+        regularNavLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            // Lessonsページへのリンクをホームページのスクロールに変更
+            if (href === 'lessons.html') {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.location.href = 'index.html#lessons';
+                });
+            }
+        });
+    }
+    
     // スクロール位置に基づくナビゲーションリンクのアクティブ状態更新
     window.addEventListener('scroll', function() {
         const scrollPosition = window.scrollY;
