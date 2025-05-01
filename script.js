@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // スクロール時のアニメーション
     function animateOnScroll() {
-        const elements = document.querySelectorAll('.section-title, .instrument-card, .lesson-item, .feature-item, .about-content p, .contact-form');
+        const elements = document.querySelectorAll('.section-title, .instrument-card, .lesson-item, .feature-item, .about-content p, .contact-form, .testimonial-card, .instructor-card, .faq-item');
         
         elements.forEach(element => {
             const elementPosition = element.getBoundingClientRect().top;
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             // メールアドレスの簡易バリデーション
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
             if (!emailRegex.test(email)) {
                 showNotification('有効なメールアドレスを入力してください。', 'error');
                 return;
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             // メールアドレスの簡易バリデーション
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
             if (!emailRegex.test(email)) {
                 showNotification('有効なメールアドレスを入力してください。', 'error');
                 return;
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <button class="modal-close"><i class="fas fa-times"></i></button>
                     </div>
                     <div class="modal-body">
-                        <table class="fee-table">
+                        <table class="price-table">
                             <thead>
                                 <tr>
                                     <th>コース</th>
@@ -259,6 +259,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navLinks.length > 0) {
         navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
+                // 外部リンクの場合はスクロール処理をスキップ
+                if (this.getAttribute('href').includes('.html')) {
+                    return;
+                }
+                
                 e.preventDefault();
                 
                 // クリックしたリンクのセクションIDを取得
@@ -348,7 +353,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
                     navLinks.forEach(link => link.classList.remove('active'));
-                    navLinks[index].classList.add('active');
+                    // インデックスが範囲内かチェック
+                    if (index < navLinks.length) {
+                        navLinks[index].classList.add('active');
+                    }
                 }
             });
         }
@@ -356,27 +364,30 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // スクロールアップボタンの作成と設定
     const createScrollUpButton = () => {
-        const scrollUpButton = document.createElement('button');
-        scrollUpButton.className = 'scroll-up';
-        scrollUpButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
-        document.body.appendChild(scrollUpButton);
-        
-        // スクロールアップボタンの表示/非表示
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                scrollUpButton.classList.add('visible');
-            } else {
-                scrollUpButton.classList.remove('visible');
-            }
-        });
-        
-        // スクロールアップボタンのクリックイベント
-        scrollUpButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+        // 既存のボタンがなければ作成
+        if (!document.querySelector('.scroll-up')) {
+            const scrollUpButton = document.createElement('button');
+            scrollUpButton.className = 'scroll-up';
+            scrollUpButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
+            document.body.appendChild(scrollUpButton);
+            
+            // スクロールアップボタンの表示/非表示
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollUpButton.classList.add('visible');
+                } else {
+                    scrollUpButton.classList.remove('visible');
+                }
             });
-        });
+            
+            // スクロールアップボタンのクリックイベント
+            scrollUpButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
     };
     
     // スクロールアップボタンを作成
@@ -402,5 +413,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }, 100);
         }
+    }
+
+    // FAQ アコーディオン
+    const faqItems = document.querySelectorAll('.faq-item');
+    if (faqItems.length > 0) {
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // 他のアイテムを閉じる（アコーディオン形式）
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // クリックしたアイテムをトグル
+                item.classList.toggle('active');
+            });
+        });
     }
 });
