@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>料金・教材 - Music School</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .price-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .price-section {
+            margin-bottom: 40px;
+        }
+
+        .price-title {
+            border-left: 5px solid #333;
+            padding-left: 15px;
+            margin-bottom: 30px;
+        }
+
+        .admission-fee {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .admission-fee p {
+            margin: 10px 0;
+        }
+
+        .price-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        .price-table th, .price-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .price-table th {
+            background-color: #f2f2f2;
+        }
+
+        .price-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .price-note {
+            font-size: 14px;
+            color: #666;
+            margin-top: 20px;
+        }
+
+        .lesson-type {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Music School</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="instruments.html">Instruments</a></li>
+                <li><a href="lessons.html">Lessons</a></li>
+                <li><a href="price.html" class="active">料金・教材</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-title">
+            <h2>料金・教材</h2>
+        </section>
+
+        <div class="price-container">
+            <section class="price-section">
+                <h3 class="price-title">入会金・施設費</h3>
+                <div class="admission-fee">
+                    <p>入会金 5,000円（体験レッスン後の契約締結で入会費無料）</p>
+                </div>
+            </section>
+
+            <section class="price-section">
+                <h3 class="price-title">料金</h3>
+                <div class="lesson-type">月3回・1回45分（チケット制）</div>
+                <table class="price-table">
+                    <tr>
+                        <th></th>
+                        <th>平日</th>
+                        <th>土日</th>
+                    </tr>
+                    <tr>
+                        <td>初心～初級者</td>
+                        <td>10,000円／月</td>
+                        <td>11,000円／月</td>
+                    </tr>
+                    <tr>
+                        <td>初級～中級者</td>
+                        <td>11,500円／月</td>
+                        <td>12,500円／月</td>
+                    </tr>
+                    <tr>
+                        <td>中級～上級者</td>
+                        <td>13,000円／月</td>
+                        <td>13,500円／月</td>
+                    </tr>
+                </table>
+                <div class="price-note">
+                    <p>※ 料金はすべて税込表示です</p>
+                    <p>※ チケットの有効期限は購入から3ヶ月間です</p>
+                    <p>※ レッスンの予約・キャンセルは前日までにご連絡ください</p>
+                </div>
+            </section>
+
+            <section class="join-button-container">
+                <a href="admission.html" class="join-button">入会する</a>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Music School. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
