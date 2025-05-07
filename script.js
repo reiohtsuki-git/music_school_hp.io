@@ -31,10 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
         notification.className = `notification ${type}`;
         notification.innerHTML = `
             <div class="notification-content">
-                <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'}"></i>
+                <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle'}" aria-hidden="true"></i>
                 <p>${message}</p>
             </div>
-            <button class="notification-close"><i class="fas fa-times"></i></button>
+            <button class="notification-close" aria-label="通知を閉じる"><i class="fas fa-times" aria-hidden="true"></i></button>
         `;
         
         // 通知を表示
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             // メールアドレスの簡易バリデーション
-            const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 showNotification('有効なメールアドレスを入力してください。', 'error');
                 return;
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             // メールアドレスの簡易バリデーション
-            const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 showNotification('有効なメールアドレスを入力してください。', 'error');
                 return;
@@ -165,11 +165,14 @@ document.addEventListener('DOMContentLoaded', () => {
             // モーダル作成
             const modal = document.createElement('div');
             modal.className = 'modal';
+            modal.setAttribute('role', 'dialog');
+            modal.setAttribute('aria-modal', 'true');
+            modal.setAttribute('aria-labelledby', 'modal-title');
             modal.innerHTML = `
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3>料金表</h3>
-                        <button class="modal-close"><i class="fas fa-times"></i></button>
+                        <h3 id="modal-title">料金表</h3>
+                        <button class="modal-close" aria-label="モーダルを閉じる"><i class="fas fa-times" aria-hidden="true"></i></button>
                     </div>
                     <div class="modal-body">
                         <table class="price-table">
@@ -234,6 +237,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     modal.remove();
                 }, 300);
             });
+            
+            // ESCキーでモーダルを閉じる
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('show')) {
+                    modal.classList.remove('show');
+                    setTimeout(() => {
+                        modal.remove();
+                    }, 300);
+                }
+            });
         });
     }
     
@@ -277,42 +290,102 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                     // 指定セクションにスクロール
                     targetSection.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // モバイルメニューが開いている場合は閉じる
+                    const nav = document.querySelector('nav');
+                    const menuOverlay = document.querySelector('.menu-overlay');
+                    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+                    
+                    if (nav.classList.contains('mobile-open')) {
+                        nav.classList.remove('mobile-open');
+                        menuOverlay.classList.remove('active');
+                        document.body.style.overflow = '';
+                        if (mobileMenuToggle) {
+                            mobileMenuToggle.querySelector('i').className = 'fas fa-bars';
+                            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                        }
+                    }
                 }
             });
         });
     }
     
-    // モバイルメニューのトグル
+    // モバイルメニューのトグル（改善版）
     const createMobileMenu = () => {
         // 既存のモバイルメニューボタンがなければ作成
         if (!document.querySelector('.mobile-menu-toggle')) {
             const header = document.querySelector('header');
             const mobileMenuToggle = document.createElement('button');
             mobileMenuToggle.className = 'mobile-menu-toggle';
-            mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            mobileMenuToggle.setAttribute('aria-label', 'メニューを開く');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            mobileMenuToggle.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
             
             header.appendChild(mobileMenuToggle);
+            
+            // オーバーレイ背景の確認と作成
+            let menuOverlay = document.querySelector('.menu-overlay');
+            if (!menuOverlay) {
+                menuOverlay = document.createElement('div');
+                menuOverlay.className = 'menu-overlay';
+                document.body.appendChild(menuOverlay);
+            }
             
             mobileMenuToggle.addEventListener('click', () => {
                 const nav = document.querySelector('nav');
                 nav.classList.toggle('mobile-open');
+                menuOverlay.classList.toggle('active');
                 
-                // アイコン切り替え
-                const icon = mobileMenuToggle.querySelector('i');
+                // スクロール固定の切り替え
                 if (nav.classList.contains('mobile-open')) {
-                    icon.className = 'fas fa-times';
+                    document.body.style.overflow = 'hidden';
+                    mobileMenuToggle.querySelector('i').className = 'fas fa-times';
+                    mobileMenuToggle.setAttribute('aria-expanded', 'true');
+                    mobileMenuToggle.setAttribute('aria-label', 'メニューを閉じる');
                 } else {
-                    icon.className = 'fas fa-bars';
+                    document.body.style.overflow = '';
+                    mobileMenuToggle.querySelector('i').className = 'fas fa-bars';
+                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                    mobileMenuToggle.setAttribute('aria-label', 'メニューを開く');
                 }
+            });
+            
+            // オーバーレイクリックでメニューを閉じる
+            menuOverlay.addEventListener('click', () => {
+                const nav = document.querySelector('nav');
+                nav.classList.remove('mobile-open');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+                mobileMenuToggle.querySelector('i').className = 'fas fa-bars';
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                mobileMenuToggle.setAttribute('aria-label', 'メニューを開く');
             });
             
             // モバイルメニュー内のリンクをクリックしたらメニューを閉じる
             const mobileNavLinks = document.querySelectorAll('nav ul li a');
             mobileNavLinks.forEach(link => {
                 link.addEventListener('click', () => {
-                    document.querySelector('nav').classList.remove('mobile-open');
+                    const nav = document.querySelector('nav');
+                    nav.classList.remove('mobile-open');
+                    menuOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
                     mobileMenuToggle.querySelector('i').className = 'fas fa-bars';
+                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                    mobileMenuToggle.setAttribute('aria-label', 'メニューを開く');
                 });
+            });
+            
+            // ESCキーでモバイルメニューを閉じる
+            document.addEventListener('keydown', function(e) {
+                const nav = document.querySelector('nav');
+                if (e.key === 'Escape' && nav.classList.contains('mobile-open')) {
+                    nav.classList.remove('mobile-open');
+                    menuOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                    mobileMenuToggle.querySelector('i').className = 'fas fa-bars';
+                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                    mobileMenuToggle.setAttribute('aria-label', 'メニューを開く');
+                }
             });
         }
     };
@@ -353,10 +426,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
                     navLinks.forEach(link => link.classList.remove('active'));
-                    // インデックスが範囲内かチェック
-                    if (index < navLinks.length) {
-                        navLinks[index].classList.add('active');
-                    }
+                    
+                    // セクションIDとリンクのhref属性を比較してアクティブ化
+                    navLinks.forEach(link => {
+                        const href = link.getAttribute('href');
+                        if (href === `#${section.id}`) {
+                            link.classList.add('active');
+                        }
+                    });
                 }
             });
         }
@@ -368,7 +445,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!document.querySelector('.scroll-up')) {
             const scrollUpButton = document.createElement('button');
             scrollUpButton.className = 'scroll-up';
-            scrollUpButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
+            scrollUpButton.setAttribute('aria-label', 'ページトップへスクロール');
+            scrollUpButton.innerHTML = '<i class="fas fa-arrow-up" aria-hidden="true"></i>';
             document.body.appendChild(scrollUpButton);
             
             // スクロールアップボタンの表示/非表示
@@ -386,6 +464,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     top: 0,
                     behavior: 'smooth'
                 });
+            });
+            
+            // フォーカス時にボタンを表示
+            scrollUpButton.addEventListener('focus', () => {
+                scrollUpButton.classList.add('visible');
             });
         }
     };
@@ -420,17 +503,62 @@ document.addEventListener('DOMContentLoaded', () => {
     if (faqItems.length > 0) {
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            
             question.addEventListener('click', () => {
+                // アリア属性の更新
+                const expanded = question.getAttribute('aria-expanded') === 'true';
+                question.setAttribute('aria-expanded', !expanded);
+                answer.setAttribute('aria-hidden', expanded);
+                
                 // 他のアイテムを閉じる（アコーディオン形式）
                 faqItems.forEach(otherItem => {
                     if (otherItem !== item && otherItem.classList.contains('active')) {
                         otherItem.classList.remove('active');
+                        otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                        otherItem.querySelector('.faq-answer').setAttribute('aria-hidden', 'true');
                     }
                 });
                 
-                // クリックしたアイテムをトグル
+                // クリックしたアイテムのトグル
                 item.classList.toggle('active');
+            });
+            
+            // キーボード操作の対応
+            question.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    question.click();
+                }
             });
         });
     }
+    
+    // 画像の遅延読み込み対応
+    if ('loading' in HTMLImageElement.prototype) {
+        // ネイティブの遅延読み込みをサポートしているブラウザ向け
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        images.forEach(img => {
+            // 画像読み込み完了時のイベント
+            img.addEventListener('load', () => {
+                img.classList.add('loaded');
+            });
+        });
+    } else {
+        // 遅延読み込みをサポートしていないブラウザ向けの代替処理
+        // 必要に応じてIntersectionObserverを使った実装を追加
+    }
+    
+    // フォーム要素のアクセシビリティ向上
+    const formInputs = document.querySelectorAll('input, textarea');
+    formInputs.forEach(input => {
+        // フォーカス時のハイライト
+        input.addEventListener('focus', () => {
+            input.parentElement.classList.add('focused');
+        });
+        
+        input.addEventListener('blur', () => {
+            input.parentElement.classList.remove('focused');
+        });
+    });
 });
