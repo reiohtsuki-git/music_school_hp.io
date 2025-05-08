@@ -21,6 +21,143 @@
     <link rel="stylesheet" href="mobile-fix.css">
     <!-- レイアウト修正用CSS -->
     <link rel="stylesheet" href="layout-fix.css">
+    <style>
+        /* 新規追加スタイル */
+        .hero-quick-links {
+            display: flex;
+            margin-top: 1.5rem;
+            gap: 1rem;
+        }
+        .quick-link {
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .quick-link:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        .quick-link i {
+            margin-right: 0.5rem;
+        }
+        
+        /* 採用情報のスタイル改善 */
+        .recruit-section {
+            background-color: #f9f9f9;
+        }
+        .recruit-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .recruit-intro {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        .recruit-positions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .position-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .position-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .position-header {
+            background: var(--primary);
+            color: #fff;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        .position-header i {
+            font-size: 2rem;
+            margin-right: 1rem;
+        }
+        .position-header h3 {
+            margin: 0;
+            font-size: 1.4rem;
+        }
+        .position-content {
+            padding: 1.5rem;
+        }
+        .position-content h4 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+        }
+        .position-details {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+        .position-details li {
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed #eee;
+        }
+        .position-details li:last-child {
+            border-bottom: none;
+        }
+        .position-details strong {
+            display: inline-block;
+            width: 100px;
+            color: #555;
+        }
+        .requirements-list {
+            padding-left: 1.2rem;
+        }
+        .requirements-list li {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+        .requirements-list li::before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: -1rem;
+        }
+        .apply-button {
+            display: inline-block;
+            background: var(--primary);
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+            text-align: center;
+            margin-top: 1rem;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        .apply-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .recruit-positions {
+                grid-template-columns: 1fr;
+            }
+            .position-details strong {
+                width: auto;
+                margin-right: 0.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="fixed-header">
@@ -46,285 +183,3 @@
     <div class="menu-overlay"></div>
 
     <main>
-        <section id="home" class="section hero">
-            <div class="hero-content">
-                <div class="hero-badge">音楽教室</div>
-                <h2>音楽を、<span class="accent">もっと自由に。</span></h2>
-                <p>自宅で学べる、プロの音楽レッスン。</p>
-                <div class="hero-actions">
-                    <a href="#instruments" class="btn btn-primary">レッスンを見る <i class="fas fa-arrow-right"></i></a>
-                    <a href="#contact" class="btn btn-outline">無料体験レッスン</a>
-                </div>
-                <div class="hero-quick-links">
-                    <a href="#price" class="quick-link"><i class="fas fa-yen-sign"></i> 料金プラン</a>
-                    <a href="#recruit" class="quick-link"><i class="fas fa-user-plus"></i> 採用情報</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="images/hero.jpg" alt="Music School" loading="lazy">
-            </div>
-        </section>
-
-        <section id="instruments" class="section">
-            <h2 class="section-title">レッスンについて</h2>
-            <div class="instruments-grid">
-                <div class="instrument-card">
-                    <h3><i class="fas fa-guitar"></i> Guitar Lesson</h3>
-                    <div class="instrument-image">
-                        <img src="images/guitar.jpg" alt="Guitar Lesson" loading="lazy">
-                        <div class="overlay">
-                            <div class="overlay-content">
-                                <p>初心者からプロまで、あなたのレベルに合わせたギターレッスン</p>
-                                <a href="#lessons" class="btn btn-outline">詳細を見る</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="instrument-card">
-                    <h3><i class="fas fa-guitar"></i> Bass Lesson</h3>
-                    <div class="instrument-image">
-                        <img src="images/bass.jpg" alt="Bass Lesson" loading="lazy">
-                        <div class="overlay">
-                            <div class="overlay-content">
-                                <p>リズム感を養い、バンドの要となるベーステクニックを習得</p>
-                                <a href="#lessons" class="btn btn-outline">詳細を見る</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="instrument-card">
-                    <h3><i class="fas fa-laptop"></i> DTM Lesson</h3>
-                    <div class="instrument-image">
-                        <img src="images/dtm.jpg" alt="DTM Lesson" loading="lazy">
-                        <div class="overlay">
-                            <div class="overlay-content">
-                                <p>音楽制作ソフトの基本操作から、プロ品質の楽曲制作まで</p>
-                                <a href="#lessons" class="btn btn-outline">詳細を見る</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="instrument-card">
-                    <h3><i class="fas fa-music"></i> Compose Lesson</h3>
-                    <div class="instrument-image">
-                        <img src="images/compose_2.jpg" alt="Compose Lesson" loading="lazy">
-                        <div class="overlay">
-                            <div class="overlay-content">
-                                <p>メロディーの作り方、コード進行、楽曲構成など作曲の基礎から応用まで</p>
-                                <a href="#lessons" class="btn btn-outline">詳細を見る</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="lessons" class="section">
-            <h2 class="section-title">レッスン内容</h2>
-            <div class="lessons-container">
-                <div class="lesson-item">
-                    <div class="lesson-icon">
-                        <i class="fas fa-guitar"></i>
-                    </div>
-                    <div class="lesson-details">
-                        <h3>Guitar Lesson</h3>
-                        <div class="lesson-content">
-                            <p>ギターレッスンでは、初心者から上級者まで、あなたのレベルに合わせた指導を行います。</p>
-                            <p>基本的な弾き方からテクニック、音楽理論まで幅広く学べます。</p>
-                            <div class="lesson-features">
-                                <span class="lesson-feature">アコースティック</span>
-                                <span class="lesson-feature">エレキ</span>
-                                <span class="lesson-feature">クラシック</span>
-                                <span class="lesson-feature">弾き語り</span>
-                            </div>
-                            <a href="#price" class="price-link">料金を確認する <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="lesson-item">
-                    <div class="lesson-icon">
-                        <i class="fas fa-guitar"></i>
-                    </div>
-                    <div class="lesson-details">
-                        <h3>Bass Lesson</h3>
-                        <div class="lesson-content">
-                            <p>ベースレッスンでは、リズム感や音程感覚を養いながら、バンドの要となる演奏技術を習得します。</p>
-                            <div class="lesson-features">
-                                <span class="lesson-feature">スラップ</span>
-                                <span class="lesson-feature">フィンガリング</span>
-                                <span class="lesson-feature">ピック奏法</span>
-                                <span class="lesson-feature">グルーヴ感</span>
-                            </div>
-                            <a href="#price" class="price-link">料金を確認する <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="lesson-item">
-                    <div class="lesson-icon">
-                        <i class="fas fa-laptop"></i>
-                    </div>
-                    <div class="lesson-details">
-                        <h3>DTM Lesson</h3>
-                        <div class="lesson-content">
-                            <p>DTMレッスンでは、音楽制作ソフトの基本操作から、プロ品質の楽曲制作まで学べます。</p>
-                            <div class="lesson-features">
-                                <span class="lesson-feature">Logic Pro</span>
-                                <span class="lesson-feature">Cubase</span>
-                                <span class="lesson-feature">Ableton Live</span>
-                                <span class="lesson-feature">Pro Tools</span>
-                            </div>
-                            <a href="#price" class="price-link">料金を確認する <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="lesson-item">
-                    <div class="lesson-icon">
-                        <i class="fas fa-music"></i>
-                    </div>
-                    <div class="lesson-details">
-                        <h3>Compose Lesson</h3>
-                        <div class="lesson-content">
-                            <p>作曲レッスンでは、メロディーの作り方、コード進行、楽曲構成など、作曲の基礎から応用まで学べます。</p>
-                            <div class="lesson-features">
-                                <span class="lesson-feature">ポップス</span>
-                                <span class="lesson-feature">ロック</span>
-                                <span class="lesson-feature">ジャズ</span>
-                                <span class="lesson-feature">クラシック</span>
-                            </div>
-                            <a href="#price" class="price-link">料金を確認する <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="join-button-container">
-                <a href="admission.html" class="join-button">入会する <i class="fas fa-arrow-right"></i></a>
-            </div>
-        </section>
-
-        <!-- お客様の声セクション -->
-        <section class="section testimonials-section">
-            <h2 class="section-title">お客様の声</h2>
-            <div class="testimonials-container">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">初めてギターを触る状態から始めましたが、分かりやすい指導のおかげで3ヶ月で好きな曲が弾けるようになりました。オンラインでも十分に学べます！</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-author-info">
-                                <h4>田中さん（30代・会社員）</h4>
-                                <p>ギターコース受講中</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">DTMの基礎から応用まで体系的に学べて満足しています。自分の曲を作れるようになったのが嬉しいです。</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-author-info">
-                                <h4>高橋さん（20代・学生）</h4>
-                                <p>DTMコース受講中</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">仕事の合間に無理なく続けられるのが良いです。講師の方々が親身になって教えてくれるので、楽しく上達できています。</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-author-info">
-                                <h4>伊藤さん（40代・自営業）</h4>
-                                <p>ベースコース受講中</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- よくある質問セクション -->
-        <section class="section faq-section">
-            <h2 class="section-title">よくある質問</h2>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question" aria-expanded="false">
-                        <h4>初心者でも大丈夫ですか？</h4>
-                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
-                    </div>
-                    <div class="faq-answer" aria-hidden="true">
-                        <p>はい、初めて楽器に触れる方でも安心してレッスンを受けていただけます。基礎からしっかりと丁寧に指導いたします。</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question" aria-expanded="false">
-                        <h4>自分の楽器を持っていなくてもレッスンは受けられますか？</h4>
-                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
-                    </div>
-                    <div class="faq-answer" aria-hidden="true">
-                        <p>まずは体験レッスンからスタートすることをおすすめします。その後、講師と相談しながら自分に合った楽器を選ぶことができます。</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question" aria-expanded="false">
-                        <h4>レッスンの頻度や時間はどのくらいですか？</h4>
-                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
-                    </div>
-                    <div class="faq-answer" aria-hidden="true">
-                        <p>基本的には月4回、1回45分のレッスンとなりますが、ご希望に応じて調整も可能です。お気軽にご相談ください。</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question" aria-expanded="false">
-                        <h4>オンラインレッスンの受講方法を教えてください</h4>
-                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
-                    </div>
-                    <div class="faq-answer" aria-hidden="true">
-                        <p>ZoomまたはSkypeを使用したビデオ通話でレッスンを行います。事前に接続テストも実施しますので、初めての方でも安心です。</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question" aria-expanded="false">
-                        <h4>途中でコース変更はできますか？</h4>
-                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
-                    </div>
-                    <div class="faq-answer" aria-hidden="true">
-                        <p>はい、月単位でコース変更が可能です。新しい分野にチャレンジしたい場合も柔軟に対応いたします。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ABOUT USセクション -->
-        <section id="about" class="section about-section">
-            <h2 class="section-title">私たちについて</h2>
-            <div class="about-content">
-                <p>音楽を学ぶことは、人生を豊かにし、自己表現を広げる素晴らしい方法です。</p>
-                <p>しかし、忙しい毎日や移動の手間で、音楽を学ぶ機会が限られてしまうこともあります。</p>
-                <p>そんな時に、オンラインでの音楽レッスンが強力な味方になります。</p>
-                <p>私たちのオンライン音楽教室では、どこでも、誰でも、好きな時間にレッスンを受けることができ、あなたのペースで音楽を学ぶことができます。</p>
-                <p>初心者から上級者まで、幅広いニーズに対応したコースを提供しており、あなただけのオーダーメイドレッスンをお楽しみいただけます。</p>
-
-                <h3 class="about-subtitle">なぜ、私たちの音楽教室が選ばれるのか？</h3>
-                
-                <div class="feature-list">
-                    <div class="feature-item">
-                        <h4><i class="fas fa-user-tie"></i> 1.プロフェッショナルな講師陣</h4>
-                        <p>経験豊富な講師陣が、あなたの音楽のスキルを次のレベルへと導きます。音楽理論から演奏技術、パフォーマンスに至るまで、専門的な指導を行い、あなたの目標を確実に達成します。</p>
-                    </div>
-                    
-                    <div class="feature-item">
-                        <h4><i class="fas fa-user-graduate"></i> 2.個別対応で、あなたに合ったレッスン</h4>
-                        <p>一人一人のペースや目標に合わせた、きめ細かい指導が特徴です。レッスンはオーダーメイドで進められるため、無理なく上達を実感でき、モチベーションを保ちながら学べます。</p>
-                    </div>
