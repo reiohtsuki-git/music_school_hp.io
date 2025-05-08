@@ -167,6 +167,37 @@
             color: #555;
             line-height: 1.8;
         }
+        .contact-info {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        .contact-method {
+            display: flex;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        .contact-method i {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-right: 1rem;
+        }
+        .contact-method-details h4 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.1rem;
+        }
+        .contact-method-details p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #666;
+        }
         
         /* レスポンシブ対応 */
         @media (max-width: 768px) {
@@ -176,6 +207,9 @@
             .position-details strong {
                 width: auto;
                 margin-right: 0.5rem;
+            }
+            .contact-methods {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -497,5 +531,43 @@
                         <p><i class="fas fa-info-circle" style="color: var(--primary);"></i> ご希望に応じて60分・90分のレッスンもご用意しています</p>
                     </div>
                 </section>
+            </div>
+        </section>
+
+        <!-- お問い合わせセクション -->
+        <section id="contact" class="section contact-section">
+            <div class="contact-container">
+                <div class="contact-intro">
+                    <h2 class="section-title">お問い合わせ</h2>
+                    <p>レッスンに関するご質問や無料体験のお申し込みなど、お気軽にお問い合わせください。24時間以内に担当者より返信いたします。</p>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fas fa-phone-alt"></i>
+                            <div class="contact-method-details">
+                                <h4>お電話</h4>
+                                <p>03-1234-5678（平日10:00〜19:00）</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <div class="contact-method-details">
+                                <h4>メール</h4>
+                                <p>info@music-school.example.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="contact-method-details">
+                                <h4>住所</h4>
+                                <p>東京都新宿区西新宿1-2-3 ミュージックビル4F</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
