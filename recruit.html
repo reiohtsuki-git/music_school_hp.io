@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="音楽教室の採用情報。ギター、ベース、DTM、作曲などの講師を募集しています。音楽で人を笑顔にしたい方、ぜひご応募ください。">
     <title>採用情報 - Music School</title>
+    <meta name="description" content="音楽教室の採用情報。ギター、ベース、DTM、作曲などの講師を募集中。講師経験2年以上、Zoomでの1対1レッスン、報酬1レッスン2,000円～4,500円">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +14,188 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="additional-styles.css">
+    <style>
+        .benefit-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .benefit-list li {
+            padding: 10px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .benefit-list li i {
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .price-box {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .price-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .price-header h4 {
+            margin: 0;
+            font-size: 1.3rem;
+        }
+        
+        .price-details {
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        .price-amount {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        
+        .price-amount span {
+            font-weight: bold;
+            font-size: 1.4rem;
+            color: var(--primary);
+        }
+        
+        .price-note {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .price-features {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 0;
+        }
+        
+        .price-features li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .price-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .price-features li i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+        
+        .work-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .work-item {
+            display: flex;
+            align-items: flex-start;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .work-icon {
+            min-width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .work-detail h4 {
+            margin-top: 0;
+            color: var(--dark);
+        }
+        
+        .recruitment-flow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 30px 0;
+        }
+        
+        .flow-step {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 10px;
+        }
+        
+        .flow-number {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .flow-content h4 {
+            margin: 0 0 5px;
+        }
+        
+        .flow-content p {
+            margin: 0;
+        }
+        
+        .flow-arrow {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin: 5px 0;
+        }
+        
+        .application-info {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f0f7ff;
+            border-left: 4px solid var(--primary);
+            border-radius: 4px;
+        }
+        
+        .application-info p {
+            margin: 10px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .work-item {
+                flex-direction: column;
+            }
+            
+            .work-icon {
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="fixed-header">
@@ -311,189 +493,5 @@
             });
         });
     </script>
-    
-    <style>
-        /* 採用情報ページ専用のスタイル追加 */
-        .benefit-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .benefit-list li {
-            padding: 10px 0;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-        }
-        
-        .benefit-list li i {
-            margin-right: 15px;
-            font-size: 1.2rem;
-        }
-        
-        .price-box {
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            overflow: hidden;
-            margin: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        
-        .price-header {
-            background-color: var(--primary);
-            color: white;
-            padding: 15px;
-            text-align: center;
-        }
-        
-        .price-header h4 {
-            margin: 0;
-            font-size: 1.3rem;
-        }
-        
-        .price-details {
-            padding: 20px;
-            background-color: #f9f9f9;
-        }
-        
-        .price-amount {
-            font-size: 1.2rem;
-            text-align: center;
-            margin-bottom: 5px;
-        }
-        
-        .price-amount span {
-            font-weight: bold;
-            font-size: 1.4rem;
-            color: var(--primary);
-        }
-        
-        .price-note {
-            text-align: center;
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 15px;
-        }
-        
-        .price-features {
-            list-style: none;
-            padding: 0;
-            margin: 15px 0 0;
-        }
-        
-        .price-features li {
-            padding: 8px 0;
-            border-bottom: 1px dashed #ddd;
-        }
-        
-        .price-features li:last-child {
-            border-bottom: none;
-        }
-        
-        .price-features li i {
-            color: var(--primary);
-            margin-right: 10px;
-        }
-        
-        .work-content {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        
-        .work-item {
-            display: flex;
-            align-items: flex-start;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        
-        .work-icon {
-            min-width: 50px;
-            height: 50px;
-            background-color: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: 20px;
-            font-size: 1.3rem;
-        }
-        
-        .work-detail h4 {
-            margin-top: 0;
-            color: var(--dark);
-        }
-        
-        .recruitment-flow {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 30px 0;
-        }
-        
-        .flow-step {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            max-width: 500px;
-            margin-bottom: 10px;
-        }
-        
-        .flow-number {
-            width: 40px;
-            height: 40px;
-            background-color: var(--primary);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-            margin-right: 20px;
-            flex-shrink: 0;
-        }
-        
-        .flow-content h4 {
-            margin: 0 0 5px;
-        }
-        
-        .flow-content p {
-            margin: 0;
-        }
-        
-        .flow-arrow {
-            color: var(--primary);
-            font-size: 1.5rem;
-            margin: 5px 0;
-        }
-        
-        .application-info {
-            margin-top: 30px;
-            padding: 20px;
-            background-color: #f0f7ff;
-            border-left: 4px solid var(--primary);
-            border-radius: 4px;
-        }
-        
-        .application-info p {
-            margin: 10px 0;
-        }
-        
-        @media (max-width: 768px) {
-            .work-item {
-                flex-direction: column;
-            }
-            
-            .work-icon {
-                margin-bottom: 15px;
-                margin-right: 0;
-            }
-        }
-    </style>
 </body>
 </html>
