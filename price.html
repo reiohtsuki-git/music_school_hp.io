@@ -20,14 +20,18 @@
         <div class="logo">
             <h1><i class="fas fa-music"></i> Music School</h1>
         </div>
+        <button class="mobile-menu-toggle" aria-label="メニューを開く" aria-expanded="false">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html#instruments">Instruments</a></li>
-                <li><a href="index.html#lessons">Lessons</a></li>
-                <li><a href="price.html" class="active">Pricing</a></li>
-                <li><a href="index.html#about">About Us</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="index.html#instruments">楽器</a></li>
+                <li><a href="index.html#lessons">レッスン</a></li>
+                <li><a href="price.html" class="active">料金</a></li>
+                <li><a href="index.html#about">私たちについて</a></li>
+                <li><a href="index.html#contact">お問い合わせ</a></li>
+                <li><a href="recruit.html">採用情報</a></li>
             </ul>
         </nav>
     </header>
@@ -221,18 +225,20 @@
                 <ul>
                     <li><a href="index.html">ホーム</a></li>
                     <li><a href="index.html#instruments">レッスン</a></li>
+                    <li><a href="index.html#instructors">講師紹介</a></li>
                     <li><a href="price.html">料金案内</a></li>
                     <li><a href="index.html#about">私たちについて</a></li>
                     <li><a href="index.html#contact">お問い合わせ</a></li>
+                    <li><a href="recruit.html">採用情報</a></li>
                 </ul>
             </div>
             <div class="footer-social">
                 <h3>ソーシャルメディア</h3>
                 <div class="social-icons">
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>
@@ -242,7 +248,7 @@
     </footer>
 
     <!-- スクロールアップボタン -->
-    <button class="scroll-up">
+    <button class="scroll-up" aria-label="ページトップへスクロール">
         <i class="fas fa-arrow-up"></i>
     </button>
 
@@ -267,6 +273,27 @@
                             content.classList.add('active');
                         }
                     });
+                });
+            });
+
+            // FAQのトグル機能
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    // アクティブ状態の切り替え
+                    const isOpen = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isOpen);
+                    
+                    // アイコン切り替え
+                    const toggleIcon = this.querySelector('.faq-toggle i');
+                    toggleIcon.classList.toggle('fa-plus');
+                    toggleIcon.classList.toggle('fa-minus');
+                    
+                    // 回答の表示/非表示
+                    const answer = this.nextElementSibling;
+                    answer.setAttribute('aria-hidden', isOpen);
+                    answer.style.display = isOpen ? 'none' : 'block';
                 });
             });
         });
