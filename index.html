@@ -17,6 +17,8 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="additional-styles.css">
+    <!-- モバイル対応用CSS -->
+    <link rel="stylesheet" href="mobile-fix.css">
     <!-- レイアウト修正用CSS -->
     <link rel="stylesheet" href="layout-fix.css">
 </head>
@@ -25,17 +27,23 @@
         <div class="logo">
             <h1><i class="fas fa-music"></i> Music School</h1>
         </div>
+        <button class="mobile-menu-toggle" aria-label="メニューを開く" aria-expanded="false">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
         <nav>
             <ul>
                 <li><a href="#home" class="active nav-link">Home</a></li>
                 <li><a href="#instruments" class="nav-link">Instruments</a></li>
                 <li><a href="#lessons" class="nav-link">Lessons</a></li>
+                <li><a href="#instructors" class="nav-link">講師紹介</a></li>
                 <li><a href="price.html" class="nav-link">Pricing</a></li>
                 <li><a href="#about" class="nav-link">About Us</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </nav>
     </header>
+    
+    <div class="menu-overlay"></div>
 
     <main>
         <section id="home" class="section hero">
@@ -196,22 +204,22 @@
             </div>
         </section>
 
-        <!-- 講師紹介セクション（新規追加） -->
-        <section class="section instructors-section">
+        <!-- 講師紹介セクション（修正） -->
+        <section id="instructors" class="section instructors-section">
             <h2 class="section-title">講師紹介</h2>
             <div class="instructors-grid">
                 <div class="instructor-card">
                     <div class="instructor-image">
-                        <img src="https://images.unsplash.com/photo-1558459654-c4026f253a9f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="山田太郎先生" loading="lazy">
+                        <img src="images/yamada_sensei.jpg" alt="山田太郎先生" loading="lazy">
                     </div>
                     <div class="instructor-info">
                         <h3>山田 太郎</h3>
                         <p class="instructor-title">ギター・ベース講師</p>
                         <p class="instructor-bio">プロミュージシャンとして20年のキャリア。数々のレコーディングやライブに参加。分かりやすい指導が好評です。</p>
                         <div class="instructor-social">
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                         </div>
                     </div>
                 </div>
@@ -225,8 +233,8 @@
                         <p class="instructor-title">作曲講師</p>
                         <p class="instructor-bio">音楽大学卒。CM音楽やアーティストへの楽曲提供多数。理論と実践を組み合わせた指導法が特徴です。</p>
                         <div class="instructor-social">
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -240,15 +248,15 @@
                         <p class="instructor-title">DTM講師</p>
                         <p class="instructor-bio">トラックメイカーとして活動中。最新のDTM技術を取り入れた実践的な指導が魅力です。</p>
                         <div class="instructor-social">
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-soundcloud"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="SoundCloud"><i class="fab fa-soundcloud"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- お客様の声セクション（新規追加） -->
+        <!-- お客様の声セクション -->
         <section class="section testimonials-section">
             <h2 class="section-title">お客様の声</h2>
             <div class="testimonials-container">
@@ -290,56 +298,56 @@
             </div>
         </section>
 
-        <!-- よくある質問セクション（新規追加） -->
+        <!-- よくある質問セクション -->
         <section class="section faq-section">
             <h2 class="section-title">よくある質問</h2>
             <div class="faq-container">
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <div class="faq-question" aria-expanded="false">
                         <h4>初心者でも大丈夫ですか？</h4>
                         <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                     </div>
-                    <div class="faq-answer">
+                    <div class="faq-answer" aria-hidden="true">
                         <p>はい、初めて楽器に触れる方でも安心してレッスンを受けていただけます。基礎からしっかりと丁寧に指導いたします。</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <div class="faq-question" aria-expanded="false">
                         <h4>自分の楽器を持っていなくてもレッスンは受けられますか？</h4>
                         <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                     </div>
-                    <div class="faq-answer">
+                    <div class="faq-answer" aria-hidden="true">
                         <p>まずは体験レッスンからスタートすることをおすすめします。その後、講師と相談しながら自分に合った楽器を選ぶことができます。</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <div class="faq-question" aria-expanded="false">
                         <h4>レッスンの頻度や時間はどのくらいですか？</h4>
                         <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                     </div>
-                    <div class="faq-answer">
+                    <div class="faq-answer" aria-hidden="true">
                         <p>基本的には月4回、1回45分のレッスンとなりますが、ご希望に応じて調整も可能です。お気軽にご相談ください。</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <div class="faq-question" aria-expanded="false">
                         <h4>オンラインレッスンの受講方法を教えてください</h4>
                         <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                     </div>
-                    <div class="faq-answer">
+                    <div class="faq-answer" aria-hidden="true">
                         <p>ZoomまたはSkypeを使用したビデオ通話でレッスンを行います。事前に接続テストも実施しますので、初めての方でも安心です。</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <div class="faq-question" aria-expanded="false">
                         <h4>途中でコース変更はできますか？</h4>
                         <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                     </div>
-                    <div class="faq-answer">
+                    <div class="faq-answer" aria-hidden="true">
                         <p>はい、月単位でコース変更が可能です。新しい分野にチャレンジしたい場合も柔軟に対応いたします。</p>
                     </div>
                 </div>
@@ -428,6 +436,7 @@
                 <ul>
                     <li><a href="#home">ホーム</a></li>
                     <li><a href="#instruments">レッスン</a></li>
+                    <li><a href="#instructors">講師紹介</a></li>
                     <li><a href="price.html">料金案内</a></li>
                     <li><a href="#about">私たちについて</a></li>
                     <li><a href="#contact">お問い合わせ</a></li>
@@ -436,10 +445,10 @@
             <div class="footer-social">
                 <h3>ソーシャルメディア</h3>
                 <div class="social-icons">
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>
@@ -449,7 +458,7 @@
     </footer>
 
     <!-- スクロールアップボタン -->
-    <button class="scroll-up">
+    <button class="scroll-up" aria-label="ページトップへスクロール">
         <i class="fas fa-arrow-up"></i>
     </button>
 
