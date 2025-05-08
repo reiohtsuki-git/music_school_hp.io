@@ -250,10 +250,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // Instruments ページから Lessons ページへの遷移
+    // インストゥルメントカードの効果とアクセシビリティ改善
     const instrumentCards = document.querySelectorAll('.instrument-card');
     if (instrumentCards.length > 0) {
         instrumentCards.forEach(card => {
+            // キーボードでフォーカスできるようにする
+            card.setAttribute('tabindex', '0');
+            card.setAttribute('role', 'button');
+            card.setAttribute('aria-label', `${card.querySelector('h3').textContent}の詳細を見る`);
+            
             card.addEventListener('click', () => {
                 // 通常ページの場合
                 const isHomePage = document.querySelector('.fixed-header') !== null;
@@ -262,6 +267,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     // ホームページ内のスクロールの場合
                     document.getElementById('lessons').scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+            
+            // キーボード操作のサポート
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    card.click();
                 }
             });
         });
@@ -292,47 +305,36 @@ document.addEventListener('DOMContentLoaded', () => {
                     targetSection.scrollIntoView({ behavior: 'smooth' });
                     
                     // モバイルメニューが開いている場合は閉じる
-                    const nav = document.querySelector('nav');
-                    const menuOverlay = document.querySelector('.menu-overlay');
-                    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-                    
-                    if (nav.classList.contains('mobile-open')) {
-                        nav.classList.remove('mobile-open');
-                        menuOverlay.classList.remove('active');
-                        document.body.style.overflow = '';
-                        if (mobileMenuToggle) {
-                            mobileMenuToggle.querySelector('i').className = 'fas fa-bars';
-                            mobileMenuToggle.setAttribute('aria-expanded', 'false');
-                        }
-                    }
+                    closeMenu();
                 }
             });
         });
     }
     
-    // モバイルメニューのトグル（改善版）
-    const createMobileMenu = () => {
-        // 既存のモバイルメニューボタンがなければ作成
-        if (!document.querySelector('.mobile-menu-toggle')) {
-            const header = document.querySelector('header');
-            const mobileMenuToggle = document.createElement('button');
-            mobileMenuToggle.className = 'mobile-menu-toggle';
-            mobileMenuToggle.setAttribute('aria-label', 'メニューを開く');
+    // モバイルメニューの閉じる関数
+    function closeMenu() {
+        const nav = document.querySelector('nav');
+        const menuOverlay = document.querySelector('.menu-overlay');
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        
+        if (nav.classList.contains('mobile-open')) {
+            nav.classList.remove('mobile-open');
+            menuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+            mobileMenuToggle.querySelector('i').className = 'fas fa-bars';
             mobileMenuToggle.setAttribute('aria-expanded', 'false');
-            mobileMenuToggle.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
-            
-            header.appendChild(mobileMenuToggle);
-            
-            // オーバーレイ背景の確認と作成
-            let menuOverlay = document.querySelector('.menu-overlay');
-            if (!menuOverlay) {
-                menuOverlay = document.createElement('div');
-                menuOverlay.className = 'menu-overlay';
-                document.body.appendChild(menuOverlay);
-            }
-            
+            mobileMenuToggle.setAttribute('aria-label', 'メニューを開く');
+        }
+    }
+    
+    // モバイルメニューのトグル（改善版）
+    function setupMobileMenu() {
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const menuOverlay = document.querySelector('.menu-overlay');
+        const nav = document.querySelector('nav');
+        
+        if (mobileMenuToggle && menuOverlay && nav) {
             mobileMenuToggle.addEventListener('click', () => {
-                const nav = document.querySelector('nav');
                 nav.classList.toggle('mobile-open');
                 menuOverlay.classList.toggle('active');
                 
@@ -351,55 +353,25 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             
             // オーバーレイクリックでメニューを閉じる
-            menuOverlay.addEventListener('click', () => {
-                const nav = document.querySelector('nav');
-                nav.classList.remove('mobile-open');
-                menuOverlay.classList.remove('active');
-                document.body.style.overflow = '';
-                mobileMenuToggle.querySelector('i').className = 'fas fa-bars';
-                mobileMenuToggle.setAttribute('aria-expanded', 'false');
-                mobileMenuToggle.setAttribute('aria-label', 'メニューを開く');
-            });
+            menuOverlay.addEventListener('click', closeMenu);
             
             // モバイルメニュー内のリンクをクリックしたらメニューを閉じる
             const mobileNavLinks = document.querySelectorAll('nav ul li a');
             mobileNavLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    const nav = document.querySelector('nav');
-                    nav.classList.remove('mobile-open');
-                    menuOverlay.classList.remove('active');
-                    document.body.style.overflow = '';
-                    mobileMenuToggle.querySelector('i').className = 'fas fa-bars';
-                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
-                    mobileMenuToggle.setAttribute('aria-label', 'メニューを開く');
-                });
+                link.addEventListener('click', closeMenu);
             });
             
             // ESCキーでモバイルメニューを閉じる
             document.addEventListener('keydown', function(e) {
-                const nav = document.querySelector('nav');
                 if (e.key === 'Escape' && nav.classList.contains('mobile-open')) {
-                    nav.classList.remove('mobile-open');
-                    menuOverlay.classList.remove('active');
-                    document.body.style.overflow = '';
-                    mobileMenuToggle.querySelector('i').className = 'fas fa-bars';
-                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
-                    mobileMenuToggle.setAttribute('aria-label', 'メニューを開く');
+                    closeMenu();
                 }
             });
         }
-    };
+    }
     
-    // モバイル表示かどうかチェックし、必要に応じてモバイルメニューを作成
-    const checkMobileMenu = () => {
-        if (window.innerWidth <= 768) {
-            createMobileMenu();
-        }
-    };
-    
-    // 初期ロード時とリサイズ時にモバイルメニューをチェック
-    checkMobileMenu();
-    window.addEventListener('resize', checkMobileMenu);
+    // モバイルメニューの設定を実行
+    setupMobileMenu();
     
     // スクロール位置に基づくナビゲーションリンクのアクティブ状態更新
     window.addEventListener('scroll', function() {
@@ -420,7 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const sections = document.querySelectorAll('.section');
             const navLinks = document.querySelectorAll('.nav-link');
             
-            sections.forEach((section, index) => {
+            sections.forEach((section) => {
                 const sectionTop = section.offsetTop - 100; // ヘッダーの高さを考慮
                 const sectionBottom = sectionTop + section.offsetHeight;
                 
@@ -439,42 +411,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    // スクロールアップボタンの作成と設定
-    const createScrollUpButton = () => {
-        // 既存のボタンがなければ作成
-        if (!document.querySelector('.scroll-up')) {
-            const scrollUpButton = document.createElement('button');
-            scrollUpButton.className = 'scroll-up';
-            scrollUpButton.setAttribute('aria-label', 'ページトップへスクロール');
-            scrollUpButton.innerHTML = '<i class="fas fa-arrow-up" aria-hidden="true"></i>';
-            document.body.appendChild(scrollUpButton);
-            
-            // スクロールアップボタンの表示/非表示
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 300) {
-                    scrollUpButton.classList.add('visible');
-                } else {
-                    scrollUpButton.classList.remove('visible');
-                }
-            });
-            
-            // スクロールアップボタンのクリックイベント
-            scrollUpButton.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-            
-            // フォーカス時にボタンを表示
-            scrollUpButton.addEventListener('focus', () => {
+    // スクロールアップボタン
+    const scrollUpButton = document.querySelector('.scroll-up');
+    if (scrollUpButton) {
+        // スクロールアップボタンの表示/非表示
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
                 scrollUpButton.classList.add('visible');
+            } else {
+                scrollUpButton.classList.remove('visible');
+            }
+        });
+        
+        // スクロールアップボタンのクリックイベント
+        scrollUpButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
-        }
-    };
-    
-    // スクロールアップボタンを作成
-    createScrollUpButton();
+        });
+        
+        // フォーカス時にボタンを表示
+        scrollUpButton.addEventListener('focus', () => {
+            scrollUpButton.classList.add('visible');
+        });
+    }
     
     // URLハッシュがある場合、そのセクションに自動スクロール
     if (window.location.hash) {
@@ -504,6 +465,10 @@ document.addEventListener('DOMContentLoaded', () => {
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
             const answer = item.querySelector('.faq-answer');
+            
+            // 初期状態の設定
+            question.setAttribute('aria-expanded', 'false');
+            answer.setAttribute('aria-hidden', 'true');
             
             question.addEventListener('click', () => {
                 // アリア属性の更新
@@ -546,7 +511,53 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     } else {
         // 遅延読み込みをサポートしていないブラウザ向けの代替処理
-        // 必要に応じてIntersectionObserverを使った実装を追加
+        const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+        
+        if ("IntersectionObserver" in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const image = entry.target;
+                        image.src = image.dataset.src;
+                        image.classList.add('loaded');
+                        imageObserver.unobserve(image);
+                    }
+                });
+            });
+            
+            lazyImages.forEach(image => {
+                imageObserver.observe(image);
+            });
+        } else {
+            // IntersectionObserverがサポートされていない場合のフォールバック
+            let lazyLoadThrottleTimeout;
+            
+            function lazyLoad() {
+                if (lazyLoadThrottleTimeout) {
+                    clearTimeout(lazyLoadThrottleTimeout);
+                }
+                
+                lazyLoadThrottleTimeout = setTimeout(() => {
+                    const scrollTop = window.pageYOffset;
+                    lazyImages.forEach(img => {
+                        if (img.offsetTop < window.innerHeight + scrollTop) {
+                            img.src = img.dataset.src;
+                            img.classList.add('loaded');
+                        }
+                    });
+                    
+                    if (lazyImages.length === 0) {
+                        document.removeEventListener('scroll', lazyLoad);
+                        window.removeEventListener('resize', lazyLoad);
+                        window.removeEventListener('orientationChange', lazyLoad);
+                    }
+                }, 20);
+            }
+            
+            document.addEventListener('scroll', lazyLoad);
+            window.addEventListener('resize', lazyLoad);
+            window.addEventListener('orientationChange', lazyLoad);
+        }
     }
     
     // フォーム要素のアクセシビリティ向上
@@ -561,4 +572,33 @@ document.addEventListener('DOMContentLoaded', () => {
             input.parentElement.classList.remove('focused');
         });
     });
+    
+    // 講師カードのインタラクション強化
+    const instructorCards = document.querySelectorAll('.instructor-card');
+    if (instructorCards.length > 0) {
+        instructorCards.forEach(card => {
+            // ホバー効果強化
+            card.addEventListener('mouseenter', () => {
+                card.classList.add('hovered');
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('hovered');
+            });
+            
+            // アクセシビリティ改善
+            card.setAttribute('tabindex', '0');
+            card.setAttribute('role', 'article');
+            
+            // キーボード操作
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    const socialLinks = card.querySelectorAll('.instructor-social a');
+                    if (socialLinks.length > 0) {
+                        socialLinks[0].focus();
+                    }
+                }
+            });
+        });
+    }
 });
