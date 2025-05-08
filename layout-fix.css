@@ -143,7 +143,90 @@ a:focus, button:focus, .instrument-card:focus,
   background-color: var(--secondary);
 }
 
+/* About Usセクションの修正 */
+.about-section {
+  background-color: var(--white);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  padding: 4rem;
+  margin-bottom: 3rem;
+}
+
+.about-content {
+  max-width: 90%;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.about-subtitle {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin: 3rem 0 2rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.feature-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.feature-item {
+  background-color: var(--background);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(62, 76, 141, 0.1);
+}
+
+.feature-item h4 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.feature-item h4 i {
+  color: var(--secondary);
+  font-size: 1.4rem;
+}
+
+.feature-item p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
 /* 問い合わせフォームの強化 */
+.contact-section {
+  background-color: var(--white);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  padding: 4rem;
+  margin-bottom: 3rem;
+}
+
+.contact-intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  color: var(--text-light);
+  font-size: 1.1rem;
+}
+
+.contact-form {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .form-group {
   position: relative;
   margin-bottom: 1.5rem;
@@ -385,6 +468,20 @@ footer {
     display: block;
     padding: 1rem;
     font-size: 1.1rem;
+  }
+  
+  /* モバイル時のAboutセクション・Contactセクション */
+  .about-section,
+  .contact-section {
+    padding: 2rem 1rem;
+  }
+  
+  .feature-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-content {
+    max-width: 100%;
   }
 }
 
