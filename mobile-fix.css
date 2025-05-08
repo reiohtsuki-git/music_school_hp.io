@@ -1,0 +1,288 @@
+/* モバイル対応強化用CSS */
+@media screen and (max-width: 992px) {
+  .hero {
+    flex-direction: column;
+    padding: 3rem 1.5rem;
+    min-height: auto;
+  }
+
+  .hero-content {
+    padding: 1rem 0.5rem 2rem;
+    text-align: center;
+  }
+
+  .hero-content p {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-content h2 {
+    font-size: 2.5rem;
+  }
+
+  .hero-image {
+    height: 250px;
+    width: 100%;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  /* インストゥルメントカード */
+  .instruments-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .instrument-card {
+    max-width: 100%;
+  }
+
+  /* レッスン内容 */
+  .lesson-item {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .lesson-icon {
+    margin-bottom: 1.5rem;
+  }
+
+  /* 講師紹介セクション */
+  .instructors-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .instructor-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .instructor-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+
+  .instructor-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .instructor-info {
+    padding: 0 1rem;
+  }
+
+  /* お客様の声 */
+  .testimonials-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* FAQ */
+  .faq-item {
+    margin-bottom: 0.5rem;
+  }
+
+  .faq-question h4 {
+    font-size: 1rem;
+  }
+
+  /* フッター */
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-logo, .footer-links, .footer-social {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  /* ナビゲーション */
+  nav {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: rgba(255, 255, 255, 0.98);
+    overflow: hidden;
+    transition: height 0.3s ease;
+    z-index: 999;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  nav.mobile-open {
+    height: 100vh;
+    padding: 1rem 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+  }
+
+  nav ul li {
+    margin: 0.8rem 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  .menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+  }
+
+  .menu-overlay.active {
+    display: block;
+  }
+
+  /* コンタクトフォーム */
+  .contact-form form {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* 小さいスマホ向け追加調整 */
+@media screen and (max-width: 576px) {
+  :root {
+    --fs-xl: 2.5rem;
+    --fs-l: 2rem;
+    --fs-m: 1.25rem;
+    --fs-s: 1rem;
+    --fs-xs: 0.85rem;
+  }
+
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+
+  .section-title {
+    font-size: var(--fs-l);
+    margin-bottom: 2.5rem;
+  }
+
+  .instruments-grid, 
+  .lessons-container, 
+  .instructors-grid, 
+  .testimonials-container {
+    gap: 1.5rem;
+  }
+
+  .lesson-item, 
+  .instructor-card, 
+  .testimonial-card {
+    padding: 1.2rem;
+  }
+
+  .join-button {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+
+  .modal-content {
+    width: 95%;
+  }
+
+  .scroll-up {
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* スタイル強化 */
+.instructors-section {
+  background-color: var(--background);
+  padding: 4rem 2rem;
+  border-radius: 16px;
+}
+
+.instructors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.instructor-card {
+  background-color: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease;
+}
+
+.instructor-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(62, 76, 141, 0.15);
+}
+
+.instructor-image {
+  height: 300px;
+  overflow: hidden;
+}
+
+.instructor-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.instructor-card:hover .instructor-image img {
+  transform: scale(1.05);
+}
+
+.instructor-info {
+  padding: 1.5rem;
+}
+
+.instructor-info h3 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
