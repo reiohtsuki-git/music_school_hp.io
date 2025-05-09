@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>採用情報 - Music School</title>
+    <title>【2025年版】採用情報 - Music School</title>
     <meta name="description" content="音楽教室の採用情報。ギター、ベース、DTM、作曲などの講師を募集中。講師経験2年以上、Zoomでの1対1レッスン、報酬1レッスン2,000円～4,500円">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,24 +15,105 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="additional-styles.css">
     <style>
+        /* ベーススタイル（CSS変数定義） */
+        :root {
+            --primary: #4a6da7;
+            --primary-dark: #3a5d97;
+            --primary-light: #6a8dc7;
+            --dark: #333;
+            --border-color: #e0e0e0;
+        }
+        
+        /* セクション共通スタイル */
+        .section {
+            padding: 5rem 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--dark);
+        }
+        .price-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .price-section {
+            margin-bottom: 4rem;
+        }
+        .price-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-light);
+        }
+        .admission-fee {
+            line-height: 1.8;
+        }
+        
+        /* 募集ジャンルのスタイル */
+        .course-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .benefit-item {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .benefit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .benefit-icon {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 2.5rem;
+        }
+        .benefit-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .benefit-content h4 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+        .benefit-content p {
+            margin: 0;
+            color: #555;
+        }
+        
+        /* 応募資格リスト */
         .benefit-list {
             list-style: none;
             padding: 0;
             margin: 0;
         }
-        
         .benefit-list li {
             padding: 10px 0;
             font-size: 1.1rem;
             display: flex;
             align-items: center;
         }
-        
         .benefit-list li i {
             margin-right: 15px;
             font-size: 1.2rem;
         }
         
+        /* 報酬体系 */
         .price-box {
             border: 1px solid var(--border-color);
             border-radius: 8px;
@@ -40,69 +121,59 @@
             margin: 20px 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-        
         .price-header {
             background-color: var(--primary);
             color: white;
             padding: 15px;
             text-align: center;
         }
-        
         .price-header h4 {
             margin: 0;
             font-size: 1.3rem;
         }
-        
         .price-details {
             padding: 20px;
             background-color: #f9f9f9;
         }
-        
         .price-amount {
             font-size: 1.2rem;
             text-align: center;
             margin-bottom: 5px;
         }
-        
         .price-amount span {
             font-weight: bold;
             font-size: 1.4rem;
             color: var(--primary);
         }
-        
         .price-note {
             text-align: center;
             font-size: 0.9rem;
             color: #666;
             margin-bottom: 15px;
         }
-        
         .price-features {
             list-style: none;
             padding: 0;
             margin: 15px 0 0;
         }
-        
         .price-features li {
             padding: 8px 0;
             border-bottom: 1px dashed #ddd;
         }
-        
         .price-features li:last-child {
             border-bottom: none;
         }
-        
         .price-features li i {
             color: var(--primary);
             margin-right: 10px;
         }
         
+        /* 業務内容 */
         .work-content {
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
-        
         .work-item {
             display: flex;
             align-items: flex-start;
@@ -111,7 +182,6 @@
             padding: 20px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
-        
         .work-icon {
             min-width: 50px;
             height: 50px;
@@ -124,19 +194,18 @@
             margin-right: 20px;
             font-size: 1.3rem;
         }
-        
         .work-detail h4 {
             margin-top: 0;
             color: var(--dark);
         }
         
+        /* 採用の流れ */
         .recruitment-flow {
             display: flex;
             flex-direction: column;
             align-items: center;
             margin: 30px 0;
         }
-        
         .flow-step {
             display: flex;
             align-items: center;
@@ -144,7 +213,6 @@
             max-width: 500px;
             margin-bottom: 10px;
         }
-        
         .flow-number {
             width: 40px;
             height: 40px;
@@ -158,21 +226,17 @@
             margin-right: 20px;
             flex-shrink: 0;
         }
-        
         .flow-content h4 {
             margin: 0 0 5px;
         }
-        
         .flow-content p {
             margin: 0;
         }
-        
         .flow-arrow {
             color: var(--primary);
             font-size: 1.5rem;
             margin: 5px 0;
         }
-        
         .application-info {
             margin-top: 30px;
             padding: 20px;
@@ -180,20 +244,70 @@
             border-left: 4px solid var(--primary);
             border-radius: 4px;
         }
-        
         .application-info p {
             margin: 10px 0;
         }
         
+        /* FAQ */
+        .faq-container {
+            margin-top: 1.5rem;
+        }
+        .faq-item {
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .faq-question {
+            background-color: #f9f9f9;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .faq-question h4 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+        .faq-toggle {
+            color: var(--primary);
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .faq-answer {
+            padding: 0 1.5rem;
+            display: none;
+            border-top: 1px solid #eee;
+        }
+        
+        /* レスポンシブ対応 */
         @media (max-width: 768px) {
+            .course-benefits {
+                grid-template-columns: 1fr;
+            }
             .work-item {
                 flex-direction: column;
             }
-            
             .work-icon {
                 margin-bottom: 15px;
                 margin-right: 0;
             }
+        }
+        
+        /* 更新バナー */
+        .update-banner {
+            background-color: #ffeb3b;
+            color: #000;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            border-radius: 4px;
         }
     </style>
 </head>
@@ -222,7 +336,11 @@
         <section class="section">
             <h2 class="section-title">採用情報</h2>
             
-            <div class="price-container"> <!-- 既存のスタイルを流用 -->
+            <div class="price-container">
+                <div class="update-banner">
+                    <p>2025年5月更新！新たな募集ジャンルと報酬体系を発表しました</p>
+                </div>
+                
                 <section class="price-section">
                     <h3 class="price-title">音楽教室で一緒に働きませんか？</h3>
                     <div class="admission-fee">
@@ -440,7 +558,6 @@
                 <ul>
                     <li><a href="index.html">ホーム</a></li>
                     <li><a href="index.html#instruments">レッスン</a></li>
-                    <li><a href="index.html#instructors">講師紹介</a></li>
                     <li><a href="price.html">料金案内</a></li>
                     <li><a href="index.html#about">私たちについて</a></li>
                     <li><a href="index.html#contact">お問い合わせ</a></li>
