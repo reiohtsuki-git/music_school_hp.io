@@ -8,41 +8,128 @@
     <link rel="stylesheet" href="additional-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* お問い合わせフォーム用追加スタイル */
+        /* お問い合わせページ用スタイル */
+        .page-title {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .page-title h2 {
+            color: var(--primary);
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        .page-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        .contact-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .contact-method {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+            width: 100%;
+            max-width: 250px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-method:hover {
+            transform: translateY(-10px);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-method h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
         .contact-form {
             max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
+            margin: 3rem auto;
+            padding: 2.5rem;
             background-color: var(--white);
             border-radius: 16px;
             box-shadow: var(--card-shadow);
         }
 
-        .contact-form .form-title {
-            font-size: var(--fs-m);
+        .form-title {
+            text-align: center;
+            font-size: 1.8rem;
             color: var(--primary);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--secondary-light);
         }
 
-        .contact-form .description {
-            margin-bottom: 2rem;
-            color: var(--text-light);
+        .form-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .form-group {
+            flex: 1;
             margin-bottom: 1.5rem;
         }
 
-        .form-group label {
+        .form-label {
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 500;
-            color: var(--primary);
+            color: var(--text-dark);
         }
 
-        .form-group .required-label {
+        .required {
             color: var(--secondary);
             margin-left: 0.3rem;
         }
@@ -50,9 +137,9 @@
         .form-control {
             width: 100%;
             padding: 0.75rem 1rem;
-            border: 1px solid #E9ECEF;
-            border-radius: 8px;
-            font-family: 'Noto Sans JP', sans-serif;
+            border: 1px solid #e1e5eb;
+            border-radius: 6px;
+            font-family: inherit;
             font-size: 1rem;
             transition: all 0.3s ease;
         }
@@ -60,105 +147,55 @@
         .form-control:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(62, 76, 141, 0.1);
+            box-shadow: 0 0 0 2px rgba(62, 76, 141, 0.1);
         }
 
         textarea.form-control {
-            min-height: 150px;
             resize: vertical;
+            min-height: 150px;
         }
 
-        .form-row {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .form-col {
-            flex: 1;
-        }
-
-        .char-counter {
+        .btn-submit {
             display: block;
-            text-align: right;
-            font-size: 0.8rem;
-            color: var(--text-light);
-            margin-top: 0.3rem;
-        }
-
-        .char-counter.error {
-            color: var(--secondary);
-        }
-
-        .form-check {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-        }
-
-        .form-check-input {
-            margin-right: 0.5rem;
-            margin-top: 0.3rem;
-        }
-
-        .form-select {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border: 1px solid #E9ECEF;
-            border-radius: 8px;
-            font-family: 'Noto Sans JP', sans-serif;
-            font-size: 1rem;
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 1rem center;
-            background-size: 16px 12px;
-        }
-
-        .submit-button {
-            display: inline-block;
             background-color: var(--primary);
-            color: var(--white);
-            padding: 1rem 2.5rem;
+            color: white;
             border: none;
             border-radius: 50px;
+            padding: 1rem 2.5rem;
             font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(62, 76, 141, 0.2);
+            margin: 2rem auto 0;
         }
 
-        .submit-button:hover {
+        .btn-submit:hover {
             background-color: var(--primary-dark);
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(62, 76, 141, 0.3);
+            box-shadow: 0 10px 20px rgba(62, 76, 141, 0.15);
         }
 
-        .submit-button i {
-            margin-right: 0.5rem;
-        }
-
-        .form-footer {
-            margin-top: 2rem;
-            text-align: center;
-        }
-
-        .privacy-policy {
+        .privacy-note {
             margin-top: 2rem;
             padding: 1.5rem;
-            background-color: var(--secondary-light);
+            background-color: #f8f9fa;
             border-radius: 8px;
             font-size: 0.9rem;
             color: var(--text-light);
         }
 
-        .privacy-policy h4 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
+        /* レスポンシブ対応 */
         @media (max-width: 768px) {
+            .contact-methods {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            .contact-method {
+                max-width: 100%;
+            }
+
             .form-row {
                 flex-direction: column;
                 gap: 0;
@@ -188,77 +225,88 @@
             <h2>お問い合わせ</h2>
         </section>
 
+        <p class="contact-intro">
+            レッスンに関するご質問や無料体験のお申し込みなど、お気軽にお問い合わせください。<br>
+            24時間以内に担当者より返信いたします。
+        </p>
+
+        <div class="contact-methods">
+            <div class="contact-method">
+                <div class="contact-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <h3>お電話</h3>
+                <p>03-1234-5678</p>
+                <p>（平日 10:00〜19:00）</p>
+            </div>
+            
+            <div class="contact-method">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>メール</h3>
+                <p>info@musicschool.jp</p>
+                <p>（24時間受付中）</p>
+            </div>
+            
+            <div class="contact-method">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <h3>住所</h3>
+                <p>東京都新宿区西新宿1-1-1</p>
+                <p>音楽ビル5F</p>
+            </div>
+        </div>
+
         <section class="contact-form">
             <h3 class="form-title">お問い合わせフォーム</h3>
-            <p class="description">ご質問やご不明点がありましたら、以下のフォームよりお気軽にお問い合わせください。担当者より2営業日以内にご連絡いたします。</p>
             
             <form id="contactForm">
                 <div class="form-row">
-                    <div class="form-col">
-                        <div class="form-group">
-                            <label for="name">お名前<span class="required-label">*</span></label>
-                            <input type="text" class="form-control" id="name" name="name" required maxlength="50">
-                            <span class="char-counter" id="nameCounter">0/50文字</span>
-                        </div>
+                    <div class="form-group">
+                        <label class="form-label">お名前<span class="required">*</span></label>
+                        <input type="text" class="form-control" required>
                     </div>
-                    <div class="form-col">
-                        <div class="form-group">
-                            <label for="furigana">フリガナ</label>
-                            <input type="text" class="form-control" id="furigana" name="furigana" maxlength="50">
-                            <span class="char-counter" id="furiganaCounter">0/50文字</span>
-                        </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">フリガナ</label>
+                        <input type="text" class="form-control">
                     </div>
                 </div>
-
+                
                 <div class="form-row">
-                    <div class="form-col">
-                        <div class="form-group">
-                            <label for="email">メールアドレス<span class="required-label">*</span></label>
-                            <input type="email" class="form-control" id="email" name="email" required>
-                        </div>
+                    <div class="form-group">
+                        <label class="form-label">メールアドレス<span class="required">*</span></label>
+                        <input type="email" class="form-control" required>
                     </div>
-                    <div class="form-col">
-                        <div class="form-group">
-                            <label for="tel">電話番号</label>
-                            <input type="tel" class="form-control" id="tel" name="tel" placeholder="例: 090-1234-5678">
-                        </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">電話番号</label>
+                        <input type="tel" class="form-control">
                     </div>
                 </div>
-
+                
                 <div class="form-group">
-                    <label for="inquiry-type">お問い合わせ種別<span class="required-label">*</span></label>
-                    <select class="form-select" id="inquiry-type" name="inquiry-type" required>
+                    <label class="form-label">お問い合わせ種別<span class="required">*</span></label>
+                    <select class="form-control" required>
                         <option value="" selected disabled>選択してください</option>
-                        <option value="lessons">レッスンについて</option>
+                        <option value="lesson">レッスンについて</option>
+                        <option value="trial">無料体験について</option>
                         <option value="pricing">料金について</option>
-                        <option value="trial">体験レッスンについて</option>
-                        <option value="schedule">スケジュールについて</option>
                         <option value="other">その他</option>
                     </select>
                 </div>
-
+                
                 <div class="form-group">
-                    <label for="message">お問い合わせ内容<span class="required-label">*</span></label>
-                    <textarea class="form-control" id="message" name="message" rows="6" required maxlength="1000"></textarea>
-                    <span class="char-counter" id="messageCounter">0/1000文字</span>
+                    <label class="form-label">お問い合わせ内容<span class="required">*</span></label>
+                    <textarea class="form-control" rows="6" required></textarea>
                 </div>
-
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="privacy-agree" name="privacy-agree" required>
-                    <label class="form-check-label" for="privacy-agree">
-                        個人情報の取り扱いについて同意します<span class="required-label">*</span>
-                    </label>
-                </div>
-
-                <div class="form-footer">
-                    <button type="submit" class="submit-button">
-                        <i class="fas fa-paper-plane"></i>送信する
-                    </button>
-                </div>
-
-                <div class="privacy-policy">
-                    <h4>個人情報の取り扱いについて</h4>
-                    <p>当フォームでご提供いただく個人情報は、お問い合わせへの対応および当スクールからのお知らせなどの目的でのみ利用させていただきます。法令に基づく場合を除き、ご本人の同意なく第三者へ提供することはありません。</p>
+                
+                <button type="submit" class="btn-submit">送信する</button>
+                
+                <div class="privacy-note">
+                    <p>※ ご入力いただいた個人情報は、お問い合わせへの対応と、その確認のためにのみ利用いたします。</p>
                 </div>
             </form>
         </section>
@@ -269,46 +317,15 @@
     </footer>
 
     <script>
-        // 文字数カウンター用の関数
-        function setupCharCounter(inputId, counterId, maxLength) {
-            const input = document.getElementById(inputId);
-            const counter = document.getElementById(counterId);
-            
-            function updateCounter() {
-                const count = input.value.length;
-                counter.textContent = `${count}/${maxLength}文字`;
-                
-                if (count > maxLength * 0.8) {
-                    counter.classList.add('error');
-                } else {
-                    counter.classList.remove('error');
-                }
-            }
-            
-            input.addEventListener('input', updateCounter);
-            updateCounter(); // 初期表示用
-        }
-
-        // 各入力フィールドの文字数カウンターをセットアップ
+        // フォーム送信処理
         document.addEventListener('DOMContentLoaded', function() {
-            setupCharCounter('name', 'nameCounter', 50);
-            setupCharCounter('furigana', 'furiganaCounter', 50);
-            setupCharCounter('message', 'messageCounter', 1000);
-            
-            // フォーム送信処理
             const form = document.getElementById('contactForm');
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
-                // ここにフォーム送信のロジックを追加
-                // 実際の送信処理は実装されていないので、送信成功メッセージを表示
-                alert('お問い合わせを受け付けました。2営業日以内にご連絡いたします。');
+                // 実際の送信処理の代わりに確認メッセージを表示
+                alert('お問い合わせを受け付けました。24時間以内にご連絡いたします。');
                 form.reset();
-                
-                // カウンターをリセット
-                document.getElementById('nameCounter').textContent = '0/50文字';
-                document.getElementById('furiganaCounter').textContent = '0/50文字';
-                document.getElementById('messageCounter').textContent = '0/1000文字';
             });
         });
     </script>
