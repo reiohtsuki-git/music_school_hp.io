@@ -281,7 +281,7 @@
         }
         .faq-answer {
             padding: 1rem 1.5rem;
-            display: block;
+            display: none;
             border-top: 1px solid #eee;
         }
         
@@ -353,6 +353,27 @@
             margin-left: 10px;
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQのアコーディオン機能
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    const toggle = question.querySelector('.faq-toggle i');
+                    
+                    if (answer.style.display === 'block') {
+                        answer.style.display = 'none';
+                        toggle.className = 'fas fa-plus';
+                    } else {
+                        answer.style.display = 'block';
+                        toggle.className = 'fas fa-minus';
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <header class="fixed-header">
@@ -455,6 +476,27 @@
                     </div>
                 </section>
 
+                <!-- 報酬体系 -->
+                <section class="price-section">
+                    <h3 class="price-title">報酬体系</h3>
+                    <div class="price-box">
+                        <div class="price-header">
+                            <h4>オンラインレッスン（60分）</h4>
+                        </div>
+                        <div class="price-details">
+                            <p class="price-amount">報酬：<span>3,000円〜6,000円</span></p>
+                            <p class="price-note">※経験、指導内容、レベルによって変動します</p>
+
+                            <ul class="price-features">
+                                <li><i class="fas fa-check"></i> 月末締め、翌月15日支払い</li>
+                                <li><i class="fas fa-check"></i> レッスン数に応じたインセンティブあり</li>
+                                <li><i class="fas fa-check"></i> 生徒の継続率に応じたボーナスあり</li>
+                                <li><i class="fas fa-check"></i> オリジナル教材制作の場合は別途報酬</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
                 <!-- 応募資格 -->
                 <section class="price-section">
                     <h3 class="price-title">応募資格</h3>
@@ -468,3 +510,26 @@
                         <li><i class="fas fa-check-circle"></i> 継続的に勤務可能な方（6ヶ月以上）</li>
                     </ul>
                 </section>
+
+                <!-- 応募方法 -->
+                <section class="price-section">
+                    <h3 class="price-title">応募方法</h3>
+                    <p style="margin-bottom: 1.5rem;">下記宛に履歴書と実績資料（音源や動画リンクなど）をお送りください。</p>
+                    <ul class="benefit-list">
+                        <li><i class="fas fa-envelope"></i> <strong>応募先：</strong> recruit@music-school.example.com</li>
+                        <li><i class="fas fa-file-alt"></i> <strong>件名：</strong> 「講師応募_〇〇（希望ジャンル）_お名前」</li>
+                        <li><i class="fas fa-calendar-alt"></i> <strong>応募締切：</strong> 2025年6月30日</li>
+                    </ul>
+                </section>
+
+                <!-- 応募ボタン -->
+                <div class="apply-button-container">
+                    <a href="#contact" class="apply-button">今すぐ応募する <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
