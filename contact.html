@@ -56,13 +56,13 @@
             padding: 2rem;
             margin-bottom: 3rem;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
         }
         
         .contact-method {
             display: flex;
             align-items: center;
-            width: 30%;
+            width: 50%;
         }
         
         .contact-icon {
@@ -93,6 +93,10 @@
         /* フォームスタイル */
         .contact-form {
             margin-top: 3rem;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
         }
         
         .form-group {
@@ -143,6 +147,12 @@
             transform: translateY(-3px);
         }
         
+        .form-note {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
         /* レスポンシブ対応 */
         @media (max-width: 768px) {
             .contact-methods {
@@ -190,57 +200,47 @@
         <div class="contact-methods">
             <div class="contact-method">
                 <div class="contact-icon">
-                    <i class="fas fa-phone-alt"></i>
-                </div>
-                <div class="contact-info">
-                    <h3>お電話</h3>
-                    <p>03-1234-5678（平日<br>10:00～19:00）</p>
-                </div>
-            </div>
-            
-            <div class="contact-method">
-                <div class="contact-icon">
                     <i class="fas fa-envelope"></i>
                 </div>
                 <div class="contact-info">
                     <h3>メール</h3>
-                    <p>info@music-<br>school.example.com</p>
-                </div>
-            </div>
-            
-            <div class="contact-method">
-                <div class="contact-icon">
-                    <i class="fas fa-map-marker-alt"></i>
-                </div>
-                <div class="contact-info">
-                    <h3>住所</h3>
-                    <p>東京都新宿区西新宿1-2-3<br>ミュージックビル4F</p>
+                    <p>info@music-school.example.com</p>
                 </div>
             </div>
         </div>
 
         <form class="contact-form">
-            <div class="form-row">
-                <div class="form-col">
-                    <div class="form-group">
-                        <label class="form-label">お名前</label>
-                        <input type="text" class="form-control" required>
-                    </div>
-                </div>
-                <div class="form-col">
-                    <div class="form-group">
-                        <label class="form-label">メールアドレス</label>
-                        <input type="email" class="form-control" required>
-                    </div>
-                </div>
+            <div class="form-group">
+                <label class="form-label">お名前 <span style="color: var(--secondary);">*</span></label>
+                <input type="text" class="form-control" required>
             </div>
             
             <div class="form-group">
-                <label class="form-label">お問い合わせ内容</label>
+                <label class="form-label">メールアドレス <span style="color: var(--secondary);">*</span></label>
+                <input type="email" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">お問い合わせ種別 <span style="color: var(--secondary);">*</span></label>
+                <select class="form-control" required>
+                    <option value="">選択してください</option>
+                    <option value="lesson">レッスンについて</option>
+                    <option value="trial">無料体験申し込み</option>
+                    <option value="price">料金について</option>
+                    <option value="other">その他</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label">お問い合わせ内容 <span style="color: var(--secondary);">*</span></label>
                 <textarea class="form-control" rows="5" required></textarea>
             </div>
             
-            <button type="submit" class="btn-submit">送信する</button>
+            <button type="submit" class="btn-submit">送信する <i class="fas fa-paper-plane"></i></button>
+            
+            <p class="form-note">
+                <i class="fas fa-info-circle"></i> <span style="color: var(--secondary);">*</span>は必須項目です
+            </p>
         </form>
     </main>
 
