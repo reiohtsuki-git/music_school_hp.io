@@ -17,6 +17,459 @@
     <link rel="stylesheet" href="mobile-fix.css">
     <!-- レイアウト修正用CSS -->
     <link rel="stylesheet" href="layout-fix.css">
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* About ページ専用スタイル */
+        .page-title {
+            position: relative;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 3rem 0;
+            border-radius: 16px;
+            margin-bottom: 3rem;
+            text-align: center;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(62, 76, 141, 0.2);
+        }
+        
+        .page-title h2 {
+            color: var(--white);
+            font-size: 2.5rem;
+            position: relative;
+            z-index: 2;
+            margin: 0;
+            font-family: 'Playfair Display', 'Noto Sans JP', serif;
+        }
+        
+        .page-title::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            z-index: 1;
+        }
+        
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.08);
+            z-index: 1;
+        }
+        
+        .about-content {
+            background-color: var(--white);
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            padding: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .about-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            position: relative;
+            padding-bottom: 2rem;
+        }
+        
+        .about-intro::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 3px;
+        }
+        
+        .about-intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+        
+        .about-section-title {
+            text-align: center;
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 2.5rem;
+            font-weight: 700;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .feature-card {
+            background-color: #f9f9f9;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 5px solid var(--primary);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-top-color: var(--secondary);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            box-shadow: 0 10px 20px rgba(62, 76, 141, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            background: linear-gradient(135deg, var(--secondary) 0%, #d15e48 100%);
+            transform: rotate(10deg);
+        }
+        
+        .feature-content {
+            flex-grow: 1;
+        }
+        
+        .feature-content h4 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .feature-content p {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        /* 数字で見るセクション */
+        .stats-section {
+            padding: 3rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 16px;
+            margin-bottom: 3rem;
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.05);
+            z-index: 1;
+        }
+        
+        .stats-section::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.05);
+            z-index: 1;
+        }
+        
+        .stats-title {
+            position: relative;
+            z-index: 2;
+            font-size: 1.8rem;
+            margin-bottom: 2.5rem;
+            font-weight: 700;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .stat-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+            line-height: 1;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* ミッションセクション */
+        .mission-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .mission-content {
+            background-color: var(--white);
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .mission-title {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .mission-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary);
+            border-radius: 3px;
+        }
+        
+        .mission-text {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .mission-points {
+            margin-top: 1.5rem;
+        }
+        
+        .mission-point {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .mission-point-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(62, 76, 141, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+        
+        .mission-point-text {
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+        
+        .mission-image {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            height: 100%;
+        }
+        
+        .mission-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* CTA セクション */
+        .cta-section {
+            background: linear-gradient(135deg, var(--secondary) 0%, #d15e48 100%);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(226, 114, 91, 0.3);
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.08);
+            z-index: 1;
+        }
+        
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.08);
+            z-index: 1;
+        }
+        
+        .cta-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+            font-weight: 700;
+        }
+        
+        .cta-text {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--secondary);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .cta-button i {
+            margin-left: 0.75rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .cta-button:hover i {
+            transform: translateX(5px);
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 992px) {
+            .mission-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .mission-image {
+                height: 400px;
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .about-content {
+                padding: 2rem;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .page-title h2 {
+                font-size: 2rem;
+            }
+            
+            .cta-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-title {
+                padding: 2rem 1rem;
+            }
+            
+            .page-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="fixed-header">
@@ -42,47 +495,175 @@
     <div class="menu-overlay"></div>
 
     <main>
-        <section class="page-title">
+        <section class="page-title" data-aos="fade-up">
             <h2>あなたの音楽の夢、私たちがサポートします。</h2>
         </section>
 
-        <section class="about-content">
-            <p>音楽を学ぶことは、人生を豊かにし、自己表現を広げる素晴らしい方法です。</p>
-            <p>しかし、忙しい毎日や移動の手間で、音楽を学ぶ機会が限られてしまうこともあります。</p>
-            <p>そんな時に、オンラインでの音楽レッスンが強力な味方になります。</p>
-            <p>私たちのオンライン音楽教室では、どこでも、誰でも、好きな時間にレッスンを受けることができ、あなたのペースで音楽を学ぶことができます。</p>
-            <p>初心者から上級者まで、幅広いニーズに対応したコースを提供しており、あなただけのオーダーメイドレッスンをお楽しみいただけます。</p>
+        <section class="about-content" data-aos="fade-up" data-aos-delay="100">
+            <div class="about-intro">
+                <p>音楽を学ぶことは、人生を豊かにし、自己表現を広げる素晴らしい方法です。</p>
+                <p>しかし、忙しい毎日や移動の手間で、音楽を学ぶ機会が限られてしまうこともあります。</p>
+                <p>そんな時に、オンラインでの音楽レッスンが強力な味方になります。</p>
+                <p>私たちのオンライン音楽教室では、どこでも、誰でも、好きな時間にレッスンを受けることができ、あなたのペースで音楽を学ぶことができます。</p>
+                <p>初心者から上級者まで、幅広いニーズに対応したコースを提供しており、あなただけのオーダーメイドレッスンをお楽しみいただけます。</p>
+            </div>
 
-            <h3>なぜ、私たちの音楽教室が選ばれるのか？</h3>
+            <h3 class="about-section-title" data-aos="fade-up">
+                <i class="fas fa-star"></i> なぜ、私たちの音楽教室が選ばれるのか
+            </h3>
             
-            <div class="feature-item">
-                <h4>1.プロフェッショナルな講師陣</h4>
-                <p>経験豊富な講師陣が、あなたの音楽のスキルを次のレベルへと導きます。音楽理論から演奏技術、パフォーマンスに至るまで、専門的な指導を行い、あなたの目標を確実に達成します。</p>
-            </div>
-            
-            <div class="feature-item">
-                <h4>2.個別対応で、あなたに合ったレッスン</h4>
-                <p>一人一人のペースや目標に合わせた、きめ細かい指導が特徴です。レッスンはオーダーメイドで進められるため、無理なく上達を実感でき、モチベーションを保ちながら学べます。</p>
-            </div>
-            
-            <div class="feature-item">
-                <h4>3.いつでも、どこでもレッスン可能</h4>
-                <p>自宅やカフェ、移動中など、インターネット環境さえあれば、好きな場所でレッスンを受けることができます。忙しい日常に合わせたレッスンができるので、時間の制約を感じることはありません。</p>
-            </div>
-            
-            <div class="feature-item">
-                <h4>4.多彩なコース内容</h4>
-                <p>ギターや作曲、DTMなど、多岐にわたるコースをご用意しています。あなたの興味や目的に合わせて、自由に選択可能です。</p>
-            </div>
-            
-            <div class="feature-item">
-                <h4>5.安心のサポート体制</h4>
-                <p>レッスンの進行や学習内容について、いつでもサポートを受けられる体制が整っています。困った時や疑問があれば、専任のサポートスタッフが丁寧に対応します。</p>
+            <div class="feature-grid">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>プロフェッショナルな講師陣</h4>
+                        <p>経験豊富な講師陣が、あなたの音楽のスキルを次のレベルへと導きます。音楽理論から演奏技術、パフォーマンスに至るまで、専門的な指導を行い、あなたの目標を確実に達成します。</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>個別対応で、あなたに合ったレッスン</h4>
+                        <p>一人一人のペースや目標に合わせた、きめ細かい指導が特徴です。レッスンはオーダーメイドで進められるため、無理なく上達を実感でき、モチベーションを保ちながら学べます。</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>いつでも、どこでもレッスン可能</h4>
+                        <p>自宅やカフェ、移動中など、インターネット環境さえあれば、好きな場所でレッスンを受けることができます。忙しい日常に合わせたレッスンができるので、時間の制約を感じることはありません。</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>多彩なコース内容</h4>
+                        <p>ギターや作曲、DTMなど、多岐にわたるコースをご用意しています。あなたの興味や目的に合わせて、自由に選択可能です。</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>安心のサポート体制</h4>
+                        <p>レッスンの進行や学習内容について、いつでもサポートを受けられる体制が整っています。困った時や疑問があれば、専任のサポートスタッフが丁寧に対応します。</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h4>確かな実績と信頼</h4>
+                        <p>多くの生徒さんが私たちのレッスンを通じて音楽の喜びを発見し、目標を達成しています。レッスン満足度98%という高い評価をいただいております。</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="join-button-container">
-            <a href="admission.html" class="join-button">入会する <i class="fas fa-arrow-right"></i></a>
+        <section class="stats-section" data-aos="fade-up">
+            <h3 class="stats-title">数字で見る Music School</h3>
+            
+            <div class="stats-grid">
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="stat-number" id="stat-students">3,500<sup>+</sup></div>
+                    <div class="stat-label">受講生</div>
+                </div>
+                
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="stat-number" id="stat-courses">25<sup>+</sup></div>
+                    <div class="stat-label">コース数</div>
+                </div>
+                
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="stat-number" id="stat-instructors">50<sup>+</sup></div>
+                    <div class="stat-label">プロ講師</div>
+                </div>
+                
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="stat-number" id="stat-satisfaction">98<sup>%</sup></div>
+                    <div class="stat-label">満足度</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mission-section" data-aos="fade-up">
+            <div class="mission-content" data-aos="fade-right">
+                <h3 class="mission-title">私たちのミッション</h3>
+                <p class="mission-text">
+                    Music Schoolは、音楽の喜びと学びを誰もが享受できる世界の実現を目指しています。
+                    時間や場所の制約を超え、一人ひとりに合わせた質の高い音楽教育を提供することで、
+                    生徒の皆様の音楽的可能性を最大限に引き出します。
+                </p>
+                
+                <div class="mission-points">
+                    <div class="mission-point" data-aos="fade-up" data-aos-delay="100">
+                        <div class="mission-point-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="mission-point-text">
+                            音楽を通じた自己表現と創造性の解放
+                        </div>
+                    </div>
+                    
+                    <div class="mission-point" data-aos="fade-up" data-aos-delay="200">
+                        <div class="mission-point-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="mission-point-text">
+                            グローバルな音楽コミュニティの形成
+                        </div>
+                    </div>
+                    
+                    <div class="mission-point" data-aos="fade-up" data-aos-delay="300">
+                        <div class="mission-point-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="mission-point-text">
+                            最新のテクノロジーを活用した革新的な指導法
+                        </div>
+                    </div>
+                    
+                    <div class="mission-point" data-aos="fade-up" data-aos-delay="400">
+                        <div class="mission-point-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="mission-point-text">
+                            すべての人に開かれた音楽教育の実現
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mission-image" data-aos="fade-left">
+                <img src="https://source.unsplash.com/random/600x800/?music,piano" alt="ミッションイメージ">
+            </div>
+        </section>
+
+        <section class="cta-section" data-aos="fade-up">
+            <h3 class="cta-title">あなたの音楽の旅を始めませんか？</h3>
+            <p class="cta-text">
+                音楽を学ぶ一歩を踏み出すのに、遅すぎることはありません。
+                あなたの目標や夢を叶えるために、私たちがサポートします。
+                まずは無料体験レッスンからお気軽にどうぞ。
+            </p>
+            <a href="admission.html" class="cta-button" data-aos="zoom-in" data-aos-delay="200">
+                今すぐ始める <i class="fas fa-arrow-right"></i>
+            </a>
         </section>
     </main>
 
