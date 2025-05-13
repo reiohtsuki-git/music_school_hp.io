@@ -805,3 +805,78 @@ main {
     line-height: 1.5;
 }
 </style>
+
+/* 私たちについてプレビューセクション */
+.about-preview-section {
+    background-color: #f5f9ff;
+    padding: 5rem 0;
+    border-radius: 20px;
+}
+
+.about-preview-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.about-preview-text {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.about-preview-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+.about-preview-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.about-feature {
+    background-color: var(--white);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.about-feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-feature i {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+.about-feature h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+.about-feature p {
+    font-size: 1rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .about-preview-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-feature {
+        padding: 1.5rem;
+    }
+}
