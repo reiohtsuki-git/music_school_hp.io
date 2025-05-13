@@ -606,3 +606,150 @@ main {
 .join-button:hover::before {
     width: 100%;
 }
+
+/* 採用情報セクション用スタイル */
+.recruit-section {
+    background-color: #f8f9fa;
+    padding: 5rem 0;
+}
+
+.recruit-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.recruit-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.recruit-intro p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.price-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    color: #333;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.price-title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, #5c6bc0, #3949ab);
+}
+
+.admission-fee p {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.genres-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.genre-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    padding: 1.5rem;
+}
+
+.genre-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+.genre-icon {
+    font-size: 2rem;
+    color: #3949ab;
+    margin-right: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.genre-content {
+    flex: 1;
+}
+
+.genre-content h4 {
+    font-size: 1.3rem;
+    margin: 0 0 0.8rem 0;
+    color: #333;
+}
+
+.genre-content p {
+    font-size: 0.95rem;
+    color: #666;
+    margin: 0;
+    text-align: left;
+    line-height: 1.5;
+}
+
+.cta-container {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.recruit-btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    background: linear-gradient(to right, #5c6bc0, #3949ab);
+    color: white;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(92, 107, 192, 0.4);
+    transition: all 0.3s ease;
+}
+
+.recruit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(92, 107, 192, 0.6);
+    background: linear-gradient(to right, #3949ab, #283593);
+}
+
+.animate-fadeInUp {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .genres-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .genre-card {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
