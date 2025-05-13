@@ -402,7 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     // セクションIDとリンクのhref属性を比較してアクティブ化
                     navLinks.forEach(link => {
                         const href = link.getAttribute('href');
-                        if (href === `#${section.id}`) {
+                        if (!href.includes('.html') && href === `#${section.id}`) {
                             link.classList.add('active');
                         }
                     });
