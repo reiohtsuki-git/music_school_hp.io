@@ -43,6 +43,29 @@ body {
     overflow-x: hidden;
 }
 
+/* 追加: page-titleクラスの定義 */
+.page-title {
+    position: relative;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    padding: 4rem 0; /* 3remから4remに変更 */
+    border-radius: 16px;
+    margin-bottom: 3rem;
+    text-align: center;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(62, 76, 141, 0.25); /* シャドウを強調 */
+}
+
+.page-title h2 {
+    color: var(--white);
+    font-size: 2.5rem;
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    font-family: 'Playfair Display', 'Noto Sans JP', serif;
+    letter-spacing: 0.5px; /* 追加 */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 追加 */
+}
+
 a {
     text-decoration: none;
     color: var(--primary);
@@ -93,6 +116,29 @@ header {
 .logo h1 i {
     margin-right: 8px;
     color: var(--secondary);
+}
+
+.about-section-title {
+    text-align: center;
+    color: var(--primary);
+    font-size: 1.8rem;
+    margin-bottom: 2.5rem;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 1.2rem; /* 追加 */
+}
+
+/* 追加: アンダーライン効果 */
+.about-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--secondary);
+    border-radius: 3px;
 }
 
 nav ul {
@@ -754,7 +800,6 @@ main {
     }
 }
 
-<style>
 /* 新しいリクルートジャンルスタイル */
 .recruit-genres-grid {
     display: grid;
@@ -804,16 +849,43 @@ main {
     text-align: left;
     line-height: 1.5;
 }
-</style>
 
 /* 私たちについてプレビューセクション */
 .about-preview-section {
-    background-color: #f5f9ff;
-    padding: 5rem 0;
-    border-radius: 20px;
+    background: linear-gradient(135deg, #f8f9ff 0%, #eeeeff 100%);
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.about-preview-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: rgba(62, 76, 141, 0.08);
+    z-index: 1;
+}
+
+.about-preview-section::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: -50px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: rgba(226, 114, 91, 0.08);
+    z-index: 1;
 }
 
 .about-preview-content {
+    position: relative;
+    z-index: 2;
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 2rem;
@@ -870,58 +942,6 @@ main {
     line-height: 1.6;
 }
 
-/* レスポンシブ対応 */
-@media (max-width: 768px) {
-    .about-preview-features {
-        grid-template-columns: 1fr;
-    }
-    
-    .about-feature {
-        padding: 1.5rem;
-    }
-}
-
-/* 私たちについてセクション - 新しいスタイル */
-.about-preview-section {
-    background: linear-gradient(135deg, #f8f9ff 0%, #eeeeff 100%);
-    padding: 6rem 0;
-    position: relative;
-    overflow: hidden;
-    border-radius: 15px;
-}
-
-.about-preview-section::before {
-    content: '';
-    position: absolute;
-    top: -50px;
-    right: -50px;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background-color: rgba(62, 76, 141, 0.08);
-    z-index: 1;
-}
-
-.about-preview-section::after {
-    content: '';
-    position: absolute;
-    bottom: -50px;
-    left: -50px;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-color: rgba(226, 114, 91, 0.08);
-    z-index: 1;
-}
-
-.about-preview-content {
-    position: relative;
-    z-index: 2;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
 .about-preview-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -962,33 +982,6 @@ main {
     color: white;
 }
 
-.about-preview-text {
-    text-align: center;
-}
-
-.about-preview-text p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 0;
-    padding: 0 1rem;
-    position: relative;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.6s ease forwards;
-}
-
-.about-preview-column:nth-child(1) .about-preview-text p {
-    animation-delay: 0.2s;
-}
-
-.about-preview-column:nth-child(2) .about-preview-text p {
-    animation-delay: 0.4s;
-}
-
-.about-preview-column:nth-child(3) .about-preview-text p {
-    animation-delay: 0.6s;
-}
-
 .about-preview-text p::before {
     content: '';
     position: absolute;
@@ -1002,33 +995,24 @@ main {
     opacity: 0.7;
 }
 
-.cta-container {
-    text-align: center;
-    margin-top: 2rem;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.6s ease forwards 0.8s;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
+    .about-preview-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-feature {
+        padding: 1.5rem;
+    }
+    
     .about-preview-grid {
         grid-template-columns: 1fr;
     }
+    
     .about-preview-column {
         margin-bottom: 2rem;
     }
+    
     .about-preview-column:nth-child(1) .about-preview-text p,
     .about-preview-column:nth-child(2) .about-preview-text p,
     .about-preview-column:nth-child(3) .about-preview-text p {
