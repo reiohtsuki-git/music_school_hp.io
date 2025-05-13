@@ -1,0 +1,154 @@
+/* 私たちについてセクション - 新しいスタイル */
+.about-preview-section {
+    background: linear-gradient(135deg, #f8f9ff 0%, #eeeeff 100%);
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.about-preview-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: rgba(62, 76, 141, 0.08);
+    z-index: 1;
+}
+
+.about-preview-section::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: -50px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: rgba(226, 114, 91, 0.08);
+    z-index: 1;
+}
+
+.about-preview-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.about-preview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.about-preview-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-preview-icon {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(62, 76, 141, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.about-preview-column:hover .about-preview-icon {
+    transform: translateY(-10px);
+    background-color: var(--primary);
+}
+
+.about-preview-icon i {
+    font-size: 2rem;
+    color: var(--primary);
+    transition: all 0.3s ease;
+}
+
+.about-preview-column:hover .about-preview-icon i {
+    color: white;
+}
+
+.about-preview-text {
+    text-align: center;
+}
+
+.about-preview-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 0;
+    padding: 0 1rem;
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.about-preview-column:nth-child(1) .about-preview-text p {
+    animation-delay: 0.2s;
+}
+
+.about-preview-column:nth-child(2) .about-preview-text p {
+    animation-delay: 0.4s;
+}
+
+.about-preview-column:nth-child(3) .about-preview-text p {
+    animation-delay: 0.6s;
+}
+
+.about-preview-text p::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background-color: var(--secondary);
+    border-radius: 3px;
+    opacity: 0.7;
+}
+
+.cta-container {
+    text-align: center;
+    margin-top: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards 0.8s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .about-preview-grid {
+        grid-template-columns: 1fr;
+    }
+    .about-preview-column {
+        margin-bottom: 2rem;
+    }
+    .about-preview-column:nth-child(1) .about-preview-text p,
+    .about-preview-column:nth-child(2) .about-preview-text p,
+    .about-preview-column:nth-child(3) .about-preview-text p {
+        animation-delay: 0.2s;
+    }
+}
