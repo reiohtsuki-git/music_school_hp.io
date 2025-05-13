@@ -1,3 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music School</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="additional-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Music School</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="instruments.html">Instruments</a></li>
+                <li><a href="lessons.html">Lessons</a></li>
+                <li><a href="price.html">Pricing</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- お問い合わせセクション -->
+        <section id="contact" class="section contact-section">
+            <div class="contact-container">
+                <div class="contact-intro">
+                    <h2 class="section-title">お問い合わせ</h2>
+                    <p>レッスンに関するご質問や無料体験のお申し込みなど、お気軽にお問い合わせください。24時間以内に担当者より返信いたします。</p>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="inquiry-form">
+                        <div class="form-group">
+                            <label for="name">お名前 <span style="color: var(--secondary);">*</span></label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">メールアドレス <span style="color: var(--secondary);">*</span></label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="inquiry-type">お問い合わせ種別 <span style="color: var(--secondary);">*</span></label>
+                            <select id="inquiry-type" name="inquiry-type" class="form-control" required>
+                                <option value="">選択してください</option>
+                                <option value="lesson">レッスンについて</option>
+                                <option value="trial">無料体験申し込み</option>
+                                <option value="price">料金について</option>
+                                <option value="other">その他</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">お問い合わせ内容 <span style="color: var(--secondary);">*</span></label>
+                            <textarea id="message" name="message" class="form-control" required></textarea>
+                        </div>
+                        
                         <button type="submit" class="form-button">送信する <i class="fas fa-paper-plane"></i></button>
                         
                         <p class="form-note">
