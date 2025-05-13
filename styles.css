@@ -859,6 +859,7 @@ main {
     border-radius: 15px;
 }
 
+/*
 .about-preview-section::before {
     content: '';
     position: absolute;
@@ -870,6 +871,7 @@ main {
     background-color: rgba(62, 76, 141, 0.08);
     z-index: 1;
 }
+*/
 
 .about-preview-section::after {
     content: '';
