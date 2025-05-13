@@ -3,25 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Music School</title>
+    <title>私たちについて - Music School</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="additional-styles.css">
+    <!-- モバイル対応用CSS -->
+    <link rel="stylesheet" href="mobile-fix.css">
+    <!-- レイアウト修正用CSS -->
+    <link rel="stylesheet" href="layout-fix.css">
 </head>
 <body>
-    <header>
+    <header class="fixed-header">
         <div class="logo">
-            <h1>Music School</h1>
+            <h1><i class="fas fa-music"></i> Music School</h1>
         </div>
+        <button class="mobile-menu-toggle" aria-label="メニューを開く" aria-expanded="false">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="instruments.html">Instruments</a></li>
-                <li><a href="lessons.html">Lessons</a></li>
-                <li><a href="price.html">Pricing</a></li>
-                <li><a href="about.html" class="active">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="index.html" class="nav-link">ホーム</a></li>
+                <li><a href="index.html#instruments" class="nav-link">楽器</a></li>
+                <li><a href="index.html#lessons" class="nav-link">レッスン</a></li>
+                <li><a href="index.html#price" class="nav-link">料金</a></li>
+                <li><a href="about.html" class="active nav-link">私たちについて</a></li>
+                <li><a href="index.html#contact" class="nav-link">お問い合わせ</a></li>
+                <li><a href="index.html#recruit" class="nav-link">採用情報</a></li>
             </ul>
         </nav>
     </header>
+
+    <div class="menu-overlay"></div>
 
     <main>
         <section class="page-title">
@@ -64,7 +82,7 @@
         </section>
 
         <section class="join-button-container">
-            <a href="admission.html" class="join-button">入会する</a>
+            <a href="admission.html" class="join-button">入会する <i class="fas fa-arrow-right"></i></a>
         </section>
     </main>
 
