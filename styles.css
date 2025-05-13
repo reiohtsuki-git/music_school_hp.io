@@ -982,6 +982,7 @@ main {
     color: white;
 }
 
+/*
 .about-preview-text p::before {
     content: '';
     position: absolute;
@@ -994,6 +995,7 @@ main {
     border-radius: 3px;
     opacity: 0.7;
 }
+*/
 
 /* レスポンシブ対応 */
 @media (max-width: 768px) {
