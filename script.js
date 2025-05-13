@@ -373,6 +373,66 @@ document.addEventListener('DOMContentLoaded', () => {
     // モバイルメニューの設定を実行
     setupMobileMenu();
     
+    // セクションの位置を取得する関数
+    function getSectionPositions() {
+        const sections = document.querySelectorAll('section[id], div[id].about-us-section, div[id].contact-section');
+        const positions = {};
+        
+        sections.forEach(section => {
+            const id = section.getAttribute('id');
+            if (id) {
+                positions[id] = section.offsetTop - 100; // ヘッダーの高さなどを考慮して調整
+            }
+        });
+        
+        return positions;
+    }
+    
+    // メニューアイテムのアクティブ状態を更新する関数
+    function updateActiveMenuItem() {
+        const scrollPosition = window.scrollY;
+        const sectionPositions = getSectionPositions();
+        const menuItems = document.querySelectorAll('nav ul li a');
+        
+        // 現在のスクロール位置に基づいて、表示されているセクションを判定
+        let currentSection = '';
+        
+        // セクションIDを含むセクションを検索
+        for (const section in sectionPositions) {
+            if (scrollPosition >= sectionPositions[section]) {
+                currentSection = section;
+            }
+        }
+        
+        // 特別なケース：「私たちについて」セクションの検出
+        const aboutSection = document.querySelector('.about-us-section');
+        if (aboutSection) {
+            const aboutSectionTop = aboutSection.offsetTop - 100;
+            const aboutSectionBottom = aboutSectionTop + aboutSection.offsetHeight;
+            
+            if (scrollPosition >= aboutSectionTop && scrollPosition < aboutSectionBottom) {
+                currentSection = 'about';
+            }
+        }
+        
+        // すべてのメニューアイテムからアクティブクラスを削除
+        menuItems.forEach(item => {
+            item.classList.remove('active');
+        });
+        
+        // 現在のセクションに対応するメニューアイテムにアクティブクラスを追加
+        if (currentSection) {
+            menuItems.forEach(item => {
+                // href属性からセクションIDを抽出
+                const href = item.getAttribute('href');
+                if (href && (href.includes(currentSection) || 
+                    (currentSection === 'about' && item.textContent.includes('私たちについて')))) {
+                    item.classList.add('active');
+                }
+            });
+        }
+    }
+    
     // スクロール位置に基づくナビゲーションリンクのアクティブ状態更新
     window.addEventListener('scroll', function() {
         const scrollPosition = window.scrollY;
@@ -389,6 +449,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // ホームページの場合のみ処理
         if (document.querySelector('.fixed-header') !== null) {
+            // オリジナルのセクション処理
             const sections = document.querySelectorAll('.section');
             const navLinks = document.querySelectorAll('.nav-link');
             
@@ -408,6 +469,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 }
             });
+            
+            // 「私たちについて」セクションのための追加処理
+            updateActiveMenuItem();
         }
     });
     
@@ -601,4 +665,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+    
+    // 初期ロード時にもアクティブメニューアイテムを更新
+    updateActiveMenuItem();
 });
