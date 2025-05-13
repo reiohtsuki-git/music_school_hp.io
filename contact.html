@@ -4,18 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>お問い合わせ | Music School</title>
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="additional-styles.css">
+    <!-- モバイル対応用CSS -->
+    <link rel="stylesheet" href="mobile-fix.css">
+    <!-- レイアウト修正用CSS -->
+    <link rel="stylesheet" href="layout-fix.css">
     <style>
+        :root {
+            --primary: #4a90e2;
+            --primary-dark: #3a7bc8;
+            --primary-light: #6fa5e8;
+            --secondary: #e15f5f;
+            --text: #333;
+            --text-light: #666;
+            --bg-light: #f5f5f5;
+            --white: #fff;
+        }
+        
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+        }
+        
         .contact-container {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 80px auto 40px;
             padding: 40px 20px;
         }
         
         .contact-heading {
             text-align: center;
-            color: #333;
+            color: var(--text);
             margin-bottom: 40px;
+            font-size: 2.2rem;
             position: relative;
         }
         
@@ -24,7 +57,7 @@
             display: block;
             width: 60px;
             height: 3px;
-            background-color: #e15f5f;
+            background-color: var(--secondary);
             margin: 20px auto 0;
         }
         
@@ -35,7 +68,7 @@
         }
         
         .contact-form {
-            background-color: #fff;
+            background-color: var(--white);
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
@@ -58,6 +91,7 @@
             border: 1px solid #ddd;
             border-radius: 4px;
             font-size: 16px;
+            box-sizing: border-box;
         }
         
         .form-textarea {
@@ -66,7 +100,7 @@
         }
         
         .required-mark {
-            color: #e15f5f;
+            color: var(--secondary);
             margin-left: 5px;
         }
         
@@ -75,7 +109,7 @@
             align-items: center;
             margin-bottom: 20px;
             font-size: 14px;
-            color: #666;
+            color: var(--text-light);
         }
         
         .submit-button {
@@ -83,22 +117,80 @@
             width: 200px;
             margin: 0 auto;
             padding: 15px;
-            background-color: #4a90e2;
+            background-color: var(--primary);
             color: white;
             border: none;
             border-radius: 4px;
             font-size: 16px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
+            text-align: center;
         }
         
         .submit-button:hover {
-            background-color: #3a7bc8;
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        /* ヘッダー */
+        header {
+            background-color: var(--white);
+            padding: 15px 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+        
+        .logo h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav li {
+            margin-left: 20px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover, 
+        nav a.active {
+            color: var(--primary);
+        }
+        
+        /* モバイル対応 */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
         }
         
         @media (max-width: 768px) {
             .contact-container {
                 padding: 20px;
+                margin-top: 60px;
             }
             
             .contact-form {
@@ -108,10 +200,64 @@
             .submit-button {
                 width: 100%;
             }
+            
+            header {
+                padding: 15px 20px;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                padding: 0;
+                height: 0;
+                overflow: hidden;
+                transition: height 0.3s;
+                box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+            }
+            
+            nav.active {
+                height: auto;
+                padding: 20px 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav li {
+                margin: 10px 20px;
+            }
         }
     </style>
 </head>
 <body>
+    <header>
+        <div class="logo">
+            <h1><i class="fas fa-music"></i> Music School</h1>
+        </div>
+        <button class="mobile-menu-toggle" aria-label="メニューを開く" aria-expanded="false">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="index.html#instruments">楽器</a></li>
+                <li><a href="index.html#lessons">レッスン</a></li>
+                <li><a href="index.html#price">料金</a></li>
+                <li><a href="index.html#about">私たちについて</a></li>
+                <li><a href="#" class="active">お問い合わせ</a></li>
+                <li><a href="index.html#recruit">採用情報</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <div class="contact-container">
         <h1 class="contact-heading">お問い合わせ</h1>
         
@@ -155,6 +301,15 @@
     </div>
 
     <script>
+        // モバイルメニューのトグル
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            const nav = document.querySelector('nav');
+            nav.classList.toggle('active');
+            const expanded = nav.classList.contains('active');
+            this.setAttribute('aria-expanded', expanded);
+        });
+
+        // お問い合わせフォーム送信処理
         document.getElementById('contactForm').addEventListener('submit', function(event) {
             event.preventDefault();
             
@@ -166,7 +321,6 @@
             const message = document.getElementById('message').value;
             
             // 実際のプロジェクトでは、ここでサーバーにデータを送信する処理を追加
-            // この例ではコンソールに出力するだけ
             console.log({
                 name,
                 email,
