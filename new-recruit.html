@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>【2025年5月9日更新】採用情報 - Music School</title>
-    <meta name="description" content="音楽教室の採用情報。ギター、ベース、DTM、作曲、ボーカル、ドラムなどの講師を募集中。講師経験2年以上、Zoomでの1対1レッスン、報酬1レッスン3,000円～6,000円">
+    <title>【2025年版】採用情報 - Music School</title>
+    <meta name="description" content="音楽教室の採用情報。ギター、ベース、DTM、作曲などの講師を募集中。初心者〜中級者向けのレッスンが中心、報酬1レッスン2,000円～3,500円">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,360 +20,450 @@
             --primary: #4a6da7;
             --primary-dark: #3a5d97;
             --primary-light: #6a8dc7;
+            --accent: #e27d60;
+            --accent-light: #e8a87c;
             --dark: #333;
+            --gray: #6c757d;
+            --light-gray: #f8f9fa;
             --border-color: #e0e0e0;
+            --success: #28a745;
+            --info: #17a2b8;
+            --section-padding: 5rem 0;
         }
         
         /* セクション共通スタイル */
         .section {
-            padding: 5rem 0;
+            padding: var(--section-padding);
         }
         .section-title {
             text-align: center;
             margin-bottom: 3rem;
             font-size: 2.5rem;
             color: var(--dark);
+            position: relative;
+        }
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
         }
         .price-container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 1.5rem;
         }
         .price-section {
-            margin-bottom: 4rem;
+            margin-bottom: 4.5rem;
         }
         .price-title {
             font-size: 1.8rem;
             color: var(--primary);
             margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
+            padding-bottom: 0.8rem;
             border-bottom: 2px solid var(--primary-light);
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .price-title i {
+            margin-right: 12px;
+            color: var(--primary);
         }
         .admission-fee {
             line-height: 1.8;
         }
         
+        /* カードスタイル */
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+        
+        /* ハイライトテキスト */
+        .highlight {
+            background: linear-gradient(transparent 60%, var(--accent-light) 40%);
+            display: inline;
+            padding: 0 3px;
+        }
+        
         /* 募集ジャンルのスタイル */
-        .course-benefits {
+        .genres-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            margin-top: 2rem;
         }
-        .benefit-item {
-            background-color: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .genre-card {
             display: flex;
             flex-direction: column;
         }
-        .benefit-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        .benefit-icon {
-            background-color: var(--primary);
+        .genre-header {
+            background: var(--primary);
             color: white;
-            padding: 2rem 0;
+            padding: 1.5rem;
             text-align: center;
-            font-size: 2.5rem;
+            border-radius: 12px 12px 0 0;
         }
-        .benefit-content {
+        .genre-header i {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .genre-header h4 {
+            margin: 0;
+            font-size: 1.4rem;
+        }
+        .genre-body {
             padding: 1.5rem;
             flex-grow: 1;
-            display: flex;
-            flex-direction: column;
+            background: white;
+            border-radius: 0 0 12px 12px;
+            border: 1px solid #eee;
+            border-top: none;
         }
-        .benefit-content h4 {
-            margin-top: 0;
-            margin-bottom: 1rem;
-            color: var(--primary);
-            font-size: 1.3rem;
-        }
-        .benefit-content p {
+        .genre-body p {
             margin: 0;
-            color: #555;
+            color: var(--dark);
         }
         
         /* 応募資格リスト */
-        .benefit-list {
+        .requirements-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .requirements-card {
+            padding: 2rem;
+        }
+        .requirements-title {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-light);
+        }
+        .requirements-list {
             list-style: none;
             padding: 0;
             margin: 0;
         }
-        .benefit-list li {
+        .requirements-list li {
             padding: 10px 0;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
+            margin-bottom: 8px;
         }
-        .benefit-list li i {
-            margin-right: 15px;
-            font-size: 1.2rem;
+        .requirements-list li i {
+            color: var(--primary);
+            margin-right: 12px;
+            margin-top: 4px;
+            flex-shrink: 0;
         }
         
         /* 報酬体系 */
-        .price-box {
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            overflow: hidden;
-            margin: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        .compensation-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
-        .price-header {
-            background-color: var(--primary);
+        .compensation-card {
+            text-align: center;
+            padding: 0;
+        }
+        .compensation-header {
+            background: var(--primary);
             color: white;
-            padding: 15px;
-            text-align: center;
+            padding: 1.5rem;
+            border-radius: 12px 12px 0 0;
         }
-        .price-header h4 {
+        .compensation-header i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .compensation-header h4 {
             margin: 0;
-            font-size: 1.3rem;
-        }
-        .price-details {
-            padding: 20px;
-            background-color: #f9f9f9;
-        }
-        .price-amount {
-            font-size: 1.2rem;
-            text-align: center;
-            margin-bottom: 5px;
-        }
-        .price-amount span {
-            font-weight: bold;
             font-size: 1.4rem;
-            color: var(--primary);
         }
-        .price-note {
-            text-align: center;
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 15px;
+        .compensation-body {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 0 0 12px 12px;
+            border: 1px solid #eee;
+            border-top: none;
         }
-        .price-features {
+        .compensation-amount {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        .compensation-features {
             list-style: none;
             padding: 0;
-            margin: 15px 0 0;
+            margin: 1rem 0 0;
+            text-align: left;
         }
-        .price-features li {
-            padding: 8px 0;
-            border-bottom: 1px dashed #ddd;
+        .compensation-features li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+            display: flex;
+            align-items: flex-start;
         }
-        .price-features li:last-child {
+        .compensation-features li:last-child {
             border-bottom: none;
         }
-        .price-features li i {
-            color: var(--primary);
+        .compensation-features li i {
+            color: var(--success);
             margin-right: 10px;
+            flex-shrink: 0;
+            margin-top: 4px;
         }
         
         /* 業務内容 */
-        .work-content {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        .duties-container {
+            margin-top: 2rem;
         }
-        .work-item {
+        .duty-card {
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: flex-start;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            padding: 1.5rem;
         }
-        .work-icon {
-            min-width: 50px;
-            height: 50px;
-            background-color: var(--primary);
+        .duty-icon {
+            background: var(--primary);
             color: white;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
-            justify-content: center;
             align-items: center;
-            margin-right: 20px;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+        .duty-content h4 {
+            margin-top: 0;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
             font-size: 1.3rem;
         }
-        .work-detail h4 {
-            margin-top: 0;
+        .duty-content p {
+            margin: 0;
             color: var(--dark);
         }
         
         /* 採用の流れ */
-        .recruitment-flow {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 30px 0;
+        .process-container {
+            margin-top: 2.5rem;
+            position: relative;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .flow-step {
+        .process-card {
             display: flex;
-            align-items: center;
-            width: 100%;
-            max-width: 500px;
-            margin-bottom: 10px;
+            margin-bottom: 2.5rem;
+            position: relative;
+            z-index: 1;
         }
-        .flow-number {
-            width: 40px;
-            height: 40px;
-            background-color: var(--primary);
+        .process-number {
+            background: var(--primary);
             color: white;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
-            justify-content: center;
             align-items: center;
-            font-weight: bold;
-            margin-right: 20px;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-right: 1.5rem;
             flex-shrink: 0;
+            z-index: 2;
         }
-        .flow-content h4 {
-            margin: 0 0 5px;
+        .process-content {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            flex-grow: 1;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         }
-        .flow-content p {
-            margin: 0;
-        }
-        .flow-arrow {
+        .process-content h4 {
+            margin-top: 0;
+            margin-bottom: 0.5rem;
             color: var(--primary);
-            font-size: 1.5rem;
-            margin: 5px 0;
+            font-size: 1.3rem;
         }
-        .application-info {
-            margin-top: 30px;
-            padding: 20px;
-            background-color: #f0f7ff;
-            border-left: 4px solid var(--primary);
-            border-radius: 4px;
+        .process-content p {
+            margin: 0;
+            color: var(--dark);
         }
-        .application-info p {
-            margin: 10px 0;
+        .process-timeline {
+            position: absolute;
+            left: 25px;
+            top: 50px;
+            bottom: 50px;
+            width: 2px;
+            background: var(--primary-light);
         }
         
         /* FAQ */
         .faq-container {
-            margin-top: 1.5rem;
+            margin-top: 2.5rem;
         }
-        .faq-item {
-            margin-bottom: 1rem;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
+        .faq-card {
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
             overflow: hidden;
         }
         .faq-question {
-            background-color: #f9f9f9;
-            padding: 1rem 1.5rem;
+            background: white;
+            padding: 1.5rem;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        .faq-question:hover {
+            background: var(--light-gray);
+        }
+        .faq-question.active {
+            border-radius: 12px 12px 0 0;
         }
         .faq-question h4 {
             margin: 0;
-            font-size: 1.1rem;
-            color: var(--dark);
+            font-size: 1.2rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+        .faq-question h4 i {
+            margin-right: 12px;
+            color: var(--primary);
         }
         .faq-toggle {
             color: var(--primary);
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
         }
         .faq-answer {
-            padding: 1rem 1.5rem;
-            display: none;
-            border-top: 1px solid #eee;
+            background: white;
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        .faq-answer.active {
+            padding: 1.5rem;
+            max-height: 1000px;
         }
         
-        /* レスポンシブ対応 */
-        @media (max-width: 768px) {
-            .course-benefits {
-                grid-template-columns: 1fr;
+        /* CTAエリア */
+        .cta-container {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            text-align: center;
+            color: white;
+            margin-top: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        .cta-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        .cta-text {
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            border: 2px solid white;
+        }
+        .cta-button:hover {
+            background: transparent;
+            color: white;
+        }
+        
+        /* アニメーション */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
             }
-            .work-item {
-                flex-direction: column;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
-            .work-icon {
-                margin-bottom: 15px;
-                margin-right: 0;
-            }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease forwards;
         }
         
         /* 更新バナー */
         .update-banner {
-            background-color: #ffeb3b;
-            color: #000;
-            text-align: center;
-            padding: 10px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            border-radius: 4px;
-        }
-        
-        /* 導入文のスタイル */
-        .section-intro {
-            text-align: center;
-            margin-bottom: 3rem;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #555;
-        }
-        
-        /* 講師の声スタイル */
-        .testimonial-author {
-            text-align: right;
-            margin-top: 15px;
-            font-weight: bold;
-            color: var(--primary-dark);
-        }
-        
-        /* 応募ボタン */
-        .apply-button-container {
-            text-align: center;
-            margin: 3rem 0;
-        }
-        .apply-button {
-            display: inline-block;
-            background-color: var(--primary);
+            background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
             color: white;
-            padding: 15px 40px;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: bold;
             text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 15px;
+            font-weight: 600;
+            margin-bottom: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        .apply-button:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        .update-banner p {
+            margin: 0;
+            font-size: 1.1rem;
         }
-        .apply-button i {
-            margin-left: 10px;
+        
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .duty-card, .process-card {
+                flex-direction: column;
+            }
+            .duty-icon, .process-number {
+                margin-bottom: 1rem;
+                margin-right: 0;
+            }
+            .process-timeline {
+                display: none;
+            }
+            .faq-question h4 {
+                font-size: 1.1rem;
+            }
         }
     </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // FAQのアコーディオン機能
-            const faqQuestions = document.querySelectorAll('.faq-question');
-            
-            faqQuestions.forEach(question => {
-                question.addEventListener('click', () => {
-                    const answer = question.nextElementSibling;
-                    const toggle = question.querySelector('.faq-toggle i');
-                    
-                    if (answer.style.display === 'block') {
-                        answer.style.display = 'none';
-                        toggle.className = 'fas fa-plus';
-                    } else {
-                        answer.style.display = 'block';
-                        toggle.className = 'fas fa-minus';
-                    }
-                });
-            });
-        });
-    </script>
 </head>
 <body>
     <header class="fixed-header">
@@ -401,135 +491,91 @@
             <h2 class="section-title">採用情報</h2>
             
             <div class="price-container">
-                <div class="update-banner">
-                    <p>2025年5月9日更新！最新の募集ジャンルと報酬体系を掲載しました</p>
+                <div class="update-banner animate-fadeInUp">
+                    <p><i class="fas fa-bullhorn"></i> 2025年5月更新！新しい募集ジャンルと報酬体系をご覧ください</p>
                 </div>
                 
-                <!-- 採用情報の導入文 -->
-                <div class="section-intro">
-                    <p>Music Schoolでは、音楽の魅力を生徒に伝えるプロフェッショナルな講師を募集しています。オンラインレッスンを中心に、生徒一人ひとりに合わせた丁寧な指導ができる方をお待ちしています。</p>
-                </div>
-
-                <!-- 募集ジャンル -->
-                <section class="price-section">
-                    <h3 class="price-title">募集ジャンル</h3>
-                    <div class="course-benefits">
-                        <div class="benefit-item">
-                            <div class="benefit-icon">
-                                <i class="fas fa-guitar"></i>
-                            </div>
-                            <div class="benefit-content">
-                                <h4>ギター講師</h4>
-                                <p>アコースティックギター、エレキギター両方の指導ができる方。初心者からプロ志向の生徒まで、様々なレベルの指導が可能な方を募集しています。</p>
-                            </div>
-                        </div>
-
-                        <div class="benefit-item">
-                            <div class="benefit-icon">
-                                <i class="fas fa-guitar"></i>
-                            </div>
-                            <div class="benefit-content">
-                                <h4>ベース講師</h4>
-                                <p>エレキベースの演奏、理論の指導ができる方。リズム感を養うレッスンやバンド演奏のサポートもできる方歓迎。</p>
-                            </div>
-                        </div>
-
-                        <div class="benefit-item">
-                            <div class="benefit-icon">
-                                <i class="fas fa-laptop"></i>
-                            </div>
-                            <div class="benefit-content">
-                                <h4>DTM講師</h4>
-                                <p>Logic Pro、Cubase、Ableton Live など主要なDAWソフトの操作と音楽制作の知識がある方。作曲、編曲、ミックスダウンなどの技術指導ができる方を求めています。</p>
-                            </div>
-                        </div>
-
-                        <div class="benefit-item">
-                            <div class="benefit-icon">
-                                <i class="fas fa-music"></i>
-                            </div>
-                            <div class="benefit-content">
-                                <h4>作曲講師</h4>
-                                <p>メロディー作成、コード進行、アレンジメントなど作曲の基礎から実践まで教えられる方。様々なジャンルの作曲経験がある方歓迎。</p>
-                            </div>
-                        </div>
-
-                        <div class="benefit-item">
-                            <div class="benefit-icon">
-                                <i class="fas fa-microphone"></i>
-                            </div>
-                            <div class="benefit-content">
-                                <h4>ボーカル講師【新規募集】</h4>
-                                <p>発声法、リズム感、表現力など、歌唱全般の指導ができる方。ポップス、ロック、ジャズなど様々なジャンルに対応できる方を募集しています。</p>
-                            </div>
-                        </div>
-
-                        <div class="benefit-item">
-                            <div class="benefit-icon">
-                                <i class="fas fa-drum"></i>
-                            </div>
-                            <div class="benefit-content">
-                                <h4>ドラム講師【新規募集】</h4>
-                                <p>基本的なビートからフィルイン、複雑なリズムパターンまで指導できる方。電子ドラムを用いたオンラインレッスンの経験がある方歓迎。</p>
-                            </div>
-                        </div>
+                <section class="price-section animate-fadeInUp">
+                    <h3 class="price-title"><i class="fas fa-handshake"></i> 音楽の魅力を伝えるパートナーを募集しています</h3>
+                    <div class="admission-fee">
+                        <p>Music Schoolでは、音楽の素晴らしさを伝え、生徒さんの成長をサポートしてくれる講師を募集しています。音楽を通じて人々の生活を豊かにする仕事に、あなたもチャレンジしてみませんか？</p>
+                        <p>「音楽の楽しさを伝えたい」という情熱をお持ちの方、音楽のプロとしてのスキルを活かしたい方、副業やフリーランスとして活動したい方など、幅広い方々のご応募をお待ちしています。</p>
                     </div>
                 </section>
 
-                <!-- 報酬体系 -->
-                <section class="price-section">
-                    <h3 class="price-title">報酬体系</h3>
-                    <div class="price-box">
-                        <div class="price-header">
-                            <h4>オンラインレッスン（60分）</h4>
+                <section class="price-section animate-fadeInUp">
+                    <h3 class="price-title"><i class="fas fa-guitar"></i> 募集ジャンル</h3>
+                    <div class="admission-fee">
+                        <p>現在、以下のレッスンジャンルで講師を募集しています：</p>
+                        
+                        <div class="genres-container">
+                            <div class="genre-card card">
+                                <div class="genre-header">
+                                    <i class="fas fa-guitar"></i>
+                                    <h4>ギター</h4>
+                                </div>
+                                <div class="genre-body">
+                                    <p>エレキ／アコースティックギターのレッスンを担当していただきます。基礎から応用まで、幅広いスキルを教えられる方を歓迎します。</p>
+                                </div>
+                            </div>
+                            
+                            <div class="genre-card card">
+                                <div class="genre-header">
+                                    <i class="fas fa-guitar fa-flip-horizontal"></i>
+                                    <h4>ベース</h4>
+                                </div>
+                                <div class="genre-body">
+                                    <p>ベースの基礎からさまざまなジャンルでの演奏テクニックまで、幅広く教えていただける講師を募集しています。</p>
+                                </div>
+                            </div>
+                            
+                            <div class="genre-card card">
+                                <div class="genre-header">
+                                    <i class="fas fa-music"></i>
+                                    <h4>作曲・編曲</h4>
+                                </div>
+                                <div class="genre-body">
+                                    <p>音楽理論の基礎から実際の曲作りまで、作曲・編曲の技術を生徒に伝えられる講師を募集しています。</p>
+                                </div>
+                            </div>
+                            
+                            <div class="genre-card card">
+                                <div class="genre-header">
+                                    <i class="fas fa-laptop"></i>
+                                    <h4>DTM</h4>
+                                </div>
+                                <div class="genre-body">
+                                    <p>Pro Tools／Logic Pro／Cubase／Studio Oneなど、各種DAWを使った音楽制作のレッスンを担当していただける講師を募集しています。</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="price-details">
-                            <p class="price-amount">報酬：<span>3,000円〜6,000円</span></p>
-                            <p class="price-note">※経験、指導内容、レベルによって変動します</p>
-
-                            <ul class="price-features">
-                                <li><i class="fas fa-check"></i> 月末締め、翌月15日支払い</li>
-                                <li><i class="fas fa-check"></i> レッスン数に応じたインセンティブあり</li>
-                                <li><i class="fas fa-check"></i> 生徒の継続率に応じたボーナスあり</li>
-                                <li><i class="fas fa-check"></i> オリジナル教材制作の場合は別途報酬</li>
+                        <p style="margin-top: 1.5rem;">初心者〜中級者向けのレッスンが中心です。ご自身の得意ジャンルで活躍いただけます。</p>
+                    </div>
+                </section>
+                
+                <section class="price-section animate-fadeInUp">
+                    <h3 class="price-title"><i class="fas fa-user-check"></i> 応募資格・歓迎スキル</h3>
+                    
+                    <div class="requirements-container">
+                        <div class="requirements-card card">
+                            <h4 class="requirements-title">応募資格</h4>
+                            <ul class="requirements-list">
+                                <li><i class="fas fa-check-circle"></i> 音楽に関する実務経験、または一定以上のスキルをお持ちの方</li>
+                                <li><i class="fas fa-check-circle"></i> 安定した通信環境とPC、DAW、オーディオインターフェースなどの機材をお持ちの方</li>
+                                <li><i class="fas fa-check-circle"></i> オンラインでのコミュニケーションに抵抗のない方</li>
                             </ul>
                         </div>
+                        
+                        <div class="requirements-card card">
+                            <h4 class="requirements-title">歓迎スキル・経験</h4>
+                            <p style="margin-bottom: 15px; font-size: 0.9rem; color: var(--gray);">※ 以下は必須ではありません</p>
+                            <ul class="requirements-list">
+                                <li><i class="fas fa-star"></i> 音楽教室や個人での指導経験</li>
+                                <li><i class="fas fa-star"></i> 音大・音楽専門学校卒または在学中</li>
+                                <li><i class="fas fa-star"></i> YouTubeやSNSでの音楽活動</li>
+                                <li><i class="fas fa-star"></i> 作曲・編曲・ミックスなどの制作スキル</li>
+                            </ul>
+                            <p style="margin-top: 15px;"><span class="highlight">指導経験がなくても「人に教えるのが好き」「音楽の知識を伝えたい」という気持ちがあれば歓迎です！</span></p>
+                        </div>
                     </div>
                 </section>
-
-                <!-- 応募資格 -->
-                <section class="price-section">
-                    <h3 class="price-title">応募資格</h3>
-                    <ul class="benefit-list">
-                        <li><i class="fas fa-check-circle"></i> 該当楽器・分野での演奏経験または制作経験が5年以上ある方</li>
-                        <li><i class="fas fa-check-circle"></i> 講師経験が2年以上ある方（プライベートレッスン、音楽教室など）</li>
-                        <li><i class="fas fa-check-circle"></i> オンラインでのビデオ通話（Zoom）を利用したレッスンが可能な方</li>
-                        <li><i class="fas fa-check-circle"></i> 安定したインターネット環境と、レッスンに必要な機材を所有している方</li>
-                        <li><i class="fas fa-check-circle"></i> 平日夕方以降または土日祝日に対応可能な方（週5コマ以上）</li>
-                        <li><i class="fas fa-check-circle"></i> 生徒との円滑なコミュニケーションができる方</li>
-                        <li><i class="fas fa-check-circle"></i> 継続的に勤務可能な方（6ヶ月以上）</li>
-                    </ul>
-                </section>
-
-                <!-- 応募方法 -->
-                <section class="price-section">
-                    <h3 class="price-title">応募方法</h3>
-                    <p style="margin-bottom: 1.5rem;">下記宛に履歴書と実績資料（音源や動画リンクなど）をお送りください。</p>
-                    <ul class="benefit-list">
-                        <li><i class="fas fa-envelope"></i> <strong>応募先：</strong> recruit@music-school.example.com</li>
-                        <li><i class="fas fa-file-alt"></i> <strong>件名：</strong> 「講師応募_〇〇（希望ジャンル）_お名前」</li>
-                        <li><i class="fas fa-calendar-alt"></i> <strong>応募締切：</strong> 2025年6月30日</li>
-                    </ul>
-                </section>
-
-                <!-- 応募ボタン -->
-                <div class="apply-button-container">
-                    <a href="#contact" class="apply-button">今すぐ応募する <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <script src="script.js"></script>
-</body>
-</html>
