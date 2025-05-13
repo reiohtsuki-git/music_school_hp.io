@@ -3,249 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>お問い合わせ - Music School</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="additional-styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>お問い合わせ | Music School</title>
+    <link rel="stylesheet" href="css/style.css">
     <style>
-        /* お問い合わせページのスタイル */
-        main {
-            max-width: 1000px;
+        .contact-container {
+            max-width: 800px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 40px 20px;
         }
         
-        .page-title {
+        .contact-heading {
             text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .page-title h2 {
-            color: var(--primary);
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
+            color: #333;
+            margin-bottom: 40px;
             position: relative;
-            display: inline-block;
         }
         
-        .page-title h2:after {
-            content: '';
+        .contact-heading::after {
+            content: "";
             display: block;
-            width: 100px;
+            width: 60px;
             height: 3px;
-            background-color: var(--secondary);
-            position: absolute;
-            bottom: -0.5rem;
-            left: 50%;
-            transform: translateX(-50%);
+            background-color: #e15f5f;
+            margin: 20px auto 0;
         }
         
         .contact-description {
             text-align: center;
-            max-width: 80%;
-            margin: 0 auto 3rem;
-            color: var(--text-light);
-            line-height: 1.6;
+            margin-bottom: 40px;
+            line-height: 1.8;
         }
         
-        .contact-methods {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-            padding: 2rem;
-            margin-bottom: 3rem;
-            display: flex;
-            justify-content: center;
-        }
-        
-        .contact-method {
-            display: flex;
-            align-items: center;
-            width: 50%;
-        }
-        
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: var(--primary);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            font-size: 1.25rem;
-        }
-        
-        .contact-info h3 {
-            color: var(--primary);
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .contact-info p {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin: 0;
-        }
-        
-        /* フォームスタイル */
         .contact-form {
-            margin-top: 3rem;
             background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
-            padding: 2rem;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
         }
         
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 25px;
         }
         
         .form-label {
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
+            margin-bottom: 8px;
+            font-weight: bold;
         }
         
-        .form-control {
+        .form-input,
+        .form-textarea {
             width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #e0e0e0;
-            border-radius: 5px;
-            font-family: inherit;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
         }
         
-        textarea.form-control {
-            min-height: 150px;
+        .form-textarea {
+            height: 150px;
             resize: vertical;
         }
         
-        .form-row {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .form-col {
-            flex: 1;
-        }
-        
-        .btn-submit {
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            padding: 0.75rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-submit:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-3px);
+        .required-mark {
+            color: #e15f5f;
+            margin-left: 5px;
         }
         
         .form-note {
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #666;
         }
         
-        /* レスポンシブ対応 */
+        .submit-button {
+            display: block;
+            width: 200px;
+            margin: 0 auto;
+            padding: 15px;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-button:hover {
+            background-color: #3a7bc8;
+        }
+        
         @media (max-width: 768px) {
-            .contact-methods {
-                flex-direction: column;
-                gap: 2rem;
+            .contact-container {
+                padding: 20px;
             }
             
-            .contact-method {
+            .contact-form {
+                padding: 20px;
+            }
+            
+            .submit-button {
                 width: 100%;
-            }
-            
-            .form-row {
-                flex-direction: column;
-                gap: 0;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <h1>Music School</h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="instruments.html">Instruments</a></li>
-                <li><a href="lessons.html">Lessons</a></li>
-                <li><a href="price.html">Pricing</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html" class="active">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <main>
-        <section class="page-title">
-            <h2>お問い合わせ</h2>
-        </section>
+    <div class="contact-container">
+        <h1 class="contact-heading">お問い合わせ</h1>
         
-        <p class="contact-description">
-            レッスンに関するご質問や無料体験のお申し込みなど、お気軽にお問い合わせください。24時間以内に担当者より返信いたします。
-        </p>
-        
-        <div class="contact-methods">
-            <div class="contact-method">
-                <div class="contact-icon">
-                    <i class="fas fa-envelope"></i>
-                </div>
-                <div class="contact-info">
-                    <h3>メール</h3>
-                    <p>info@music-school.example.com</p>
-                </div>
-            </div>
+        <div class="contact-description">
+            <p>レッスンに関するご質問や無料体験のお申し込みなど、お気軽にお問い合わせください。</p>
+            <p>24時間以内に担当者より返信いたします。</p>
         </div>
-
-        <form class="contact-form">
+        
+        <form class="contact-form" id="contactForm">
             <div class="form-group">
-                <label class="form-label">お名前 <span style="color: var(--secondary);">*</span></label>
-                <input type="text" class="form-control" required>
+                <label for="name" class="form-label">お名前<span class="required-mark">*</span></label>
+                <input type="text" id="name" name="name" class="form-input" required>
             </div>
             
             <div class="form-group">
-                <label class="form-label">メールアドレス <span style="color: var(--secondary);">*</span></label>
-                <input type="email" class="form-control" required>
+                <label for="email" class="form-label">メールアドレス<span class="required-mark">*</span></label>
+                <input type="email" id="email" name="email" class="form-input" required>
             </div>
             
             <div class="form-group">
-                <label class="form-label">お問い合わせ種別 <span style="color: var(--secondary);">*</span></label>
-                <select class="form-control" required>
-                    <option value="">選択してください</option>
-                    <option value="lesson">レッスンについて</option>
-                    <option value="trial">無料体験申し込み</option>
-                    <option value="price">料金について</option>
-                    <option value="other">その他</option>
-                </select>
+                <label for="phone" class="form-label">電話番号</label>
+                <input type="tel" id="phone" name="phone" class="form-input">
             </div>
             
             <div class="form-group">
-                <label class="form-label">お問い合わせ内容 <span style="color: var(--secondary);">*</span></label>
-                <textarea class="form-control" rows="5" required></textarea>
+                <label for="subject" class="form-label">件名<span class="required-mark">*</span></label>
+                <input type="text" id="subject" name="subject" class="form-input" required>
             </div>
             
-            <button type="submit" class="btn-submit">送信する <i class="fas fa-paper-plane"></i></button>
+            <div class="form-group">
+                <label for="message" class="form-label">お問い合わせ内容<span class="required-mark">*</span></label>
+                <textarea id="message" name="message" class="form-textarea" required></textarea>
+            </div>
             
-            <p class="form-note">
-                <i class="fas fa-info-circle"></i> <span style="color: var(--secondary);">*</span>は必須項目です
-            </p>
+            <div class="form-note">
+                <span class="required-mark">*</span>は必須項目です
+            </div>
+            
+            <button type="submit" class="submit-button">送信する</button>
         </form>
-    </main>
+    </div>
 
-    <footer>
-        <p>&copy; 2025 Music School. All rights reserved.</p>
-    </footer>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // フォームの値を取得
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // 実際のプロジェクトでは、ここでサーバーにデータを送信する処理を追加
+            // この例ではコンソールに出力するだけ
+            console.log({
+                name,
+                email,
+                phone,
+                subject,
+                message
+            });
+            
+            // 送信成功メッセージ
+            alert('お問い合わせありがとうございます。24時間以内にご返信いたします。');
+            
+            // フォームをリセット
+            this.reset();
+        });
+    </script>
 </body>
 </html>
