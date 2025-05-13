@@ -1,7 +1,250 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="音楽教室の講師募集情報。経験不問、ジャンル不問でスキルを活かせる環境です。">
+    <title>講師募集 - Music School</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="additional-styles.css">
+    <style>
+        /* 追加スタイル - 講師募集ページ */
+        .faq-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .faq-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+            border-left-color: var(--primary);
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to right, rgba(62, 76, 141, 0.05), transparent);
+        }
+        
+        .faq-question h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .faq-question h4 i {
+            margin-right: 12px;
+            font-size: 1.1rem;
+            color: var(--secondary);
+            background: rgba(226, 114, 91, 0.1);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .faq-toggle {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question[aria-expanded="true"] .faq-toggle {
+            background-color: var(--secondary);
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            line-height: 1.8;
+        }
+        
+        .faq-answer.active {
+            max-height: 500px;
+            padding: 0 1.5rem 1.5rem 1.5rem;
+        }
+        
+        .faq-answer p {
+            position: relative;
+            padding-left: 1.5rem;
+            color: var(--text-light);
+        }
+        
+        .faq-answer p::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.7rem;
+            width: 8px;
+            height: 8px;
+            background-color: var(--secondary);
+            border-radius: 50%;
+        }
+        
+        .cta-container {
+            margin-top: 3rem;
+            background: linear-gradient(135deg, #3E4C8D 0%, #2A3666 100%);
+            padding: 3rem;
+            border-radius: 16px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(42, 54, 102, 0.2);
+        }
+        
+        .cta-container::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(226, 114, 91, 0.1);
+            z-index: 1;
+        }
+        
+        .cta-container::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: rgba(226, 114, 91, 0.15);
+            z-index: 1;
+        }
+        
+        .cta-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-text {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(226, 114, 91, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(226, 114, 91, 0.4);
+            color: white;
+        }
+        
+        .cta-button i {
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .cta-button:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* アニメーション効果 */
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+        
+        @media (max-width: 768px) {
+            .cta-container {
+                padding: 2rem 1.5rem;
+            }
+            
+            .cta-title {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="fixed-header">
+        <div class="logo">
+            <h1><i class="fas fa-music"></i> Music School</h1>
+        </div>
+        <button class="mobile-menu-toggle" aria-label="メニューを開く" aria-expanded="false">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="index.html#instruments">楽器</a></li>
+                <li><a href="index.html#lessons">レッスン</a></li>
+                <li><a href="price.html">料金</a></li>
+                <li><a href="index.html#about">私たちについて</a></li>
+                <li><a href="index.html#contact">お問い合わせ</a></li>
+                <li><a href="new-recruit.html" class="active">採用情報</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section">
+            <h2 class="section-title">講師募集</h2>
+            
+            <div class="price-container">
                 <section class="price-section animate-fadeInUp">
                     <h3 class="price-title"><i class="fas fa-question-circle"></i> よくある質問（FAQ）</h3>
                     <div class="faq-container">
-                        <div class="faq-card card">
+                        <div class="faq-card card delay-1">
                             <div class="faq-question" aria-expanded="false">
                                 <h4><i class="fas fa-question"></i> 教える経験がなくても大丈夫ですか？</h4>
                                 <span class="faq-toggle"><i class="fas fa-plus"></i></span>
@@ -11,7 +254,7 @@
                             </div>
                         </div>
                         
-                        <div class="faq-card card">
+                        <div class="faq-card card delay-2">
                             <div class="faq-question" aria-expanded="false">
                                 <h4><i class="fas fa-question"></i> 他の仕事や演奏活動と両立できますか？</h4>
                                 <span class="faq-toggle"><i class="fas fa-plus"></i></span>
@@ -21,7 +264,7 @@
                             </div>
                         </div>
                         
-                        <div class="faq-card card">
+                        <div class="faq-card card delay-3">
                             <div class="faq-question" aria-expanded="false">
                                 <h4><i class="fas fa-question"></i> 音楽ジャンルの指定はありますか？</h4>
                                 <span class="faq-toggle"><i class="fas fa-plus"></i></span>
@@ -102,6 +345,29 @@
                     answer.classList.toggle('active');
                     answer.setAttribute('aria-hidden', isOpen);
                 });
+            });
+            
+            // アニメーション用クラスの追加
+            const animatedElements = document.querySelectorAll('.animate-fadeInUp');
+            
+            animatedElements.forEach(element => {
+                // ビューポートに入ったとき、アニメーションクラスを追加
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = "1";
+                            entry.target.style.transform = "translateY(0)";
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                });
+                
+                observer.observe(element);
+                
+                // 初期状態の設定
+                element.style.opacity = "0";
+                element.style.transform = "translateY(20px)";
+                element.style.transition = "opacity 0.5s ease, transform 0.5s ease";
             });
         });
     </script>
