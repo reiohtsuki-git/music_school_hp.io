@@ -91,5 +91,65 @@
     </footer>
 
     <script src="script.js"></script>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // AOSの初期化
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out',
+            once: true
+        });
+        
+        // スクロール時のカウントアップアニメーション
+        document.addEventListener('DOMContentLoaded', function() {
+            const stats = {
+                'stat-students': { end: 3500, duration: 2000 },
+                'stat-courses': { end: 25, duration: 1500 },
+                'stat-instructors': { end: 50, duration: 1800 },
+                'stat-satisfaction': { end: 98, duration: 1200 }
+            };
+            
+            const statsSection = document.querySelector('.stats-section');
+            
+            function animateStats() {
+                for (const [id, data] of Object.entries(stats)) {
+                    const el = document.getElementById(id);
+                    if (!el || el.dataset.animated === 'true') continue;
+                    
+                    const { end, duration } = data;
+                    const start = 0;
+                    const increment = end / (duration / 16);
+                    let current = start;
+                    
+                    el.dataset.animated = 'true';
+                    
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= end) {
+                            current = end;
+                            clearInterval(timer);
+                        }
+                        
+                        el.innerHTML = Math.floor(current) + (id === 'stat-satisfaction' ? '<sup>%</sup>' : '<sup>+</sup>');
+                    }, 16);
+                }
+            }
+            
+            // IntersectionObserver でセクションが表示されたらアニメーション開始
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(animateStats, 500);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+            
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+        });
+    </script>
 </body>
 </html>
