@@ -46,6 +46,22 @@
             margin-right: 0.5rem;
         }
 
+      /* 「私たちについて」セクションのタイトルのスタイル調整 */
+      #about .section-title::after {
+        /* 1本の装飾線だけ表示するように設定 */
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background-color: var(--secondary);
+        border-radius: 3px;
+        /* 他の影響を受けないようにする */
+        box-shadow: none;
+      }
+
         /* 採用情報のスタイル改善 */
         .recruit-section {
             background-color: #f9f9f9;
