@@ -105,17 +105,22 @@ header {
     padding: 0.75rem 2rem;
 }
 
-.logo h1 {
-    color: var(--primary);
-    font-size: 1.8rem;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    font-family: 'Playfair Display', 'Montserrat', 'Noto Sans JP', sans-serif;
+.logo {
+    display: flex;
+    align-items: center;
 }
 
-.logo h1 i {
-    margin-right: 8px;
-    color: var(--secondary);
+.logo-image {
+    height: 40px; /* 元のロゴに近いサイズに調整 */
+    width: auto;
+    object-fit: contain; /* アスペクト比を保持 */
+}
+
+/* モバイル対応も追加 */
+@media screen and (max-width: 768px) {
+    .logo-image {
+        height: 35px; /* モバイル用にやや小さく */
+    }
 }
 
 .about-section-title {
