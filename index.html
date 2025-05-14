@@ -70,6 +70,7 @@
             overflow: hidden;
             border-radius: 15px;
         }
+        
         .recruit-section::after {
             content: '';
             position: absolute;
@@ -81,26 +82,166 @@
             background-color: rgba(226, 114, 91, 0.08);
             z-index: 1;
         }
+        
         .recruit-container {
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 1.5rem;
             position: relative;
             z-index: 2;
         }
+        
         .recruit-intro {
             text-align: center;
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .recruit-intro p {
             font-size: 1.1rem;
             line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
             color: var(--text-light);
         }
-
-        .recruit-positions {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        
+        .recruit-genres {
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
         }
+        
+        .recruit-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .recruit-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary);
+            border-radius: 50%;
+            margin-right: 1.5rem;
+        }
+        
+        .recruit-icon i {
+            font-size: 1.8rem;
+            color: white;
+        }
+        
+        .recruit-header h3 {
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            margin: 0;
+        }
+        
+        .recruit-subtext {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+        
+        .genre-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .genre-card {
+            display: flex;
+            align-items: flex-start;
+            padding: 1.5rem;
+            background-color: rgba(248, 249, 255, 0.5);
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .genre-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .genre-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .genre-icon i {
+            font-size: 1.4rem;
+            color: white;
+        }
+        
+        .genre-content h4 {
+            margin: 0 0 0.8rem 0;
+            font-size: 1.3rem;
+            color: var(--primary);
+        }
+        
+        .genre-content p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .recruit-note {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .recruit-cta {
+            text-align: center;
+        }
+        
+        .recruit-cta .btn-primary {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            box-shadow: 0 10px 25px rgba(62, 76, 141, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .recruit-cta .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(62, 76, 141, 0.4);
+        }
+        
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .genre-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .recruit-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .recruit-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .recruit-genres {
+                padding: 1.5rem;
+            }
+        }
+        
         .position-card {
             background: #fff;
             border-radius: 8px;
