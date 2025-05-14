@@ -111,15 +111,28 @@ header {
 }
 
 .logo-image {
-    height: 40px; /* 元のロゴに近いサイズに調整 */
+    height: 60px; /* ヘッダーの高さに合わせて大きく */
     width: auto;
-    object-fit: contain; /* アスペクト比を保持 */
+    object-fit: contain;
+    margin-right: 12px; /* テキストとの間隔 */
 }
 
-/* モバイル対応も追加 */
+.logo-text {
+    color: var(--primary);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    font-family: 'Playfair Display', 'Montserrat', 'Noto Sans JP', sans-serif;
+}
+
+/* モバイル対応 */
 @media screen and (max-width: 768px) {
     .logo-image {
-        height: 35px; /* モバイル用にやや小さく */
+        height: 50px;
+    }
+    
+    .logo-text {
+        font-size: 1.6rem;
     }
 }
 
