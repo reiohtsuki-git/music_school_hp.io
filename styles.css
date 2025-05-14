@@ -116,7 +116,7 @@ header {
     display: flex;
     align-items: center;
     text-decoration: none;
-    height: 100%; /* 高さをロゴと同じに */
+    height: 50%; /* 高さをロゴと同じに */
 }
 
 .logo-image {
