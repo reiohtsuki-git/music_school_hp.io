@@ -123,12 +123,12 @@ header {
     margin-right: 12px;
 }
 
+/* ロゴテキストのスタイル修正 */
 .logo-text {
     color: var(--primary);
-    font-size: 1.6rem;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    font-family: 'Playfair Display', 'Montserrat', 'Noto Sans JP', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-left: 10px;
 }
 
 /* モバイル対応 */
