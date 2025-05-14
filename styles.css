@@ -118,7 +118,7 @@ header {
 }
 
 .logo-image {
-    height: 70px; /* 適切なサイズに固定 */
+    height: 60px; /* 適切なサイズに固定 */
     width: auto;
     margin-right: 12px;
 }
