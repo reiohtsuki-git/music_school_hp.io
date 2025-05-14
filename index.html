@@ -46,6 +46,86 @@
             margin-right: 0.5rem;
         }
 
+        /* レッスン内容のスタイル改善（インラインでの優先度を高める） */
+        .lesson-item {
+            background: linear-gradient(145deg, #ffffff, #f8f9ff) !important;
+            border-radius: 16px !important;
+            padding: 2.5rem !important;
+            box-shadow: 0 10px 30px rgba(62, 76, 141, 0.08) !important;
+            transition: all 0.4s ease !important;
+            border-left: 5px solid transparent !important;
+            display: grid !important;
+            grid-template-columns: 1fr 3fr !important;
+            gap: 2rem !important;
+            position: relative !important;
+            overflow: hidden !important;
+        }
+        
+        .lesson-item:hover {
+            border-left-color: var(--primary) !important;
+            transform: translateX(5px) translateY(-3px) !important;
+            box-shadow: 0 15px 35px rgba(62, 76, 141, 0.12) !important;
+        }
+        
+        .lesson-item::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            right: 0 !important;
+            width: 100px !important;
+            height: 100px !important;
+            background: radial-gradient(circle, rgba(226, 114, 91, 0.05) 0%, rgba(255, 255, 255, 0) 70%) !important;
+            border-radius: 50% !important;
+            z-index: 0 !important;
+        }
+        
+        .lesson-icon {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 100px !important;
+            height: 100px !important;
+            background: linear-gradient(135deg, var(--secondary-light) 0%, rgba(226, 114, 91, 0.2) 100%) !important;
+            border-radius: 50% !important;
+            margin: 0 auto !important;
+            position: relative !important;
+            transition: all 0.3s ease !important;
+            box-shadow: 0 5px 15px rgba(226, 114, 91, 0.1) !important;
+        }
+        
+        .lesson-item:hover .lesson-icon {
+            transform: scale(1.05) !important;
+            box-shadow: 0 8px 20px rgba(226, 114, 91, 0.15) !important;
+        }
+        
+        .lesson-feature {
+            background: linear-gradient(135deg, var(--secondary-light) 0%, rgba(226, 114, 91, 0.2) 100%) !important;
+            padding: 0.5rem 1.2rem !important;
+            border-radius: 50px !important;
+            font-size: 0.875rem !important;
+            color: var(--secondary) !important;
+            font-weight: 500 !important;
+            box-shadow: 0 3px 10px rgba(226, 114, 91, 0.07) !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .lesson-feature:hover {
+            transform: translateY(-3px) !important;
+            box-shadow: 0 5px 15px rgba(226, 114, 91, 0.12) !important;
+        }
+        
+        /* レッスン内容のレスポンシブ対応 */
+        @media (max-width: 768px) {
+            .lesson-item {
+                grid-template-columns: 1fr !important;
+                padding: 2rem !important;
+            }
+            
+            .lesson-icon {
+                margin-bottom: 1.5rem !important;
+            }
+        }    
+
       /* 「私たちについて」セクションのタイトルのスタイル調整 */
       #about .section-title::after {
         /* 1本の装飾線だけ表示するように設定 */
