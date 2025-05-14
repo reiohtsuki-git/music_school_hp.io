@@ -109,7 +109,7 @@ header {
 .logo {
     display: flex;
     align-items: center;
-    height: 100%; /* ヘッダーの高さいっぱいに */
+    height: 50%; /* ヘッダーの高さいっぱいに */
 }
 
 .logo a {
