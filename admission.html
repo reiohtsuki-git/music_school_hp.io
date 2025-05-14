@@ -3,13 +3,352 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admission - Music School</title>
+    <title>入会フォーム - Melody Lab</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 入会フォーム用スタイル */
+        .admission-container {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 3rem;
+            background-color: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .admission-container h2 {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--primary);
+            font-size: 2rem;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .admission-container h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary);
+            border-radius: 3px;
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            font-size: 1rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: #f8f9fa;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(62, 76, 141, 0.1);
+            outline: none;
+            background-color: #fff;
+        }
+
+        .form-control::placeholder {
+            color: #adb5bd;
+        }
+
+        .form-select {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: #f8f9fa;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23adb5bd' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 16px;
+        }
+
+        .form-select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(62, 76, 141, 0.1);
+            outline: none;
+            background-color: #fff;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .input-group-text {
+            padding: 0.8rem 1rem;
+            background-color: #e9ecef;
+            border: 2px solid #e9ecef;
+            border-radius: 8px 0 0 8px;
+            font-size: 1rem;
+            color: #495057;
+        }
+
+        .input-group .form-control {
+            border-radius: 0 8px 8px 0;
+            border-left: 0;
+        }
+
+        .payment-section {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .payment-section h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            color: var(--text-dark);
+        }
+
+        .payment-method {
+            margin-bottom: 1.5rem;
+        }
+
+        .payment-method label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            cursor: pointer;
+        }
+
+        .payment-method input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .card-details {
+            margin-top: 1.5rem;
+            padding-left: 1.8rem;
+        }
+
+        .card-number, .card-expiry, .card-security {
+            margin-bottom: 1.5rem;
+        }
+
+        .expiry-inputs {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .expiry-inputs input {
+            flex: 1;
+        }
+
+        .card-icons {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 25px;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        .card-icon:hover {
+            opacity: 1;
+        }
+
+        .admission-button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 2rem;
+            box-shadow: 0 5px 15px rgba(62, 76, 141, 0.2);
+        }
+
+        .admission-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(62, 76, 141, 0.3);
+        }
+
+        .fee-link {
+            display: inline-block;
+            margin-left: 1rem;
+            color: var(--primary);
+            font-weight: 500;
+            text-decoration: underline;
+            transition: all 0.3s ease;
+        }
+
+        .fee-link:hover {
+            color: var(--secondary);
+        }
+
+        .form-note {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .form-control-feedback {
+            position: absolute;
+            right: 1rem;
+            top: 2.4rem;
+            color: #6c757d;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 1rem;
+            top: 2.4rem;
+            color: #6c757d;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        /* カード番号入力のフォーマット用 */
+        .card-number-format {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .card-number-format input {
+            width: 60px;
+            text-align: center;
+        }
+
+        /* フォーム送信時のアニメーション */
+        @keyframes submitPulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .submit-animate {
+            animation: submitPulse 0.5s ease;
+        }
+
+        /* フォームステータスインジケーター */
+        .form-indicator {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .form-indicator::before {
+            content: '';
+            position: absolute;
+            top: 1.2rem;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #e9ecef;
+            z-index: 1;
+        }
+
+        .step {
+            position: relative;
+            z-index: 2;
+            background-color: white;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            border: 2px solid #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .step.active {
+            border-color: var(--primary);
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .step.completed {
+            border-color: var(--primary);
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .step.completed::after {
+            content: '✓';
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .admission-container {
+                padding: 2rem 1.5rem;
+                margin: 2rem 1rem;
+            }
+
+            .expiry-inputs {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .card-number-format {
+                flex-direction: column;
+            }
+
+            .card-number-format input {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <h1>Music School</h1>
+            <a href="index.html">
+                <img src="images/ms_logo.jpg" alt="Melody Lab" class="logo-image">
+                <span class="logo-text">Melody Lab</span>
+            </a>
         </div>
         <nav>
             <ul>
@@ -27,78 +366,180 @@
         <section class="admission-container">
             <h2>入会フォーム</h2>
             
+            <div class="form-indicator">
+                <div class="step active">1</div>
+                <div class="step">2</div>
+                <div class="step">3</div>
+            </div>
+            
             <form id="admissionForm">
                 <div class="form-group">
-                    <label for="email">ID（Emailアドレス）</label>
-                    <input type="email" id="email" name="email" placeholder="sample@test.co.jp" required>
+                    <label for="email">メールアドレス <span style="color: var(--secondary);">*</span></label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="example@melody-lab.com" required>
+                    </div>
+                    <div class="form-note">ログインIDとして使用します</div>
                 </div>
                 
                 <div class="form-group">
-                    <label for="password">PW</label>
-                    <input type="password" id="password" name="password" required>
+                    <label for="password">パスワード <span style="color: var(--secondary);">*</span></label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="8文字以上の英数字" required>
+                        <span class="password-toggle" onclick="togglePassword('password')"><i class="fas fa-eye"></i></span>
+                    </div>
+                    <div class="form-note">8文字以上で英字と数字を含めてください</div>
                 </div>
                 
                 <div class="form-group">
-                    <label for="passwordConfirm">PW確認用</label>
-                    <input type="password" id="passwordConfirm" name="passwordConfirm" required>
+                    <label for="passwordConfirm">パスワード（確認） <span style="color: var(--secondary);">*</span></label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                        <input type="password" id="passwordConfirm" name="passwordConfirm" class="form-control" placeholder="もう一度入力してください" required>
+                        <span class="password-toggle" onclick="togglePassword('passwordConfirm')"><i class="fas fa-eye"></i></span>
+                    </div>
                 </div>
                 
                 <div class="form-group">
-                    <label for="course">ご希望のレッスン</label>
-                    <select id="course" name="course" required>
-                        <option value="">コースを選択してください。▼</option>
+                    <label for="course">ご希望のレッスン <span style="color: var(--secondary);">*</span></label>
+                    <select id="course" name="course" class="form-select" required>
+                        <option value="">コースを選択してください</option>
                         <option value="guitar">Guitar Lesson</option>
                         <option value="bass">Bass Lesson</option>
                         <option value="dtm">DTM Lesson</option>
                         <option value="compose">Compose Lesson</option>
                     </select>
-                    <a href="price.html" id="fee-link" class="fee-link">料金表</a>
+                    <div class="form-note">
+                        レッスン内容と料金については<a href="price.html" class="fee-link">料金表</a>をご覧ください
+                    </div>
                 </div>
                 
-                <div class="form-group payment-section">
-                    <h3>お支払い方法</h3>
+                <div class="payment-section">
+                    <h3><i class="fas fa-credit-card"></i> お支払い方法</h3>
                     <div class="payment-method">
-                        <div class="credit-card">
-                            <label>
-                                <input type="radio" name="payment" value="credit" checked>
-                                クレジットカード情報入力
-                            </label>
+                        <label>
+                            <input type="radio" name="payment" value="credit" checked>
+                            クレジットカード
+                        </label>
+                        
+                        <div class="card-details">
+                            <div class="form-group card-number">
+                                <label for="cardNumber">カード番号</label>
+                                <input type="text" id="cardNumber" name="cardNumber" class="form-control" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCardNumber(this)">
+                                <div class="card-icons">
+                                    <img src="https://cdn.iconscout.com/icon/free/png-256/visa-3-226460.png" alt="Visa" class="card-icon">
+                                    <img src="https://cdn.iconscout.com/icon/free/png-256/mastercard-3-226462.png" alt="MasterCard" class="card-icon">
+                                    <img src="https://cdn.iconscout.com/icon/free/png-256/american-express-5-675708.png" alt="American Express" class="card-icon">
+                                </div>
+                            </div>
                             
-                            <div class="card-details">
-                                <div class="card-number">
-                                    <label for="cardNumber">カード番号</label>
-                                    <input type="text" id="cardNumber" name="cardNumber" placeholder="0000 0000 0000 0000">
-                                    <div class="card-icons">
-                                        <!-- カードアイコン -->
+                            <div class="form-group card-expiry">
+                                <label>有効期限</label>
+                                <div class="expiry-inputs">
+                                    <div class="input-group">
+                                        <span class="input-group-text">月</span>
+                                        <input type="text" id="expMonth" name="expMonth" class="form-control" placeholder="MM" maxlength="2" oninput="validateNumber(this, 1, 12)">
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-text">年</span>
+                                        <input type="text" id="expYear" name="expYear" class="form-control" placeholder="YY" maxlength="2" oninput="validateNumber(this, 0, 99)">
                                     </div>
                                 </div>
-                                
-                                <div class="card-expiry">
-                                    <label>有効期限</label>
-                                    <div class="expiry-inputs">
-                                        <input type="text" id="expMonth" name="expMonth" placeholder="月" maxlength="2">
-                                        <input type="text" id="expYear" name="expYear" placeholder="年" maxlength="2">
-                                    </div>
+                            </div>
+                            
+                            <div class="form-group card-security">
+                                <label for="securityCode">セキュリティコード</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-shield-alt"></i></span>
+                                    <input type="text" id="securityCode" name="securityCode" class="form-control" placeholder="CVC/CVV" maxlength="4" oninput="validateNumber(this, 0, 9999)">
                                 </div>
-                                
-                                <div class="card-security">
-                                    <label for="securityCode">セキュリティコード</label>
-                                    <input type="text" id="securityCode" name="securityCode" maxlength="4">
-                                </div>
+                                <div class="form-note">カード裏面の3〜4桁の番号</div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <button type="submit" class="admission-button">入会</button>
+                <button type="submit" class="admission-button">入会する <i class="fas fa-arrow-right"></i></button>
+                
+                <div class="form-note" style="text-align: center; margin-top: 1.5rem;">
+                    <p>入会することで、<a href="#" style="color: var(--primary);">利用規約</a>および<a href="#" style="color: var(--primary);">プライバシーポリシー</a>に同意したことになります。</p>
+                </div>
             </form>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Music School. All rights reserved.</p>
+        <p>&copy; 2025 Melody Lab. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // パスワード表示/非表示切り替え
+        function togglePassword(id) {
+            const passwordInput = document.getElementById(id);
+            const toggleIcon = event.currentTarget.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            }
+        }
+        
+        // カード番号フォーマット (スペース区切り)
+        function formatCardNumber(input) {
+            let value = input.value.replace(/\D/g, '');
+            let formattedValue = '';
+            
+            for (let i = 0; i < value.length; i++) {
+                if (i > 0 && i % 4 === 0) {
+                    formattedValue += ' ';
+                }
+                formattedValue += value[i];
+            }
+            
+            input.value = formattedValue;
+        }
+        
+        // 数値のみ許可して範囲をチェック
+        function validateNumber(input, min, max) {
+            let value = input.value.replace(/\D/g, '');
+            
+            if (value !== '') {
+                value = Math.max(min, Math.min(max, parseInt(value)));
+            }
+            
+            input.value = value;
+        }
+        
+        // フォーム送信処理
+        document.getElementById('admissionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // ここに実際の送信処理を追加
+            const submitButton = document.querySelector('.admission-button');
+            submitButton.classList.add('submit-animate');
+            submitButton.innerHTML = '送信中... <i class="fas fa-spinner fa-spin"></i>';
+            
+            // 送信成功を模擬（実際の実装ではAjaxなどで処理）
+            setTimeout(() => {
+                submitButton.innerHTML = '入会申請を受け付けました！ <i class="fas fa-check"></i>';
+                submitButton.style.backgroundColor = '#4CAF50';
+                
+                // 完了ステップに移動
+                const steps = document.querySelectorAll('.step');
+                steps.forEach(step => {
+                    step.classList.add('completed');
+                });
+                
+                // リダイレクト（オプション）
+                // setTimeout(() => window.location.href = 'thankyou.html', 2000);
+            }, 2000);
+        });
+    </script>
 </body>
 </html>
