@@ -63,12 +63,30 @@
       }
 
         /* 採用情報のスタイル改善 */
-        .recruit-section {
-            background-color: #f9f9f9;
+        .contact-section {
+            background: linear-gradient(135deg, #f8f9ff 0%, #eeeeff 100%);
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
         }
-        .recruit-container {
-            max-width: 1000px;
+        .contact-section::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: rgba(226, 114, 91, 0.08);
+            z-index: 1;
+        }
+        .contact-container {
+            max-width: 800px;
             margin: 0 auto;
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 2;
         }
         .recruit-intro {
             text-align: center;
