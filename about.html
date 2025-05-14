@@ -470,12 +470,27 @@
                 font-size: 1.8rem;
             }
         }
+
+        .logo-text {
+            color: #4a90e2 !important; /* または var(--primary) !important */
+            font-size: 1.5rem !important;
+            font-weight: bold !important;
+            margin-left: 10px !important;
+        }
+        
+        .logo-image {
+            height: 60px !important;
+            width: auto !important;
+        }
     </style>
 </head>
 <body>
     <header class="fixed-header">
         <div class="logo">
-            <a href="index.html"><img src="images/music_school_logo_new.jpg" alt="Melody Lab" class="logo-image"></a>
+            <a href="index.html">
+                <img src="images/ms_logo.jpg" alt="Melody Lab" class="logo-image">
+                <span class="logo-text">Melody Lab</span>
+            </a>
         </div>
         <button class="mobile-menu-toggle" aria-label="メニューを開く" aria-expanded="false">
             <i class="fas fa-bars" aria-hidden="true"></i>
