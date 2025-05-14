@@ -109,37 +109,36 @@ header {
 .logo {
     display: flex;
     align-items: center;
-    height: 50%; /* ヘッダーの高さいっぱいに */
 }
 
 .logo a {
     display: flex;
     align-items: center;
     text-decoration: none;
-    height: 50%; /* 高さをロゴと同じに */
 }
 
 .logo-image {
-    height: calc(100% - 6px); /* ヘッダーの高さからごくわずかな余白だけ引いた高さ */
+    height: 50px; /* 適切なサイズに固定 */
     width: auto;
-    object-fit: contain;
-    margin-right: 12px; /* テキストとの間隔 */
+    margin-right: 12px;
 }
 
 .logo-text {
     color: var(--primary);
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: 700;
     letter-spacing: -0.5px;
     font-family: 'Playfair Display', 'Montserrat', 'Noto Sans JP', sans-serif;
-    display: inline-block;
-    line-height: 1;
 }
 
 /* モバイル対応 */
 @media screen and (max-width: 768px) {
+    .logo-image {
+        height: 40px;
+    }
+    
     .logo-text {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
     }
 }
 
