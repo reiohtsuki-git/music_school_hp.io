@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
     <!-- テスティモニアルセクション用CSS -->
     <link rel="stylesheet" href="testimonial-styles.css">
+    <!-- レッスン内容セクション用CSS -->
+    <link rel="stylesheet" href="lesson-section.css">
     <!-- 料金表セクション用CSS -->
     <link rel="stylesheet" href="price-section.css">
     <!-- お問い合わせと採用情報用CSS -->
@@ -58,86 +60,6 @@
         .quick-link i {
             margin-right: 0.5rem;
         }
-
-        /* レッスン内容のスタイル改善（インラインでの優先度を高める） */
-        .lesson-item {
-            background: linear-gradient(145deg, #ffffff, #f8f9ff) !important;
-            border-radius: 16px !important;
-            padding: 2.5rem !important;
-            box-shadow: 0 10px 30px rgba(62, 76, 141, 0.08) !important;
-            transition: all 0.4s ease !important;
-            border-left: 5px solid transparent !important;
-            display: grid !important;
-            grid-template-columns: 1fr 3fr !important;
-            gap: 2rem !important;
-            position: relative !important;
-            overflow: hidden !important;
-        }
-
-        .lesson-item:hover {
-            border-left-color: var(--primary) !important;
-            transform: translateX(5px) translateY(-3px) !important;
-            box-shadow: 0 15px 35px rgba(62, 76, 141, 0.12) !important;
-        }
-
-        .lesson-item::before {
-            content: '' !important;
-            position: absolute !important;
-            top: 0 !important;
-            right: 0 !important;
-            width: 100px !important;
-            height: 100px !important;
-            background: radial-gradient(circle, rgba(226, 114, 91, 0.05) 0%, rgba(255, 255, 255, 0) 70%) !important;
-            border-radius: 50% !important;
-            z-index: 0 !important;
-        }
-
-        .lesson-icon {
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            width: 100px !important;
-            height: 100px !important;
-            background: linear-gradient(135deg, var(--secondary-light) 0%, rgba(226, 114, 91, 0.2) 100%) !important;
-            border-radius: 50% !important;
-            margin: 0 auto !important;
-            position: relative !important;
-            transition: all 0.3s ease !important;
-            box-shadow: 0 5px 15px rgba(226, 114, 91, 0.1) !important;
-        }
-
-        .lesson-item:hover .lesson-icon {
-            transform: scale(1.05) !important;
-            box-shadow: 0 8px 20px rgba(226, 114, 91, 0.15) !important;
-        }
-
-        .lesson-feature {
-            background: linear-gradient(135deg, var(--secondary-light) 0%, rgba(226, 114, 91, 0.2) 100%) !important;
-            padding: 0.5rem 1.2rem !important;
-            border-radius: 50px !important;
-            font-size: 0.875rem !important;
-            color: var(--secondary) !important;
-            font-weight: 500 !important;
-            box-shadow: 0 3px 10px rgba(226, 114, 91, 0.07) !important;
-            transition: all 0.3s ease !important;
-        }
-
-        .lesson-feature:hover {
-            transform: translateY(-3px) !important;
-            box-shadow: 0 5px 15px rgba(226, 114, 91, 0.12) !important;
-        }
-
-        /* レッスン内容のレスポンシブ対応 */
-        @media (max-width: 768px) {
-            .lesson-item {
-                grid-template-columns: 1fr !important;
-                padding: 2rem !important;
-            }
-
-            .lesson-icon {
-                margin-bottom: 1.5rem !important;
-            }
-        }    
 
       /* 「私たちについて」セクションのタイトルのスタイル調整 */
       #about .section-title::after {
@@ -644,13 +566,12 @@
                     <div class="lesson-details">
                         <h3>Guitar Lesson</h3>
                         <div class="lesson-content">
-                            <p>ギターレッスンでは、初心者から上級者まで、あなたのレベルに合わせた指導を行います。</p>
-                            <p>基本的な弾き方からテクニック、音楽理論まで幅広く学べます。</p>
+                            <p>ギターレッスンでは、初心者から上級者まで、あなたのレベルに合わせた指導を行います。基本的な弾き方からテクニック、音楽理論まで幅広く学べます。</p>
                             <div class="lesson-features">
-                                <span class="lesson-feature">アコースティック</span>
-                                <span class="lesson-feature">エレキ</span>
-                                <span class="lesson-feature">クラシック</span>
-                                <span class="lesson-feature">弾き語り</span>
+                                <span class="lesson-feature"><i class="fas fa-check"></i> アコースティック</span>
+                                <span class="lesson-feature"><i class="fas fa-check"></i> エレキ</span>
+                                <span class="lesson-feature"><i class="fas fa-check"></i> クラシック</span>
+                                <span class="lesson-feature"><i class="fas fa-check"></i> 弾き語り</span>
                             </div>
                             <a href="#price" class="price-link">料金を確認する <i class="fas fa-arrow-right"></i></a>
                         </div>
@@ -665,12 +586,12 @@
                     <div class="lesson-details">
                         <h3>Bass Lesson</h3>
                         <div class="lesson-content">
-                            <p>ベースレッスンでは、リズム感や音程感覚を養いながら、バンドの要となる演奏技術を習得します。</p>
+                            <p>ベースレッスンでは、リズム感や音程感覚を養いながら、バンドの要となる演奏技術を習得します。初心者から上級者まで、あなたのペースで成長できるカリキュラムをご用意しています。</p>
                             <div class="lesson-features">
-                                <span class="lesson-feature">スラップ</span>
-                                <span class="lesson-feature">フィンガリング</span>
-                                <span class="lesson-feature">ピック奏法</span>
-                                <span class="lesson-feature">グルーヴ感</span>
+                                <span class="lesson-feature"><i class="fas fa-check"></i> スラップ</span>
+                                <span class="lesson-feature"><i class="fas fa-check"></i> フィンガリング</span>
+                                <span class="lesson-feature"><i class="fas fa-check"></i> ピック奏法</span>
+                                <span class="lesson-feature"><i class="fas fa-check"></i> グルーヴ感</span>
                             </div>
                             <a href="#price" class="price-link">料金を確認する <i class="fas fa-arrow-right"></i></a>
                         </div>
@@ -685,12 +606,12 @@
                     <div class="lesson-details">
                         <h3>DTM Lesson</h3>
                         <div class="lesson-content">
-                            <p>DTMレッスンでは、音楽制作ソフトの基本操作から、プロ品質の楽曲制作まで学べます。</p>
+                            <p>DTMレッスンでは、音楽制作ソフトの基本操作から、プロ品質の楽曲制作まで学べます。あなたのクリエイティビティを最大限に引き出す、実践的なレッスンを提供します。</p>
                             <div class="lesson-features">
-                                <span class="lesson-feature">Logic Pro</span>
-                                <span class="lesson-feature">Cubase</span>
-                                <span class="lesson-feature">Ableton Live</span>
-                                <span class="lesson-feature">Pro Tools</span>
+                                <span class="lesson-feature"><i class="fas fa-check"></i> Logic Pro</span>
+                                <span class="lesson-feature"><i class="fas fa-check"></i> Cubase</span>
+                                <span class="lesson-feature"><i class="fas fa-check"></i> Ableton Live</span>
+                                <span class="lesson-feature"><i class="fas fa-check"></i> Pro Tools</span>
                             </div>
                             <a href="#price" class="price-link">料金を確認する <i class="fas fa-arrow-right"></i></a>
                         </div>
@@ -705,12 +626,12 @@
                     <div class="lesson-details">
                         <h3>Compose Lesson</h3>
                         <div class="lesson-content">
-                            <p>作曲レッスンでは、メロディーの作り方、コード進行、楽曲構成など、作曲の基礎から応用まで学べます。</p>
+                            <p>作曲レッスンでは、メロディーの作り方、コード進行、楽曲構成など、作曲の基礎から応用まで学べます。あなたの音楽的な感性を大切にしながら、オリジナル曲の制作をサポートします。</p>
                             <div class="lesson-features">
-                                <span class="lesson-feature">ポップス</span>
-                                <span class="lesson-feature">ロック</span>
-                                <span class="lesson-feature">ジャズ</span>
-                                <span class="lesson-feature">クラシック</span>
+                                <span class="lesson-feature"><i class="fas fa-check"></i> ポップス</span>
+                                <span class="lesson-feature"><i class="fas fa-check"></i> ロック</span>
+                                <span class="lesson-feature"><i class="fas fa-check"></i> ジャズ</span>
+                                <span class="lesson-feature"><i class="fas fa-check"></i> クラシック</span>
                             </div>
                             <a href="#price" class="price-link">料金を確認する <i class="fas fa-arrow-right"></i></a>
                         </div>
