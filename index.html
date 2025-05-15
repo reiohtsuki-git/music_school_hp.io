@@ -18,6 +18,11 @@
     <link rel="stylesheet" href="header-nav.css">
     <!-- フッター用CSS -->
     <link rel="stylesheet" href="footer.css">
+    <!-- Slick Slider用のCSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <!-- テスティモニアルセクション用CSS -->
+    <link rel="stylesheet" href="testimonial-styles.css">
     <!-- 料金表セクション用CSS -->
     <link rel="stylesheet" href="price-section.css">
     <!-- Custom CSS -->
@@ -715,37 +720,96 @@
         <section class="section testimonials-section">
             <h2 class="section-title">お客様の声</h2>
             <div class="testimonials-container">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">初めてギターを触る状態から始めましたが、分かりやすい指導のおかげで3ヶ月で好きな曲が弾けるようになりました。オンラインでも十分に学べます！</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-author-info">
-                                <h4>田中さん（30代・会社員）</h4>
-                                <p>ギターコース受講中</p>
+                <div class="testimonials-slider">
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">"</div>
+                        <div class="testimonial-content">
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">初めてギターを触る状態から始めましたが、分かりやすい指導のおかげで3ヶ月で好きな曲が弾けるようになりました。オンラインでも十分に学べます！</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">
+                                    <img src="images/avatars/avatar-1.jpg" alt="田中さん">
+                                </div>
+                                <div class="testimonial-author-info">
+                                    <h4>田中さん（30代・会社員）</h4>
+                                    <p>ギターコース受講中</p>
+                                    <div class="testimonial-social">
+                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-story">
+                                <div class="testimonial-story-title">ビフォー/アフター</div>
+                                <p>楽器経験ゼロだった私が今では友人の前で演奏できるまでに。仕事の合間に練習できる柔軟なレッスン体制に感謝しています。</p>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">DTMの基礎から応用まで体系的に学べて満足しています。自分の曲を作れるようになったのが嬉しいです。</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-author-info">
-                                <h4>高橋さん（20代・学生）</h4>
-                                <p>DTMコース受講中</p>
+        
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">"</div>
+                        <div class="testimonial-content">
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p class="testimonial-text">DTMの基礎から応用まで体系的に学べて満足しています。自分の曲を作れるようになったのが嬉しいです。先生のアドバイスは的確で、迷った時に的確な方向性を示してくれます。</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">
+                                    <img src="images/avatars/avatar-2.jpg" alt="高橋さん">
+                                </div>
+                                <div class="testimonial-author-info">
+                                    <h4>高橋さん（20代・学生）</h4>
+                                    <p>DTMコース受講中</p>
+                                    <div class="testimonial-social">
+                                        <a href="#"><i class="fab fa-soundcloud"></i></a>
+                                        <a href="#"><i class="fab fa-youtube"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-story">
+                                <div class="testimonial-story-title">ビフォー/アフター</div>
+                                <p>DTMソフトの使い方が全く分からなかった状態から、今では自作曲をSNSにアップできるようになりました。音楽の幅が広がって毎日が充実しています。</p>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">仕事の合間に無理なく続けられるのが良いです。講師の方々が親身になって教えてくれるので、楽しく上達できています。</p>
-                        <div class="testimonial-author">
-                            <div class="testimonial-author-info">
-                                <h4>伊藤さん（40代・自営業）</h4>
-                                <p>ベースコース受講中</p>
+        
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">"</div>
+                        <div class="testimonial-content">
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">仕事の合間に無理なく続けられるのが良いです。講師の方々が親身になって教えてくれるので、楽しく上達できています。年齢を気にせず始められる雰囲気も気に入っています。</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">
+                                    <img src="images/avatars/avatar-3.jpg" alt="伊藤さん">
+                                </div>
+                                <div class="testimonial-author-info">
+                                    <h4>伊藤さん（40代・自営業）</h4>
+                                    <p>ベースコース受講中</p>
+                                    <div class="testimonial-social">
+                                        <a href="#"><i class="fab fa-twitter"></i></a>
+                                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-story">
+                                <div class="testimonial-story-title">ビフォー/アフター</div>
+                                <p>趣味で始めたベースが今では小さなライブに出演するまでに。同世代の音楽仲間も増えて、充実した日々を過ごしています。</p>
                             </div>
                         </div>
                     </div>
@@ -1249,6 +1313,9 @@
 
     <script src="header-nav.js"></script>
     <script src="price-tabs.js"></script>
-    
+    <!-- Slick Slider用のJavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="testimonial-slider.js"></script>
 </body>
 </html>
