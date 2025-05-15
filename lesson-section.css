@@ -1,0 +1,192 @@
+/* レッスン内容セクションのスタイル */
+.lessons-container {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.lesson-item {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 3rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 10px 30px rgba(62, 76, 141, 0.08);
+  transition: all 0.4s ease;
+  border-left: 5px solid transparent;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.lesson-item:hover {
+  border-left-color: var(--primary);
+  transform: translateX(5px) translateY(-3px);
+  box-shadow: 0 15px 35px rgba(62, 76, 141, 0.12);
+}
+
+.lesson-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(226, 114, 91, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.lesson-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, var(--secondary-light) 0%, rgba(226, 114, 91, 0.2) 100%);
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(226, 114, 91, 0.1);
+}
+
+.lesson-item:hover .lesson-icon {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(226, 114, 91, 0.15);
+}
+
+.lesson-icon i {
+  font-size: 3.5rem;
+  color: var(--secondary);
+  position: relative;
+  z-index: 1;
+}
+
+.lesson-details {
+  position: relative;
+  z-index: 1;
+}
+
+.lesson-details h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 1rem;
+  display: inline-block;
+}
+
+.lesson-details h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: var(--secondary);
+  border-radius: 2px;
+}
+
+.lesson-content p {
+  color: var(--text-light);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.lesson-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.lesson-feature {
+  background: linear-gradient(135deg, var(--secondary-light) 0%, rgba(226, 114, 91, 0.2) 100%);
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  color: var(--secondary);
+  font-weight: 500;
+  box-shadow: 0 3px 10px rgba(226, 114, 91, 0.07);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.lesson-feature:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(226, 114, 91, 0.12);
+}
+
+.lesson-feature i {
+  margin-right: 5px;
+  font-size: 0.8rem;
+}
+
+.price-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.7rem 1.5rem;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 50px;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(62, 76, 141, 0.2);
+}
+
+.price-link:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(62, 76, 141, 0.3);
+  color: white;
+}
+
+.price-link i {
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+.price-link:hover i {
+  transform: translateX(5px);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 992px) {
+  .lesson-item {
+    padding: 2.5rem;
+  }
+
+  .lesson-icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .lesson-icon i {
+    font-size: 3rem;
+  }
+
+  .lesson-details h3 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .lesson-item {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+
+  .lesson-icon {
+    margin-bottom: 1rem;
+  }
+
+  .lesson-features {
+    flex-wrap: wrap;
+  }
+}
