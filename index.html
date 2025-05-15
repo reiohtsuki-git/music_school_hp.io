@@ -67,40 +67,33 @@
             position: relative;
             overflow: hidden;
             border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(62, 76, 141, 0.1);
             padding: 6rem 0 4rem;
         }
         
-        .about-preview-section::before {
-            content: '';
-            position: absolute;
-            top: -80px;
-            right: -80px;
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            background-color: rgba(62, 76, 141, 0.05);
-            z-index: 1;
+        .about-preview-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
         }
         
-        .about-preview-column {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: rgba(255, 255, 255, 0.8);
+        .about-card {
+            background-color: white;
             border-radius: 16px;
-            padding: 3rem;
+            padding: 3rem 4rem;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             border-left: 5px solid var(--secondary);
+            position: relative;
             transition: all 0.3s ease;
         }
         
-        .about-preview-column:hover {
+        .about-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(62, 76, 141, 0.15);
         }
         
-        .about-preview-icon {
+        .about-icon {
             position: absolute;
             top: -30px;
             left: 50%;
@@ -115,32 +108,24 @@
             box-shadow: 0 5px 15px rgba(62, 76, 141, 0.2);
         }
         
-        .about-preview-icon i {
+        .about-icon i {
             font-size: 2rem;
             color: white;
         }
         
         .about-preview-text {
-            margin-top: 0.5rem;
-        }
-        
-        .about-preview-text p {
-            position: relative;
             text-align: center;
-            margin-bottom: 1.2rem;
-            line-height: 1.8;
-            color: var(--text-light);
         }
         
-        .about-preview-text p:first-child {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 2rem;
+        .about-headline {
+            font-size: 1.4rem !important;
+            font-weight: 700 !important;
+            color: var(--primary) !important;
+            margin-bottom: 2rem !important;
             position: relative;
         }
         
-        .about-preview-text p:first-child::after {
+        .about-headline::after {
             content: '';
             position: absolute;
             width: 80px;
@@ -150,6 +135,34 @@
             bottom: -0.8rem;
             left: 50%;
             transform: translateX(-50%);
+        }
+        
+        .about-preview-text p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+        
+        .join-button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+        
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .about-card {
+                padding: 3rem 1.5rem;
+            }
+            
+            .about-headline {
+                font-size: 1.2rem !important;
+            }
+            
+            .about-preview-text p {
+                font-size: 1rem;
+            }
         }
         
         .join-button-container {
@@ -1119,12 +1132,12 @@
         <section id="about" class="section about-preview-section">
             <h2 class="section-title">私たちについて</h2>
             <div class="about-preview-content">
-                <div class="about-preview-column">
-                    <div class="about-preview-icon">
+                <div class="about-card">
+                    <div class="about-icon">
                         <i class="fas fa-music"></i>
                     </div>
                     <div class="about-preview-text">
-                        <p>音楽は、もっと自由で、もっと身近なもの。</p>
+                        <p class="about-headline">音楽は、もっと自由で、もっと身近なもの。</p>
                         <p>「Melody Lab」は、あなたのライフスタイルに合わせて学べるオンライン音楽教室です。</p>
                         <p>あなたの「やってみたい」を大切に、それぞれのペースで成長できるレッスンを提供します。</p>
                         <p>楽器未経験の方も大歓迎！まずは、お気軽にお問い合わせください。</p>
