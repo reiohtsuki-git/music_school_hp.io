@@ -61,21 +61,160 @@
             margin-right: 0.5rem;
         }
 
-      /* 「私たちについて」セクションのタイトルのスタイル調整 */
-      #about .section-title::after {
-        /* 1本の装飾線だけ表示するように設定 */
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60px;
-        height: 3px;
-        background-color: var(--secondary);
-        border-radius: 3px;
-        /* 他の影響を受けないようにする */
-        box-shadow: none;
-      }
+      /* 「私たちについて」セクションのデザイン改善 */
+        .about-preview-section {
+            background: linear-gradient(135deg, rgba(248,249,255,1) 0%, rgba(238,238,255,1) 100%);
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(62, 76, 141, 0.1);
+            padding: 6rem 0 4rem;
+        }
+        
+        .about-preview-section::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background-color: rgba(62, 76, 141, 0.05);
+            z-index: 1;
+        }
+        
+        .about-preview-column {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--secondary);
+            transition: all 0.3s ease;
+        }
+        
+        .about-preview-column:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(62, 76, 141, 0.15);
+        }
+        
+        .about-preview-icon {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(62, 76, 141, 0.2);
+        }
+        
+        .about-preview-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .about-preview-text {
+            margin-top: 0.5rem;
+        }
+        
+        .about-preview-text p {
+            position: relative;
+            text-align: center;
+            margin-bottom: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+        
+        .about-preview-text p:first-child {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .about-preview-text p:first-child::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+            border-radius: 3px;
+            bottom: -0.8rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .join-button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+        
+        .join-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(62, 76, 141, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
+        
+        .join-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background-color: var(--secondary);
+            transition: width 0.4s ease;
+            z-index: -1;
+        }
+        
+        .join-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(62, 76, 141, 0.4);
+            color: white;
+        }
+        
+        .join-button:hover::before {
+            width: 100%;
+        }
+        
+        .join-button i {
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .join-button:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .about-preview-column {
+                padding: 2.5rem 1.5rem;
+                margin: 0 1rem;
+            }
+            
+            .about-preview-text p:first-child {
+                font-size: 1.2rem;
+            }
+        }
 
         /* 採用情報のスタイル改善 */
         .recruit-section {
@@ -980,11 +1119,16 @@
         <section id="about" class="section about-preview-section">
             <h2 class="section-title">私たちについて</h2>
             <div class="about-preview-content">
-                <div class="about-preview-text">
-                    <p>音楽は、もっと自由で、もっと身近なもの。</p>
-                    <p>「Melody Lab」は、あなたのライフスタイルに合わせて学べるオンライン音楽教室です。</p>
-                    <p>あなたの「やってみたい」を大切に、それぞれのペースで成長できるレッスンを提供します。</p>
-                    <p>楽器未経験の方も大歓迎！まずは、お気軽にお問い合わせください。</p>
+                <div class="about-preview-column">
+                    <div class="about-preview-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="about-preview-text">
+                        <p>音楽は、もっと自由で、もっと身近なもの。</p>
+                        <p>「Melody Lab」は、あなたのライフスタイルに合わせて学べるオンライン音楽教室です。</p>
+                        <p>あなたの「やってみたい」を大切に、それぞれのペースで成長できるレッスンを提供します。</p>
+                        <p>楽器未経験の方も大歓迎！まずは、お気軽にお問い合わせください。</p>
+                    </div>
                 </div>
                 <div class="join-button-container">
                     <a href="about.html" class="join-button">詳しく見る <i class="fas fa-arrow-right"></i></a>
