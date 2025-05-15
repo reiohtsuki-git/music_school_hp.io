@@ -1,0 +1,413 @@
+/* 料金表セクションの改善 */
+.price-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* 料金プランのカード形式表示 */
+.price-plans {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.price-plan-card {
+    background: linear-gradient(145deg, #ffffff, #f8f9ff);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(62, 76, 141, 0.08);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.price-plan-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(62, 76, 141, 0.15);
+}
+
+.popular-plan {
+    position: relative;
+    border: 2px solid var(--secondary);
+}
+
+.popular-plan::before {
+    content: 'おすすめ';
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: var(--secondary);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-bottom-left-radius: 8px;
+    z-index: 1;
+}
+
+.plan-header {
+    padding: 2rem;
+    background: var(--primary);
+    color: white;
+    text-align: center;
+}
+
+.plan-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.plan-price {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.plan-price .currency {
+    font-size: 1.2rem;
+    margin-right: 0.3rem;
+}
+
+.plan-price .period {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-left: 0.5rem;
+}
+
+.plan-subtitle {
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.plan-body {
+    padding: 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.plan-features {
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+.plan-feature {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.plan-feature i {
+    color: var(--primary);
+    margin-right: 0.8rem;
+    font-size: 1.1rem;
+    margin-top: 0.2rem;
+}
+
+.plan-feature-text {
+    color: var(--text-light);
+}
+
+.plan-cta {
+    text-align: center;
+}
+
+.plan-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--primary);
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: center;
+}
+
+.plan-button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(62, 76, 141, 0.2);
+}
+
+.popular-plan .plan-button {
+    background: var(--secondary);
+}
+
+.popular-plan .plan-button:hover {
+    background: #d15e47;
+    box-shadow: 0 10px 20px rgba(226, 114, 91, 0.25);
+}
+
+/* 料金表タブの改善 */
+.tabs-container {
+    margin: 2rem 0;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    outline: none;
+}
+
+.tab-btn:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+    border-radius: 3px;
+}
+
+.tab-btn.active {
+    color: var(--primary);
+}
+
+.tab-btn.active:after {
+    width: 50%;
+}
+
+.tab-btn:hover:after {
+    width: 30%;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.lesson-type {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: var(--primary);
+}
+
+/* 料金表のデザイン改善 */
+.fee-table-container {
+    overflow-x: auto;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.fee-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    overflow: hidden;
+}
+
+.fee-table th, 
+.fee-table td {
+    padding: 1.2rem 1.5rem;
+    text-align: left;
+}
+
+.fee-table th {
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.fee-table th:first-child {
+    border-top-left-radius: 12px;
+}
+
+.fee-table th:last-child {
+    border-top-right-radius: 12px;
+}
+
+.fee-table tr:nth-child(even) {
+    background-color: rgba(248, 249, 255, 0.5);
+}
+
+.fee-table tr:hover {
+    background-color: rgba(226, 114, 91, 0.05);
+}
+
+.fee-table td {
+    border-bottom: 1px solid #eee;
+    font-size: 1rem;
+    color: var(--text-light);
+}
+
+.fee-table td:first-child {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+/* 料金プランのカードスタイル */
+.admission-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+.admission-title {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.admission-title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: var(--secondary);
+    border-radius: 3px;
+}
+
+.admission-fee {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.admission-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: rgba(248, 249, 255, 0.7);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.admission-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    background: rgba(248, 249, 255, 1);
+}
+
+.admission-item i {
+    font-size: 1.2rem;
+    color: var(--primary);
+    margin-right: 1rem;
+}
+
+.admission-item-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.admission-item-title {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.admission-item-price {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.admission-note {
+    margin-top: 1.5rem;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+.price-note {
+    background: rgba(226, 114, 91, 0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.price-note p {
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: flex-start;
+}
+
+.price-note p:last-child {
+    margin-bottom: 0;
+}
+
+.price-note i {
+    color: var(--secondary);
+    margin-right: 0.8rem;
+    margin-top: 0.2rem;
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 991px) {
+    .price-plans {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .price-plans {
+        grid-template-columns: 1fr;
+    }
+    
+    .fee-table th, 
+    .fee-table td {
+        padding: 1rem;
+    }
+    
+    .tab-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
