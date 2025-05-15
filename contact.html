@@ -3,288 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>お問い合わせ | Music School</title>
+    <title>お問い合わせ | Melody Lab</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #4a90e2;
-            --primary-dark: #3a7bc8;
-            --primary-light: #6fa5e8;
-            --secondary: #e15f5f;
-            --text: #333;
-            --text-light: #666;
-            --bg-light: #f5f5f5;
-            --white: #fff;
-        }
-        
-        body {
-            font-family: 'Noto Sans JP', sans-serif;
-            color: var(--text);
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-light);
-        }
-        
-        .contact-container {
-            max-width: 800px;
-            margin: 80px auto 40px;
-            padding: 40px 20px;
-        }
-        
-        .contact-heading {
-            text-align: center;
-            color: var(--text);
-            margin-bottom: 40px;
-            font-size: 2.2rem;
-            position: relative;
-        }
-        
-        .contact-heading::after {
-            content: "";
-            display: block;
-            width: 60px;
-            height: 3px;
-            background-color: var(--secondary);
-            margin: 20px auto 0;
-        }
-        
-        .contact-description {
-            text-align: center;
-            margin-bottom: 40px;
-            line-height: 1.8;
-        }
-        
-        .contact-form {
-            background-color: var(--white);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .form-group {
-            margin-bottom: 25px;
-        }
-        
-        .form-label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-        
-        .form-input,
-        .form-textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-            box-sizing: border-box;
-        }
-        
-        .form-textarea {
-            height: 150px;
-            resize: vertical;
-        }
-        
-        .required-mark {
-            color: var(--secondary);
-            margin-left: 5px;
-        }
-        
-        .form-note {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            font-size: 14px;
-            color: var(--text-light);
-        }
-        
-        .submit-button {
-            display: block;
-            width: 200px;
-            margin: 0 auto;
-            padding: 15px;
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-            text-align: center;
-        }
-        
-        .submit-button:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        .form-description {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #666;
-        }
-        
-        .contact-form-button {
-            display: block;
-            width: 250px;
-            margin: 0 auto;
-            padding: 15px;
-            background-color: #4a90e2;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-            text-align: center;
-            text-decoration: none;
-        }
-        
-        .contact-form-button:hover {
-            background-color: #3a7bc8;
-            transform: translateY(-2px);
-        }
-        
-        .contact-form {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* ヘッダー */
-        header {
-            background-color: var(--white);
-            padding: 15px 30px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            box-sizing: border-box;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo a {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
-        
-        .logo-image {
-            height: 60px !important;
-            width: auto !important;
-        }
-        
-        .logo-text {
-            color: var(--primary);
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-left: 10px;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        
-        nav li {
-            margin-left: 20px;
-        }
-        
-        nav a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav a:hover, 
-        nav a.active {
-            color: var(--primary);
-        }
-        
-        /* モバイル対応 */
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--primary);
-            cursor: pointer;
-        }
-        
-        @media (max-width: 768px) {
-            .contact-container {
-                padding: 20px;
-                margin-top: 60px;
-            }
-            
-            .contact-form {
-                padding: 20px;
-            }
-            
-            .submit-button {
-                width: 100%;
-            }
-            
-            header {
-                padding: 15px 20px;
-            }
-            
-            .mobile-menu-toggle {
-                display: block;
-            }
-            
-            nav {
-                position: fixed;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                background: var(--white);
-                padding: 0;
-                height: 0;
-                overflow: hidden;
-                transition: height 0.3s;
-                box-shadow: 0 5px 5px rgba(0,0,0,0.1);
-            }
-            
-            nav.active {
-                height: auto;
-                padding: 20px 0;
-            }
-            
-            nav ul {
-                flex-direction: column;
-            }
-            
-            nav li {
-                margin: 10px 20px;
-            }
-        }
-    </style>
+    <!-- ヘッダーとナビゲーション用CSS -->
+    <link rel="stylesheet" href="header-nav.css">
+    <!-- フッター用CSS -->
+    <link rel="stylesheet" href="footer.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="additional-styles.css">
+    <!-- お問い合わせと採用情報用CSS -->
+    <link rel="stylesheet" href="contact-recruit-styles.css">
+    <!-- モバイル対応用CSS -->
+    <link rel="stylesheet" href="mobile-fix.css">
 </head>
 <body>
-    <header>
+    <header class="fixed-header">
         <div class="logo">
-            <a href="index.html">
+            <a href="index.html" aria-label="Melody Lab ホームページ">
                 <img src="images/ms_logo.jpg" alt="Melody Lab" class="logo-image">
                 <span class="logo-text">Melody Lab</span>
             </a>
@@ -298,89 +39,297 @@
                 <li><a href="index.html#instruments">楽器</a></li>
                 <li><a href="index.html#lessons">レッスン</a></li>
                 <li><a href="index.html#price">料金</a></li>
-                <li><a href="index.html#about">私たちについて</a></li>
+                <li><a href="about.html">私たちについて</a></li>
                 <li><a href="#" class="active">お問い合わせ</a></li>
                 <li><a href="index.html#recruit">採用情報</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="contact-container">
-        <h1 class="contact-heading">お問い合わせ</h1>
-        
-        <div class="contact-description">
-            <p>レッスンに関するご質問や無料体験のお申し込みなど、お気軽にお問い合わせください。</p>
-            <p>24時間以内に担当者より返信いたします。</p>
+    <div class="menu-overlay"></div>
+
+    <main>
+        <section class="section contact-section">
+            <div class="contact-container">
+                <div class="contact-intro">
+                    <h2 class="section-title">お問い合わせ</h2>
+                    <p>レッスンに関するご質問や無料体験のお申し込みなど、お気軽にお問い合わせください。<br>24時間以内に担当者より返信いたします。</p>
+                </div>
+
+                <div class="contact-info-container">
+                    <!-- 連絡方法 -->
+                    <div class="contact-info">
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <div class="contact-method-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-method-details">
+                                    <h4>住所</h4>
+                                    <p>〒160-0022<br>東京都新宿区新宿X-XX-XX<br>XXXビル 5F</p>
+                                </div>
+                            </div>
+                            <div class="contact-method">
+                                <div class="contact-method-icon">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="contact-method-details">
+                                    <h4>電話番号</h4>
+                                    <p>03-XXXX-XXXX<br>（平日 10:00〜19:00）</p>
+                                </div>
+                            </div>
+                            <div class="contact-method">
+                                <div class="contact-method-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-method-details">
+                                    <h4>メールアドレス</h4>
+                                    <p>info@melodylab.jp</p>
+                                </div>
+                            </div>
+                            <div class="contact-method">
+                                <div class="contact-method-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="contact-method-details">
+                                    <h4>営業時間</h4>
+                                    <p>平日: 10:00 - 21:00<br>土日祝: 10:00 - 18:00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 地図 -->
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.828030689542!2d139.7001285!3d35.6896067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d2059b7fd4b%3A0xec61c68fe232efd2!2z5paw5a6_6aeF!5e0!3m2!1sja!2sjp!4v1716510915063!5m2!1sja!2sjp" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="教室の場所"></iframe>
+                    </div>
+                </div>
+
+                <!-- お問い合わせフォーム -->
+                <div class="contact-form-container">
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder=" " required>
+                            <label for="name">お名前<span class="required">*</span></label>
+                            <div class="error-message">お名前を入力してください</div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder=" " required>
+                            <label for="email">メールアドレス<span class="required">*</span></label>
+                            <div class="error-message">正しいメールアドレスを入力してください</div>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder=" ">
+                            <label for="phone">電話番号</label>
+                        </div>
+                        <div class="form-group">
+                            <select id="inquiry_type" name="inquiry_type" required>
+                                <option value=""></option>
+                                <option value="lesson">レッスンについて</option>
+                                <option value="trial">無料体験申し込み</option>
+                                <option value="price">料金について</option>
+                                <option value="other">その他</option>
+                            </select>
+                            <label for="inquiry_type">お問い合わせの種類<span class="required">*</span></label>
+                        </div>
+                        <div class="form-group full-width">
+                            <textarea id="message" name="message" placeholder=" " required></textarea>
+                            <label for="message">お問い合わせ内容<span class="required">*</span></label>
+                            <div class="error-message">お問い合わせ内容を入力してください</div>
+                        </div>
+                        <div class="form-submit">
+                            <button type="submit" class="submit-button">送信する <i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- SNSリンク -->
+                <div class="contact-sns">
+                    <h4>各種SNSでもお気軽にお問い合わせください</h4>
+                    <div class="sns-links">
+                        <a href="#" class="sns-link twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="sns-link facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="sns-link instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="sns-link youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="sns-link line" aria-label="LINE"><i class="fab fa-line"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッターセクション -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <img src="images/ms_logo.jpg" alt="Melody Lab">
+                    <h3 class="footer-logo-text">Melody Lab</h3>
+                </div>
+                <p class="footer-about">
+                    音楽は、もっと自由で、もっと身近なもの。<br>
+                    あなたのライフスタイルに合わせて学べるオンライン音楽教室です。
+                </p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Twitterをフォロー"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagramをフォロー"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTubeをフォロー"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="LINEで友達追加"><i class="fab fa-line"></i></a>
+                </div>
+            </div>
+    
+            <div class="footer-col">
+                <h4 class="footer-heading">レッスン</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#guitar-lesson"><i class="fas fa-chevron-right"></i> ギターレッスン</a></li>
+                    <li><a href="index.html#bass-lesson"><i class="fas fa-chevron-right"></i> ベースレッスン</a></li>
+                    <li><a href="index.html#dtm-lesson"><i class="fas fa-chevron-right"></i> DTMレッスン</a></li>
+                    <li><a href="index.html#compose-lesson"><i class="fas fa-chevron-right"></i> 作曲レッスン</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-col">
+                <h4 class="footer-heading">サイトマップ</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#home"><i class="fas fa-chevron-right"></i> ホーム</a></li>
+                    <li><a href="index.html#instruments"><i class="fas fa-chevron-right"></i> 楽器</a></li>
+                    <li><a href="index.html#price"><i class="fas fa-chevron-right"></i> 料金</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> 私たちについて</a></li>
+                    <li><a href="index.html#contact"><i class="fas fa-chevron-right"></i> お問い合わせ</a></li>
+                    <li><a href="index.html#recruit"><i class="fas fa-chevron-right"></i> 採用情報</a></li>
+                </ul>
+            </div>
+    
+            <div class="footer-col">
+                <h4 class="footer-heading">お問い合わせ</h4>
+                <ul class="footer-contact">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>〒160-0022<br>東京都新宿区新宿X-XX-XX<br>XXXビル 5F</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <span>03-XXXX-XXXX<br>（平日 10:00〜19:00）</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>info@melodylab.jp</span>
+                    </li>
+                </ul>
+            </div>
         </div>
-        
-        <form class="contact-form" id="contactForm">
-            <div class="form-group">
-                <label for="name" class="form-label">お名前<span class="required-mark">*</span></label>
-                <input type="text" id="name" name="name" class="form-input" required>
+    
+        <div class="footer-bottom">
+            <div class="footer-bottom-links">
+                <a href="#">プライバシーポリシー</a>
+                <a href="#">利用規約</a>
+                <a href="#">特定商取引法に基づく表記</a>
+                <a href="#">会社概要</a>
             </div>
-            
-            <div class="form-group">
-                <label for="email" class="form-label">メールアドレス<span class="required-mark">*</span></label>
-                <input type="email" id="email" name="email" class="form-input" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="phone" class="form-label">電話番号</label>
-                <input type="tel" id="phone" name="phone" class="form-input">
-            </div>
-            
-            <div class="form-group">
-                <label for="subject" class="form-label">件名<span class="required-mark">*</span></label>
-                <input type="text" id="subject" name="subject" class="form-input" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="message" class="form-label">お問い合わせ内容<span class="required-mark">*</span></label>
-                <textarea id="message" name="message" class="form-textarea" required></textarea>
-            </div>
-            
-            <div class="form-note">
-                <span class="required-mark">*</span>は必須項目です
-            </div>
-            
-            <button type="submit" class="submit-button">送信する</button>
-        </form>
-    </div>
+            <p>&copy; 2025 Melody Lab 音楽教室 All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+    <button id="back-to-top" class="back-to-top" aria-label="トップに戻る">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="header-nav.js"></script>
     <script>
-        // モバイルメニューのトグル
-        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
-            const nav = document.querySelector('nav');
-            nav.classList.toggle('active');
-            const expanded = nav.classList.contains('active');
-            this.setAttribute('aria-expanded', expanded);
-        });
-
-        // お問い合わせフォーム送信処理
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+        document.addEventListener('DOMContentLoaded', function() {
+            // フォームのバリデーション
+            const contactForm = document.getElementById('contactForm');
             
-            // フォームの値を取得
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    
+                    let isValid = true;
+                    const inputs = contactForm.querySelectorAll('input[required], textarea[required], select[required]');
+                    
+                    inputs.forEach(input => {
+                        const parentGroup = input.closest('.form-group');
+                        
+                        if (!input.value.trim()) {
+                            parentGroup.classList.add('error');
+                            isValid = false;
+                        } else {
+                            parentGroup.classList.remove('error');
+                            
+                            // メールアドレスのバリデーション
+                            if (input.type === 'email') {
+                                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                                if (!emailPattern.test(input.value)) {
+                                    parentGroup.classList.add('error');
+                                    isValid = false;
+                                }
+                            }
+                        }
+                    });
+                    
+                    if (isValid) {
+                        // フォームの送信処理（実際のプロジェクトではここでサーバーにデータを送信）
+                        alert('お問い合わせありがとうございます。24時間以内にご返信いたします。');
+                        contactForm.reset();
+                    }
+                });
+                
+                // フォーカス時にラベルのアニメーション効果
+                const formInputs = contactForm.querySelectorAll('input, textarea, select');
+                
+                formInputs.forEach(input => {
+                    // 初期状態のチェック
+                    if (input.value.trim() !== '') {
+                        input.classList.add('has-value');
+                    }
+                    
+                    // イベントリスナー
+                    input.addEventListener('focus', function() {
+                        this.parentElement.classList.add('focused');
+                    });
+                    
+                    input.addEventListener('blur', function() {
+                        this.parentElement.classList.remove('focused');
+                        
+                        if (this.value.trim() !== '') {
+                            this.classList.add('has-value');
+                        } else {
+                            this.classList.remove('has-value');
+                        }
+                    });
+                    
+                    // 変更イベント（特にセレクトボックス用）
+                    input.addEventListener('change', function() {
+                        if (this.value.trim() !== '') {
+                            this.classList.add('has-value');
+                        } else {
+                            this.classList.remove('has-value');
+                        }
+                    });
+                });
+            }
             
-            // 実際のプロジェクトでは、ここでサーバーにデータを送信する処理を追加
-            console.log({
-                name,
-                email,
-                phone,
-                subject,
-                message
-            });
+            // トップに戻るボタン
+            const backToTopButton = document.getElementById('back-to-top');
             
-            // 送信成功メッセージ
-            alert('お問い合わせありがとうございます。24時間以内にご返信いたします。');
-            
-            // フォームをリセット
-            this.reset();
+            if (backToTopButton) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        backToTopButton.classList.add('visible');
+                    } else {
+                        backToTopButton.classList.remove('visible');
+                    }
+                });
+                
+                backToTopButton.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
         });
     </script>
 </body>
