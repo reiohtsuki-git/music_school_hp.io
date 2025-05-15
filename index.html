@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- ヘッダーとナビゲーション用CSS -->
     <link rel="stylesheet" href="header-nav.css">
+    <!-- ヒーローセクション用CSS -->
+    <link rel="stylesheet" href="hero-section.css">
     <!-- フッター用CSS -->
     <link rel="stylesheet" href="footer.css">
     <!-- Slick Slider用のCSS -->
@@ -471,6 +473,17 @@
 
     <main>
         <section id="home" class="section hero">
+            <div class="hero-background">
+                <img src="images/hero.jpg" alt="Music School Background" loading="lazy">
+            </div>
+            <div class="wave-pattern"></div>
+            
+            <!-- パララックス効果の音符 -->
+            <div class="parallax-element music-note-1"><i class="fas fa-music"></i></div>
+            <div class="parallax-element music-note-2"><i class="fas fa-guitar"></i></div>
+            <div class="parallax-element music-note-3"><i class="fas fa-headphones"></i></div>
+            <div class="parallax-element music-note-4"><i class="fas fa-compact-disc"></i></div>
+            
             <div class="hero-content">
                 <div class="hero-badge">音楽教室</div>
                 <h2>音楽を、<span class="accent">もっと自由に。</span></h2>
@@ -487,63 +500,6 @@
             </div>
             <div class="hero-image">
                 <img src="images/hero.jpg" alt="Music School" loading="lazy">
-            </div>
-        </section>
-
-        <section id="instruments" class="section">
-            <h2 class="section-title">レッスンについて</h2>
-            <div class="instruments-grid">
-                <div class="instrument-card">
-                    <h3><i class="fas fa-guitar"></i> Guitar Lesson</h3>
-                    <div class="instrument-image">
-                        <img src="images/guitar.jpg" alt="Guitar Lesson" loading="lazy">
-                        <div class="overlay">
-                            <div class="overlay-content">
-                                <p>初心者からプロまで、あなたのレベルに合わせたギターレッスン</p>
-                                <a href="#lessons" class="btn btn-outline">詳細を見る</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="instrument-card">
-                    <h3><i class="fas fa-guitar"></i> Bass Lesson</h3>
-                    <div class="instrument-image">
-                        <img src="images/bass.jpg" alt="Bass Lesson" loading="lazy">
-                        <div class="overlay">
-                            <div class="overlay-content">
-                                <p>リズム感を養い、バンドの要となるベーステクニックを習得</p>
-                                <a href="#lessons" class="btn btn-outline">詳細を見る</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="instrument-card">
-                    <h3><i class="fas fa-laptop"></i> DTM Lesson</h3>
-                    <div class="instrument-image">
-                        <img src="images/dtm.jpg" alt="DTM Lesson" loading="lazy">
-                        <div class="overlay">
-                            <div class="overlay-content">
-                                <p>音楽制作ソフトの基本操作から、プロ品質の楽曲制作まで</p>
-                                <a href="#lessons" class="btn btn-outline">詳細を見る</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="instrument-card">
-                    <h3><i class="fas fa-music"></i> Compose Lesson</h3>
-                    <div class="instrument-image">
-                        <img src="images/compose_2.jpg" alt="Compose Lesson" loading="lazy">
-                        <div class="overlay">
-                            <div class="overlay-content">
-                                <p>メロディーの作り方、コード進行、楽曲構成など作曲の基礎から応用まで</p>
-                                <a href="#lessons" class="btn btn-outline">詳細を見る</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
 
@@ -1166,7 +1122,8 @@
             });
         });
     </script>
-
+    
+    <script src="hero-parallax.js"></script>
     <script src="header-nav.js"></script>
     <script src="price-tabs.js"></script>
     <!-- Slick Slider用のJavaScript -->
