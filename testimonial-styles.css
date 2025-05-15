@@ -1,0 +1,268 @@
+/* テスティモニアルセクションのスタイル */
+.testimonials-section {
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonials-container {
+    position: relative;
+    z-index: 2;
+}
+
+.testimonials-slider {
+    margin-top: 3rem;
+    position: relative;
+}
+
+/* スライダーの矢印ボタン */
+.slick-prev, .slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--primary);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    z-index: 10;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.slick-prev:hover, .slick-next:hover {
+    background-color: var(--secondary);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slick-prev {
+    left: -20px;
+}
+
+.slick-next {
+    right: -20px;
+}
+
+/* スライダーのドット */
+.slick-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin-top: 2rem;
+    padding: 0;
+}
+
+.slick-dots li {
+    margin: 0 5px;
+}
+
+.slick-dots li button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #D1D5DB;
+    border: none;
+    font-size: 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    outline: none;
+}
+
+.slick-dots li.slick-active button {
+    background-color: var(--primary);
+    transform: scale(1.2);
+}
+
+/* テスティモニアルカードのスタイル */
+.testimonial-card {
+    background: linear-gradient(135deg, #ffffff, #f7f9fc);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    margin: 1rem;
+    width: 450px;
+    position: relative;
+    transition: all 0.3s ease;
+    border-top: 5px solid transparent;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    border-top-color: var(--primary);
+}
+
+/* 引用符の装飾 */
+.testimonial-quote {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 4rem;
+    line-height: 0;
+    color: var(--secondary);
+    opacity: 0.2;
+    font-family: 'Georgia', serif;
+}
+
+.testimonial-content {
+    position: relative;
+    z-index: 1;
+}
+
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 2rem;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    position: relative;
+    padding-left: 1rem;
+    border-left: 3px solid rgba(226, 114, 91, 0.3);
+}
+
+/* 評価スター */
+.testimonial-rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-rating i {
+    color: #FFC107;
+    font-size: 1.2rem;
+    margin-right: 4px;
+}
+
+/* 顧客情報のスタイル */
+.testimonial-author {
+    display: flex;
+    align-items: center;
+}
+
+.testimonial-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 1rem;
+    border: 3px solid var(--secondary-light);
+}
+
+.testimonial-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.testimonial-author-info {
+    flex: 1;
+}
+
+.testimonial-author-info h4 {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--primary);
+    margin: 0 0 0.25rem 0;
+}
+
+.testimonial-author-info p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin: 0;
+}
+
+.testimonial-social {
+    display: flex;
+    margin-top: 0.75rem;
+}
+
+.testimonial-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    color: var(--text-light);
+    font-size: 0.875rem;
+    margin-right: 8px;
+    transition: all 0.3s ease;
+}
+
+.testimonial-social a:hover {
+    background-color: var(--primary);
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* ビフォー/アフターのストーリー */
+.testimonial-story {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px dashed #e0e0e0;
+}
+
+.testimonial-story-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+}
+
+.testimonial-story-title::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--secondary);
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+.testimonial-story p {
+    font-size: 0.875rem;
+    color: var(--text-light);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* レスポンシブスタイル */
+@media (max-width: 992px) {
+    .testimonial-card {
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+    .slick-prev {
+        left: 10px;
+    }
+
+    .slick-next {
+        right: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonial-card {
+        padding: 2rem;
+    }
+
+    .testimonial-author {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .testimonial-avatar {
+        margin-bottom: 1rem;
+    }
+}
