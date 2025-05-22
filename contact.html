@@ -58,12 +58,13 @@
 
                 <!-- お問い合わせフォーム -->
                 <div class="contact-form-container">
-                    <form id="contactForm" class="contact-form" action="https://formsubmit.co/melodylab.company@gmail.com" method="POST">
+                    <form id="contactForm" class="contact-form" action="https://formsubmit.co/5fcf357d718c6a525204ef9aacff84ed" method="POST">
                         <!-- FormSubmit設定用の隠しフィールド -->
                         <input type="hidden" name="_subject" value="【Melody Lab】お問い合わせがありました">
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_next" value="https://reiohtsuki-git.github.io/music_school_hp.io/contact-thanks.html">
                         <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_autoresponse" value="お問い合わせありがとうございます。担当者が確認後、24時間以内にご返信いたします。">
                         
                         <div class="form-group">
                             <input type="text" id="name" name="name" placeholder=" " required>
@@ -218,6 +219,11 @@
                     
                     if (!isValid) {
                         event.preventDefault();
+                        // エラーがある場合は最初のエラー要素にスクロール
+                        const firstError = contactForm.querySelector('.form-group.error');
+                        if (firstError) {
+                            firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
                         return false;
                     }
                     
@@ -225,6 +231,15 @@
                     const submitButton = contactForm.querySelector('.submit-button');
                     submitButton.disabled = true;
                     submitButton.innerHTML = '送信中... <i class="fas fa-spinner fa-spin"></i>';
+                    
+                    // エラーハンドリング（FormSubmitでエラーが発生した場合）
+                    setTimeout(() => {
+                        if (submitButton.disabled) {
+                            submitButton.disabled = false;
+                            submitButton.innerHTML = '送信する <i class="fas fa-paper-plane"></i>';
+                            alert('送信でエラーが発生しました。しばらく経ってから再度お試しください。');
+                        }
+                    }, 10000); // 10秒後にタイムアウト
                 });
                 
                 // フォーカス時にラベルのアニメーション効果
@@ -248,6 +263,14 @@
                             this.classList.add('has-value');
                         } else {
                             this.classList.remove('has-value');
+                        }
+                        
+                        // リアルタイムバリデーション
+                        const parentGroup = this.closest('.form-group');
+                        if (this.hasAttribute('required') && !this.value.trim()) {
+                            parentGroup.classList.add('error');
+                        } else {
+                            parentGroup.classList.remove('error');
                         }
                     });
                     
