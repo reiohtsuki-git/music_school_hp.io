@@ -58,7 +58,13 @@
 
                 <!-- お問い合わせフォーム -->
                 <div class="contact-form-container">
-                    <form id="contactForm" class="contact-form">
+                    <form id="contactForm" class="contact-form" action="https://formsubmit.co/melodylab.company@gmail.com" method="POST">
+                        <!-- FormSubmit設定用の隠しフィールド -->
+                        <input type="hidden" name="_subject" value="【Melody Lab】お問い合わせがありました">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://reiohtsuki-git.github.io/music_school_hp.io/contact-thanks.html">
+                        <input type="hidden" name="_template" value="table">
+                        
                         <div class="form-group">
                             <input type="text" id="name" name="name" placeholder=" " required>
                             <label for="name">お名前<span class="required">*</span></label>
@@ -76,10 +82,10 @@
                         <div class="form-group">
                             <select id="inquiry_type" name="inquiry_type" required>
                                 <option value=""></option>
-                                <option value="lesson">レッスンについて</option>
-                                <option value="trial">無料体験申し込み</option>
-                                <option value="price">料金について</option>
-                                <option value="other">その他</option>
+                                <option value="レッスンについて">レッスンについて</option>
+                                <option value="無料体験申し込み">無料体験申し込み</option>
+                                <option value="料金について">料金について</option>
+                                <option value="その他">その他</option>
                             </select>
                             <label for="inquiry_type">お問い合わせの種類<span class="required">*</span></label>
                         </div>
@@ -187,8 +193,6 @@
             
             if (contactForm) {
                 contactForm.addEventListener('submit', function(event) {
-                    event.preventDefault();
-                    
                     let isValid = true;
                     const inputs = contactForm.querySelectorAll('input[required], textarea[required], select[required]');
                     
@@ -212,11 +216,15 @@
                         }
                     });
                     
-                    if (isValid) {
-                        // フォームの送信処理（実際のプロジェクトではここでサーバーにデータを送信）
-                        alert('お問い合わせありがとうございます。24時間以内にご返信いたします。');
-                        contactForm.reset();
+                    if (!isValid) {
+                        event.preventDefault();
+                        return false;
                     }
+                    
+                    // フォームが有効な場合、送信ボタンを無効化して重複送信を防ぐ
+                    const submitButton = contactForm.querySelector('.submit-button');
+                    submitButton.disabled = true;
+                    submitButton.innerHTML = '送信中... <i class="fas fa-spinner fa-spin"></i>';
                 });
                 
                 // フォーカス時にラベルのアニメーション効果
