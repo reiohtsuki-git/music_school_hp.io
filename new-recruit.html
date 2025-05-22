@@ -244,9 +244,9 @@
                     <form id="recruitForm" class="contact-form" action="https://formsubmit.co/melodylab.company@gmail.com" method="POST">
                         <!-- FormSubmit設定用の隠しフィールド -->
                         <input type="hidden" name="_subject" value="【Melody Lab】講師応募がありました">
-                        <input type="hidden" name="_autoresponse" value="ご応募ありがとうございます。書類を確認後、1週間以内にご連絡いたします。">
-                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_next" value="https://reiohtsuki-git.github.io/music_school_hp.io/recruit-thanks.html">
+                        <input type="hidden" name="_template" value="table">
                         
                         <div class="form-group">
                             <input type="text" id="name" name="name" placeholder=" " required>
@@ -264,30 +264,25 @@
                             <div class="error-message">電話番号を入力してください</div>
                         </div>
                         <div class="form-group">
-                            <select id="position" name="希望ポジション" required>
+                            <select id="position" name="inquiry_type" required>
                                 <option value=""></option>
-                                <option value="ギター講師">ギター講師</option>
-                                <option value="ベース講師">ベース講師</option>
-                                <option value="DTM講師">DTM講師</option>
-                                <option value="作曲講師">作曲講師</option>
-                                <option value="その他">その他</option>
+                                <option value="ギター講師応募">ギター講師</option>
+                                <option value="ベース講師応募">ベース講師</option>
+                                <option value="DTM講師応募">DTM講師</option>
+                                <option value="作曲講師応募">作曲講師</option>
+                                <option value="その他講師応募">その他</option>
                             </select>
                             <label for="position">希望ポジション<span class="required">*</span></label>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="experience" name="音楽経験年数" placeholder=" " required>
+                            <input type="text" id="experience" name="experience" placeholder=" " required>
                             <label for="experience">音楽経験年数<span class="required">*</span></label>
                             <div class="error-message">音楽経験年数を入力してください</div>
                         </div>
                         <div class="form-group full-width">
-                            <textarea id="message" name="自己PR・経歴" placeholder=" " required></textarea>
+                            <textarea id="message" name="message" placeholder=" " required></textarea>
                             <label for="message">自己PR・経歴など<span class="required">*</span></label>
                             <div class="error-message">自己PRを入力してください</div>
-                        </div>
-                        <div class="form-group full-width">
-                            <label for="resume" class="file-label">職務経歴書・ポートフォリオ（PDFファイル）</label>
-                            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
-                            <small class="file-note">※ファイル添付は FormSubmit の制限により、現在対応していません。メール本文に詳細をご記入ください。</small>
                         </div>
                         <div class="form-submit">
                             <button type="submit" class="submit-button">応募する <i class="fas fa-paper-plane"></i></button>
