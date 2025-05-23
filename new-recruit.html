@@ -22,6 +22,20 @@
     <link rel="stylesheet" href="contact-recruit-styles.css">
     <!-- モバイル対応用CSS -->
     <link rel="stylesheet" href="mobile-fix.css">
+    <style>
+        /* ヘッダーロゴテキストの色をindex.htmlと統一 */
+        .logo-text {
+            color: #4a90e2 !important; /* index.htmlと同じ青色 */
+            font-size: 1.5rem !important;
+            font-weight: bold !important;
+            margin-left: 10px !important;
+        }
+
+        .logo-image {
+            height: 60px !important;
+            width: auto !important;
+        }
+    </style>
 </head>
 <body>
     <header class="fixed-header">
@@ -298,3 +312,129 @@
     </main>
 
     <!-- フッターセクション -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <img src="images/music_school_logo_rem.png" alt="Melody Lab">
+                    <h3 class="footer-logo-text">Melody Lab</h3>
+                </div>
+                <p class="footer-about">
+                    音楽は、もっと自由で、もっと身近なもの。<br>
+                    あなたのライフスタイルに合わせて学べるオンライン音楽教室です。
+                </p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Twitterをフォロー"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagramをフォロー"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTubeをフォロー"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="LINEで友達追加"><i class="fab fa-line"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">レッスン</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#guitar-lesson"><i class="fas fa-chevron-right"></i> ギターレッスン</a></li>
+                    <li><a href="index.html#bass-lesson"><i class="fas fa-chevron-right"></i> ベースレッスン</a></li>
+                    <li><a href="index.html#dtm-lesson"><i class="fas fa-chevron-right"></i> DTMレッスン</a></li>
+                    <li><a href="index.html#compose-lesson"><i class="fas fa-chevron-right"></i> 作曲レッスン</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">サイトマップ</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> ホーム</a></li>
+                    <li><a href="index.html#instruments"><i class="fas fa-chevron-right"></i> 楽器</a></li>
+                    <li><a href="index.html#price"><i class="fas fa-chevron-right"></i> 料金</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> 私たちについて</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> お問い合わせ</a></li>
+                    <li><a href="new-recruit.html"><i class="fas fa-chevron-right"></i> 採用情報</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">お問い合わせ</h4>
+                <ul class="footer-contact">
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>melodylab.company@gmail.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-links">
+                <a href="#">プライバシーポリシー</a>
+                <a href="#">利用規約</a>
+                <a href="#">特定商取引法に基づく表記</a>
+                <a href="#">会社概要</a>
+            </div>
+            <p>&copy; 2025 Melody Lab 音楽教室 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="back-to-top" aria-label="トップに戻る">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="header-nav.js"></script>
+    <script src="contact-recruit-form.js"></script>
+    <script>
+        // トップに戻るボタンの機能
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTopButton = document.getElementById('back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // FAQ アコーディオン機能
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const faqCard = question.parentElement;
+                    const answer = faqCard.querySelector('.faq-answer');
+                    const toggle = question.querySelector('.faq-toggle i');
+                    
+                    // アクティブ状態の切り替え
+                    const isActive = question.getAttribute('aria-expanded') === 'true';
+                    
+                    // 他のFAQを閉じる
+                    faqQuestions.forEach(q => {
+                        if (q !== question) {
+                            q.setAttribute('aria-expanded', 'false');
+                            q.parentElement.querySelector('.faq-answer').setAttribute('aria-hidden', 'true');
+                            q.querySelector('.faq-toggle i').className = 'fas fa-plus';
+                        }
+                    });
+                    
+                    // クリックされたFAQの状態を切り替え
+                    if (isActive) {
+                        question.setAttribute('aria-expanded', 'false');
+                        answer.setAttribute('aria-hidden', 'true');
+                        toggle.className = 'fas fa-plus';
+                    } else {
+                        question.setAttribute('aria-expanded', 'true');
+                        answer.setAttribute('aria-hidden', 'false');
+                        toggle.className = 'fas fa-minus';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
