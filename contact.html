@@ -21,12 +21,26 @@
     <link rel="stylesheet" href="contact-recruit-styles.css">
     <!-- モバイル対応用CSS -->
     <link rel="stylesheet" href="mobile-fix.css">
+    <style>
+        /* ヘッダーロゴテキストの色をindex.htmlと統一 */
+        .logo-text {
+            color: #4a90e2 !important; /* index.htmlと同じ青色 */
+            font-size: 1.5rem !important;
+            font-weight: bold !important;
+            margin-left: 10px !important;
+        }
+
+        .logo-image {
+            height: 60px !important;
+            width: auto !important;
+        }
+    </style>
 </head>
 <body>
     <header class="fixed-header">
         <div class="logo">
             <a href="index.html" aria-label="Melody Lab ホームページ">
-                <img src="images/music_school_logo_rem.png" alt="Melody Lab" class="logo-image">
+                <img src="images/music_school_logo_rem.png" alt="Melody Lab" class="logo-image" style="box-shadow: none; border-radius: 0;">
                 <span class="logo-text">Melody Lab</span>
             </a>
         </div>
