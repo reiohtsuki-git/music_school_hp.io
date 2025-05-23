@@ -13,6 +13,10 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="additional-styles.css">
+    <!-- ヘッダーとナビゲーション用CSS -->
+    <link rel="stylesheet" href="header-nav.css">
+    <!-- フッター用CSS -->
+    <link rel="stylesheet" href="footer.css">
     <!-- モバイル対応用CSS -->
     <link rel="stylesheet" href="mobile-fix.css">
     <!-- レイアウト修正用CSS -->
@@ -24,12 +28,12 @@
         .page-title {
             position: relative;
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            padding: 4rem 0; /* 3remから4remに変更 */
+            padding: 4rem 0;
             border-radius: 16px;
             margin-bottom: 3rem;
             text-align: center;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(62, 76, 141, 0.25); /* シャドウを強調 */
+            box-shadow: 0 15px 35px rgba(62, 76, 141, 0.25);
         }
         
         .page-title h2 {
@@ -41,19 +45,6 @@
             font-family: 'Playfair Display', 'Noto Sans JP', serif;
         }
 
-        /* 赤線を削除するため、::before と ::after 擬似要素も修正 
-        .page-title::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            right: -50px;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            z-index: 1;
-        }
-        */
         .page-title::after {
             content: '';
             position: absolute;
@@ -171,84 +162,6 @@
             font-size: 1rem;
             line-height: 1.7;
             text-align: center;
-        }
-
-        /* 数字で見るセクション */
-        .stats-section {
-            padding: 3rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            border-radius: 16px;
-            margin-bottom: 3rem;
-            color: var(--white);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .stats-section::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            right: -50px;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.05);
-            z-index: 1;
-        }
-        
-        .stats-section::after {
-            content: '';
-            position: absolute;
-            bottom: -50px;
-            left: -50px;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.05);
-            z-index: 1;
-        }
-        
-        .stats-title {
-            position: relative;
-            z-index: 2;
-            font-size: 1.8rem;
-            margin-bottom: 2.5rem;
-            font-weight: 700;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 2rem;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .stat-item {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 1.5rem;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-        
-        .stat-item:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
-        }
-        
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-            color: var(--white);
-            line-height: 1;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        .stat-label {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.8);
         }
 
         /* ミッションセクション */
@@ -444,10 +357,6 @@
                 grid-template-columns: 1fr;
             }
             
-            .stats-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            
             .page-title h2 {
                 font-size: 2rem;
             }
@@ -458,10 +367,6 @@
         }
         
         @media (max-width: 576px) {
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
             .page-title {
                 padding: 2rem 1rem;
             }
@@ -472,7 +377,7 @@
         }
 
         .logo-text {
-            color: #4a90e2 !important; /* または var(--primary) !important */
+            color: #4a90e2 !important;
             font-size: 1.5rem !important;
             font-weight: bold !important;
             margin-left: 10px !important;
@@ -591,34 +496,6 @@
             </div>
         </section>
 
-        <!--
-        <section class="stats-section" data-aos="fade-up">
-            <h3 class="stats-title">数字で見る Melody Lab</h3>
-            
-            <div class="stats-grid">
-                <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="stat-number" id="stat-students">3,500<sup>+</sup></div>
-                    <div class="stat-label">受講生</div>
-                </div>
-                
-                <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="stat-number" id="stat-courses">25<sup>+</sup></div>
-                    <div class="stat-label">コース数</div>
-                </div>
-                
-                <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="stat-number" id="stat-instructors">50<sup>+</sup></div>
-                    <div class="stat-label">プロ講師</div>
-                </div>
-                
-                <div class="stat-item" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="stat-number" id="stat-satisfaction">98<sup>%</sup></div>
-                    <div class="stat-label">満足度</div>
-                </div>
-            </div>
-        </section>
-        -->
-
         <section class="mission-section" data-aos="fade-up">
             <div class="mission-content" data-aos="fade-right">
                 <h3 class="mission-title">私たちのミッション</h3>
@@ -685,11 +562,76 @@
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 Music School. All rights reserved.</p>
+    <!-- フッターセクション -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <img src="images/music_school_logo_rem.png" alt="Melody Lab">
+                    <h3 class="footer-logo-text">Melody Lab</h3>
+                </div>
+                <p class="footer-about">
+                    音楽は、もっと自由で、もっと身近なもの。<br>
+                    あなたのライフスタイルに合わせて学べるオンライン音楽教室です。
+                </p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Twitterをフォロー"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagramをフォロー"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTubeをフォロー"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="LINEで友達追加"><i class="fab fa-line"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">レッスン</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#guitar-lesson"><i class="fas fa-chevron-right"></i> ギターレッスン</a></li>
+                    <li><a href="index.html#bass-lesson"><i class="fas fa-chevron-right"></i> ベースレッスン</a></li>
+                    <li><a href="index.html#dtm-lesson"><i class="fas fa-chevron-right"></i> DTMレッスン</a></li>
+                    <li><a href="index.html#compose-lesson"><i class="fas fa-chevron-right"></i> 作曲レッスン</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">サイトマップ</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> ホーム</a></li>
+                    <li><a href="index.html#instruments"><i class="fas fa-chevron-right"></i> 楽器</a></li>
+                    <li><a href="index.html#price"><i class="fas fa-chevron-right"></i> 料金</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> 私たちについて</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> お問い合わせ</a></li>
+                    <li><a href="new-recruit.html"><i class="fas fa-chevron-right"></i> 採用情報</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">お問い合わせ</h4>
+                <ul class="footer-contact">
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>melodylab.company@gmail.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-links">
+                <a href="#">プライバシーポリシー</a>
+                <a href="#">利用規約</a>
+                <a href="#">特定商取引法に基づく表記</a>
+                <a href="#">会社概要</a>
+            </div>
+            <p>&copy; 2025 Melody Lab 音楽教室 All Rights Reserved.</p>
+        </div>
     </footer>
 
+    <button id="back-to-top" class="back-to-top" aria-label="トップに戻る">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script src="script.js"></script>
+    <script src="header-nav.js"></script>
     
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
@@ -699,55 +641,25 @@
             easing: 'ease-out',
             once: true
         });
-        
-        // スクロール時のカウントアップアニメーション
+
+        // トップに戻るボタンの機能
         document.addEventListener('DOMContentLoaded', function() {
-            const stats = {
-                'stat-students': { end: 3500, duration: 2000 },
-                'stat-courses': { end: 25, duration: 1500 },
-                'stat-instructors': { end: 50, duration: 1800 },
-                'stat-satisfaction': { end: 98, duration: 1200 }
-            };
+            const backToTopButton = document.getElementById('back-to-top');
             
-            const statsSection = document.querySelector('.stats-section');
-            
-            function animateStats() {
-                for (const [id, data] of Object.entries(stats)) {
-                    const el = document.getElementById(id);
-                    if (!el || el.dataset.animated === 'true') continue;
-                    
-                    const { end, duration } = data;
-                    const start = 0;
-                    const increment = end / (duration / 16);
-                    let current = start;
-                    
-                    el.dataset.animated = 'true';
-                    
-                    const timer = setInterval(() => {
-                        current += increment;
-                        if (current >= end) {
-                            current = end;
-                            clearInterval(timer);
-                        }
-                        
-                        el.innerHTML = Math.floor(current) + (id === 'stat-satisfaction' ? '<sup>%</sup>' : '<sup>+</sup>');
-                    }, 16);
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
                 }
-            }
+            });
             
-            // IntersectionObserver でセクションが表示されたらアニメーション開始
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        setTimeout(animateStats, 500);
-                        observer.unobserve(entry.target);
-                    }
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
                 });
-            }, { threshold: 0.2 });
-            
-            if (statsSection) {
-                observer.observe(statsSection);
-            }
+            });
         });
     </script>
 </body>
