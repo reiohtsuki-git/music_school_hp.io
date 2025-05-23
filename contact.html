@@ -22,17 +22,32 @@
     <!-- モバイル対応用CSS -->
     <link rel="stylesheet" href="mobile-fix.css">
     <style>
-        /* ヘッダーロゴテキストの色をindex.htmlと統一 */
-        .logo-text {
+        /* ヘッダーロゴテキストの色をindex.htmlと統一 - より詳細度の高いセレクタ */
+        .fixed-header .logo a .logo-text {
             color: #4a90e2 !important; /* index.htmlと同じ青色 */
             font-size: 1.5rem !important;
             font-weight: bold !important;
             margin-left: 10px !important;
         }
 
-        .logo-image {
+        .fixed-header .logo a .logo-image {
             height: 60px !important;
             width: auto !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+        }
+
+        /* エフェクトを削除 */
+        .logo-text::after {
+            display: none !important;
+        }
+
+        .logo:hover .logo-text::after {
+            width: 0 !important;
+        }
+
+        .logo a:hover {
+            transform: none !important;
         }
     </style>
 </head>
@@ -40,7 +55,7 @@
     <header class="fixed-header">
         <div class="logo">
             <a href="index.html" aria-label="Melody Lab ホームページ">
-                <img src="images/music_school_logo_rem.png" alt="Melody Lab" class="logo-image" style="box-shadow: none; border-radius: 0;">
+                <img src="images/music_school_logo_rem.png" alt="Melody Lab" class="logo-image">
                 <span class="logo-text">Melody Lab</span>
             </a>
         </div>
