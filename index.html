@@ -36,7 +36,6 @@
     <link rel="stylesheet" href="mobile-fix.css">
     <!-- レイアウト修正用CSS -->
     <link rel="stylesheet" href="layout-fix.css">
-    <link rel="stylesheet" href="image-fix.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         /* 新規追加スタイル */
@@ -70,7 +69,7 @@
             border-radius: 20px;
             padding: 6rem 0 4rem;
         }
-        
+
         .about-preview-content {
             position: relative;
             z-index: 2;
@@ -78,7 +77,7 @@
             margin: 0 auto;
             padding: 0 2rem;
         }
-        
+
         .about-card {
             background-color: white;
             border-radius: 16px;
@@ -88,12 +87,12 @@
             position: relative;
             transition: all 0.3s ease;
         }
-        
+
         .about-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(62, 76, 141, 0.15);
         }
-        
+
         .about-icon {
             position: absolute;
             top: -30px;
@@ -108,16 +107,16 @@
             justify-content: center;
             box-shadow: 0 5px 15px rgba(62, 76, 141, 0.2);
         }
-        
+
         .about-icon i {
             font-size: 2rem;
             color: white;
         }
-        
+
         .about-preview-text {
             text-align: center;
         }
-        
+
         .about-headline {
             font-size: 1.4rem !important;
             font-weight: 700 !important;
@@ -125,7 +124,7 @@
             margin-bottom: 2rem !important;
             position: relative;
         }
-        
+
         .about-headline::after {
             content: '';
             position: absolute;
@@ -137,41 +136,41 @@
             left: 50%;
             transform: translateX(-50%);
         }
-        
+
         .about-preview-text p {
             font-size: 1.05rem;
             line-height: 1.8;
             margin-bottom: 1rem;
             color: var(--text-light);
         }
-        
+
         .join-button-container {
             display: flex;
             justify-content: center;
             margin-top: 3rem;
         }
-        
+
         /* レスポンシブ対応 */
         @media (max-width: 768px) {
             .about-card {
                 padding: 3rem 1.5rem;
             }
-            
+
             .about-headline {
                 font-size: 1.2rem !important;
             }
-            
+
             .about-preview-text p {
                 font-size: 1rem;
             }
         }
-        
+
         .join-button-container {
             display: flex;
             justify-content: center;
             margin-top: 3rem;
         }
-        
+
         .join-button {
             display: inline-flex;
             align-items: center;
@@ -186,7 +185,7 @@
             overflow: hidden;
             z-index: 2;
         }
-        
+
         .join-button::before {
             content: '';
             position: absolute;
@@ -198,33 +197,33 @@
             transition: width 0.4s ease;
             z-index: -1;
         }
-        
+
         .join-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 30px rgba(62, 76, 141, 0.4);
             color: white;
         }
-        
+
         .join-button:hover::before {
             width: 100%;
         }
-        
+
         .join-button i {
             margin-left: 10px;
             transition: transform 0.3s ease;
         }
-        
+
         .join-button:hover i {
             transform: translateX(5px);
         }
-        
+
         /* レスポンシブ対応 */
         @media (max-width: 768px) {
             .about-preview-column {
                 padding: 2.5rem 1.5rem;
                 margin: 0 1rem;
             }
-            
+
             .about-preview-text p:first-child {
                 font-size: 1.2rem;
             }
@@ -661,7 +660,7 @@
                 <div class="instrument-card">
                     <h3><i class="fas fa-guitar"></i> Guitar Lesson</h3>
                     <div class="instrument-image">
-                        <img src="images/GUITAR_LESSON.png" alt="Guitar Lesson" loading="lazy">
+                        <img src="images/guitar.jpg" alt="Guitar Lesson" loading="lazy">
                         <div class="overlay">
                             <div class="overlay-content">
                                 <p>初心者からプロまで、あなたのレベルに合わせたギターレッスン</p>
@@ -674,7 +673,7 @@
                 <div class="instrument-card">
                     <h3><i class="fas fa-guitar"></i> Bass Lesson</h3>
                     <div class="instrument-image">
-                        <img src="images/BASS_LESSON.png" alt="Bass Lesson" loading="lazy">
+                        <img src="images/bass.jpg" alt="Bass Lesson" loading="lazy">
                         <div class="overlay">
                             <div class="overlay-content">
                                 <p>リズム感を養い、バンドの要となるベーステクニックを習得</p>
@@ -687,7 +686,7 @@
                 <div class="instrument-card">
                     <h3><i class="fas fa-laptop"></i> DTM Lesson</h3>
                     <div class="instrument-image">
-                        <img src="images/DTM_LESSON.png" alt="DTM Lesson" loading="lazy">
+                        <img src="images/dtm.jpg" alt="DTM Lesson" loading="lazy">
                         <div class="overlay">
                             <div class="overlay-content">
                                 <p>音楽制作ソフトの基本操作から、プロ品質の楽曲制作まで</p>
@@ -700,7 +699,7 @@
                 <div class="instrument-card">
                     <h3><i class="fas fa-music"></i> Compose Lesson</h3>
                     <div class="instrument-image">
-                        <img src="images/COMP_LESSON.png" alt="Compose Lesson" loading="lazy">
+                        <img src="images/compose_2.jpg" alt="Compose Lesson" loading="lazy">
                         <div class="overlay">
                             <div class="overlay-content">
                                 <p>メロディーの作り方、コード進行、楽曲構成など作曲の基礎から応用まで</p>
@@ -734,7 +733,7 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <!-- ベースレッスン -->
                 <div id="bass-lesson" class="lesson-item">
                     <div class="lesson-icon">
@@ -754,7 +753,7 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <!-- DTMレッスン -->
                 <div id="dtm-lesson" class="lesson-item">
                     <div class="lesson-icon">
@@ -774,7 +773,7 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <!-- 作曲レッスン -->
                 <div id="compose-lesson" class="lesson-item">
                     <div class="lesson-icon">
@@ -795,7 +794,7 @@
                     </div>
                 </div>
             </div>
-        
+
             <div class="join-button-container">
                 <a href="admission.html" class="join-button">入会する <i class="fas fa-arrow-right"></i></a>
             </div>
@@ -833,7 +832,7 @@
                             </div>
                         </div>
                     </div>
-        
+
                     <div class="testimonial-card">
                         <div class="testimonial-quote">"</div>
                         <div class="testimonial-content">
@@ -861,7 +860,7 @@
                             </div>
                         </div>
                     </div>
-        
+
                     <div class="testimonial-card">
                         <div class="testimonial-quote">"</div>
                         <div class="testimonial-content">
@@ -896,7 +895,7 @@
         <!-- 料金セクション -->
         <section id="price" class="section">
             <h2 class="section-title">料金・教材</h2>
-        
+
             <div class="price-container">
                 <!-- 入会金・設備費のカード -->
                 <div class="admission-card">
@@ -925,7 +924,7 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <!-- 料金プランカード -->
                 <div class="price-plans">
                     <div class="price-plan-card">
@@ -960,7 +959,7 @@
                             </div>
                         </div>
                     </div>
-        
+
                     <div class="price-plan-card popular-plan">
                         <div class="plan-header">
                             <div class="plan-name">スタンダードプラン</div>
@@ -997,7 +996,7 @@
                             </div>
                         </div>
                     </div>
-        
+
                     <div class="price-plan-card">
                         <div class="plan-header">
                             <div class="plan-name">プレミアムプラン</div>
@@ -1039,14 +1038,14 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <!-- タブ切り替え料金表 -->
                 <div class="tabs-container">
                     <div class="tabs">
                         <button class="tab-btn active" data-tab="monthly">月謝制</button>
                         <button class="tab-btn" data-tab="ticket">チケット制</button>
                     </div>
-        
+
                     <div class="tab-content active" id="monthly">
                         <div class="lesson-type">月3回・1回45分コース（詳細料金表）</div>
                         <div class="fee-table-container">
@@ -1078,7 +1077,7 @@
                             </table>
                         </div>
                     </div>
-        
+
                     <div class="tab-content" id="ticket">
                         <div class="lesson-type">回数チケット（有効期限3ヶ月）</div>
                         <div class="fee-table-container">
@@ -1110,7 +1109,7 @@
                             </table>
                         </div>
                     </div>
-        
+
                     <div class="price-note">
                         <p><i class="fas fa-info-circle"></i> 料金はすべて税込表示です</p>
                         <p><i class="fas fa-info-circle"></i> レッスンのキャンセルは前日までにご連絡ください</p>
@@ -1148,7 +1147,7 @@
                     <h2 class="section-title">お問い合わせ</h2>
                     <p>レッスンに関するご質問や無料体験のお申し込みなど、お気軽にお問い合わせください。<br>24時間以内に担当者より返信いたします。</p>
                 </div>
-        
+
                 <!-- フォームボタン -->
                 <div class="contact-form-container">
                     <h3>お問い合わせフォーム</h3>
@@ -1167,7 +1166,7 @@
                     <h2 class="section-title">採用情報</h2>
                     <p>Melody Labでは、音楽の素晴らしさを伝え、生徒さんの成長をサポートしてくれる講師を募集しています。<br>音楽を通じて人々の生活を豊かにする仕事に、あなたもチャレンジしてみませんか？</p>
                 </div>
-        
+
                 <!-- 応募プロセスのステップ表示 -->
                 <div class="application-process">
                     <h3 class="process-title">応募プロセス</h3>
@@ -1192,7 +1191,7 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <!-- 募集ポジション -->
                 <div class="positions-container">
                     <h3 class="positions-title">募集ポジション</h3>
@@ -1211,7 +1210,7 @@
                                 <a href="new-recruit.html#application-form" class="apply-button">応募する</a>
                             </div>
                         </div>
-        
+
                         <div class="position-card">
                             <div class="position-header">
                                 <h3><i class="fas fa-music"></i> DTM・作曲講師</h3>
@@ -1220,6 +1219,7 @@
                                 <h4>ポジション詳細</h4>
                                 <ul class="position-details">
                                     <li><strong>雇用形態</strong> 業務委託</li>
+                                    <li><strong>給与</strong> レッスン60分あたり 3,000円〜</li>
                                     <li><strong>給与</strong> レッスン45分あたり 3,000円〜</li>
                                     <li><strong>勤務時間</strong> シフト制（週1日〜応相談）</li>
                                 </ul>
@@ -1228,7 +1228,7 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="recruit-cta">
                     <a href="new-recruit.html" class="btn-primary">採用情報の詳細はこちら <i class="fas fa-arrow-right"></i></a>
                 </div>
@@ -1241,13 +1241,13 @@
         document.addEventListener('DOMContentLoaded', function() {
           // レッスン項目のホバーエフェクト
           const lessonCards = document.querySelectorAll('.custom-lesson-card');
-          
+
           lessonCards.forEach(card => {
             card.addEventListener('mouseenter', function() {
               this.style.borderLeftColor = '#3E4C8D';
               this.style.transform = 'translateX(5px) translateY(-3px)';
               this.style.boxShadow = '0 15px 35px rgba(62, 76, 141, 0.12)';
-              
+
               // アイコンのホバーエフェクト
               const icon = this.querySelector('.custom-icon');
               if (icon) {
@@ -1255,12 +1255,12 @@
                 icon.style.boxShadow = '0 8px 20px rgba(226, 114, 91, 0.15)';
               }
             });
-            
+
             card.addEventListener('mouseleave', function() {
               this.style.borderLeftColor = 'transparent';
               this.style.transform = 'translateX(0) translateY(0)';
               this.style.boxShadow = '0 10px 30px rgba(62, 76, 141, 0.08)';
-              
+
               // アイコンのホバーエフェクト解除
               const icon = this.querySelector('.custom-icon');
               if (icon) {
@@ -1269,32 +1269,32 @@
               }
             });
           });
-          
+
           // フィーチャーのホバーエフェクト
           const features = document.querySelectorAll('.custom-feature');
-          
+
           features.forEach(feature => {
             feature.addEventListener('mouseenter', function() {
               this.style.transform = 'translateY(-3px)';
               this.style.boxShadow = '0 5px 15px rgba(226, 114, 91, 0.12)';
             });
-            
+
             feature.addEventListener('mouseleave', function() {
               this.style.transform = 'translateY(0)';
               this.style.boxShadow = '0 3px 10px rgba(226, 114, 91, 0.07)';
             });
           });
         });
-          
+
           // レッスン特徴のホバーエフェクト
           const lessonFeatures = document.querySelectorAll('.lesson-feature');
-          
+
           lessonFeatures.forEach(feature => {
             feature.addEventListener('mouseenter', function() {
               this.style.transform = 'translateY(-3px)';
               this.style.boxShadow = '0 5px 15px rgba(226, 114, 91, 0.12)';
             });
-            
+
             feature.addEventListener('mouseleave', function() {
               this.style.transform = 'translateY(0)';
               this.style.boxShadow = '0 3px 10px rgba(226, 114, 91, 0.07)';
@@ -1322,7 +1322,7 @@
                     <a href="#" aria-label="LINEで友達追加"><i class="fab fa-line"></i></a>
                 </div>
             </div>
-    
+
             <div class="footer-col">
                 <h4 class="footer-heading">レッスン</h4>
                 <ul class="footer-links">
@@ -1332,7 +1332,7 @@
                     <li><a href="#compose-lesson"><i class="fas fa-chevron-right"></i> 作曲レッスン</a></li>
                 </ul>
             </div>
-    
+
             <div class="footer-col">
                 <h4 class="footer-heading">サイトマップ</h4>
                 <ul class="footer-links">
@@ -1344,7 +1344,7 @@
                     <li><a href="#recruit"><i class="fas fa-chevron-right"></i> 採用情報</a></li>
                 </ul>
             </div>
-    
+
             <div class="footer-col">
                 <h4 class="footer-heading">お問い合わせ</h4>
                 <ul class="footer-contact">
@@ -1355,7 +1355,7 @@
                 </ul>
             </div>
         </div>
-    
+
         <div class="footer-bottom">
             <div class="footer-bottom-links">
                 <a href="#">プライバシーポリシー</a>
@@ -1366,7 +1366,7 @@
             <p>&copy; 2025 Melody Lab 音楽教室 All Rights Reserved.</p>
         </div>
     </footer>
-    
+
     <button id="back-to-top" class="back-to-top" aria-label="トップに戻る">
         <i class="fas fa-arrow-up"></i>
     </button>
@@ -1375,7 +1375,7 @@
         // トップに戻るボタンの機能
         document.addEventListener('DOMContentLoaded', function() {
             const backToTopButton = document.getElementById('back-to-top');
-            
+
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 300) {
                     backToTopButton.classList.add('visible');
@@ -1383,7 +1383,7 @@
                     backToTopButton.classList.remove('visible');
                 }
             });
-            
+
             backToTopButton.addEventListener('click', () => {
                 window.scrollTo({
                     top: 0,
