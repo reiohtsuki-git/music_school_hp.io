@@ -5,35 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="音楽教室の講師募集情報。経験不問、ジャンル不問でスキルを活かせる環境です。">
     <title>講師募集 - Melody Lab</title>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- ヘッダーとナビゲーション用CSS -->
     <link rel="stylesheet" href="header-nav.css">
-    <!-- フッター用CSS -->
     <link rel="stylesheet" href="footer.css">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="additional-styles.css">
-    <!-- お問い合わせと採用情報用CSS -->
     <link rel="stylesheet" href="contact-recruit-styles.css">
-    <!-- モバイル対応用CSS -->
     <link rel="stylesheet" href="mobile-fix.css">
     <style>
-        /* ヘッダーロゴテキストの色をindex.htmlと統一 */
         .logo-text {
-            color: #4a90e2 !important; /* index.htmlと同じ青色 */
+            color: #4a90e2 !important;
             font-size: 1.5rem !important;
             font-weight: bold !important;
             margin-left: 10px !important;
         }
-
         .logo-image {
             height: 60px !important;
             width: auto !important;
+        }
+        .faq-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+        .faq-card:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            text-align: left;
+        }
+        .faq-question:hover {
+            background: #e9ecef;
+        }
+        .faq-question[aria-expanded="true"] {
+            background: #4a90e2;
+            color: white;
+        }
+        .faq-question h4 {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .faq-question h4 .q-icon {
+            background: #4a90e2;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .faq-question[aria-expanded="true"] h4 .q-icon {
+            background: white;
+            color: #4a90e2;
+        }
+        .faq-toggle {
+            transition: transform 0.3s ease;
+        }
+        .faq-toggle i {
+            font-size: 1.2rem;
+            color: #4a90e2;
+        }
+        .faq-question[aria-expanded="true"] .faq-toggle i {
+            color: white;
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: white;
+        }
+        .faq-answer[aria-hidden="false"] {
+            max-height: 300px;
+            padding: 20px;
+        }
+        .faq-answer p {
+            margin: 0;
+            color: #666;
+            line-height: 1.6;
         }
     </style>
 </head>
@@ -71,7 +142,6 @@
                     <p>Melody Labでは、音楽の素晴らしさを伝え、生徒さんの成長をサポートしてくれる講師を募集しています。<br>音楽を通じて人々の生活を豊かにする仕事に、あなたもチャレンジしてみませんか？</p>
                 </div>
 
-                <!-- 応募プロセスのタイムライン -->
                 <div class="application-process">
                     <h3 class="process-title">応募プロセス</h3>
                     <div class="timeline">
@@ -108,7 +178,6 @@
                     </div>
                 </div>
 
-                <!-- 募集ポジション -->
                 <div class="positions-container">
                     <h3 class="positions-title">募集ポジション</h3>
                     <div class="position-cards">
@@ -206,13 +275,12 @@
                     </div>
                 </div>
 
-                <!-- よくある質問 -->
                 <div class="application-process">
                     <h3 class="process-title">よくある質問</h3>
                     <div class="faq-container">
                         <div class="faq-card">
                             <div class="faq-question" aria-expanded="false">
-                                <h4><i class="fas fa-question"></i> 教える経験がなくても応募できますか？</h4>
+                                <h4><span class="q-icon">Q</span> 教える経験がなくても応募できますか？</h4>
                                 <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                             </div>
                             <div class="faq-answer" aria-hidden="true">
@@ -222,7 +290,7 @@
                         
                         <div class="faq-card">
                             <div class="faq-question" aria-expanded="false">
-                                <h4><i class="fas fa-question"></i> 他の仕事や演奏活動と両立できますか？</h4>
+                                <h4><span class="q-icon">Q</span> 他の仕事や演奏活動と両立できますか？</h4>
                                 <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                             </div>
                             <div class="faq-answer" aria-hidden="true">
@@ -232,7 +300,7 @@
                         
                         <div class="faq-card">
                             <div class="faq-question" aria-expanded="false">
-                                <h4><i class="fas fa-question"></i> 音楽ジャンルの指定はありますか？</h4>
+                                <h4><span class="q-icon">Q</span> 音楽ジャンルの指定はありますか？</h4>
                                 <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                             </div>
                             <div class="faq-answer" aria-hidden="true">
@@ -242,7 +310,7 @@
                         
                         <div class="faq-card">
                             <div class="faq-question" aria-expanded="false">
-                                <h4><i class="fas fa-question"></i> 採用までの期間はどのくらいですか？</h4>
+                                <h4><span class="q-icon">Q</span> 採用までの期間はどのくらいですか？</h4>
                                 <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                             </div>
                             <div class="faq-answer" aria-hidden="true">
@@ -252,11 +320,9 @@
                     </div>
                 </div>
 
-                <!-- 応募フォーム -->
                 <div class="contact-form-container" id="application-form">
                     <h3 class="process-title">応募フォーム</h3>
                     <form id="recruitForm" class="contact-form" action="https://formsubmit.co/5fcf357d718c6a525204ef9aacff84ed" method="POST">
-                        <!-- FormSubmit設定用の隠しフィールド -->
                         <input type="hidden" name="_subject" value="【Melody Lab】講師応募がありました">
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_next" value="https://reiohtsuki-git.github.io/music_school_hp.io/recruit-thanks.html">
@@ -311,7 +377,6 @@
         </section>
     </main>
 
-    <!-- フッターセクション -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-col">
@@ -382,7 +447,6 @@
     <script src="header-nav.js"></script>
     <script src="contact-recruit-form.js"></script>
     <script>
-        // トップに戻るボタンの機能
         document.addEventListener('DOMContentLoaded', function() {
             const backToTopButton = document.getElementById('back-to-top');
             
@@ -401,7 +465,6 @@
                 });
             });
 
-            // FAQ アコーディオン機能
             const faqQuestions = document.querySelectorAll('.faq-question');
             
             faqQuestions.forEach(question => {
@@ -409,28 +472,43 @@
                     const faqCard = question.parentElement;
                     const answer = faqCard.querySelector('.faq-answer');
                     const toggle = question.querySelector('.faq-toggle i');
+                    const qIcon = question.querySelector('h4 .q-icon');
                     
-                    // アクティブ状態の切り替え
                     const isActive = question.getAttribute('aria-expanded') === 'true';
                     
-                    // 他のFAQを閉じる
                     faqQuestions.forEach(q => {
                         if (q !== question) {
+                            const otherCard = q.parentElement;
+                            const otherAnswer = otherCard.querySelector('.faq-answer');
+                            const otherToggle = q.querySelector('.faq-toggle i');
+                            const otherQIcon = q.querySelector('h4 .q-icon');
+                            
                             q.setAttribute('aria-expanded', 'false');
-                            q.parentElement.querySelector('.faq-answer').setAttribute('aria-hidden', 'true');
-                            q.querySelector('.faq-toggle i').className = 'fas fa-plus';
+                            otherAnswer.setAttribute('aria-hidden', 'true');
+                            otherToggle.className = 'fas fa-plus';
+                            if (otherQIcon) {
+                                otherQIcon.style.background = '#4a90e2';
+                                otherQIcon.style.color = 'white';
+                            }
                         }
                     });
                     
-                    // クリックされたFAQの状態を切り替え
                     if (isActive) {
                         question.setAttribute('aria-expanded', 'false');
                         answer.setAttribute('aria-hidden', 'true');
                         toggle.className = 'fas fa-plus';
+                        if (qIcon) {
+                            qIcon.style.background = '#4a90e2';
+                            qIcon.style.color = 'white';
+                        }
                     } else {
                         question.setAttribute('aria-expanded', 'true');
                         answer.setAttribute('aria-hidden', 'false');
                         toggle.className = 'fas fa-minus';
+                        if (qIcon) {
+                            qIcon.style.background = 'white';
+                            qIcon.style.color = '#4a90e2';
+                        }
                     }
                 });
             });
