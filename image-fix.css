@@ -1,0 +1,38 @@
+/* 画像サイズ修正専用CSS */
+
+.logo-image {
+    height: 40px !important;
+    width: auto !important;
+    max-width: 40px !important;
+    object-fit: contain !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 8px rgba(62, 76, 141, 0.1) !important;
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+    .logo-image {
+        height: 35px !important;
+        max-width: 35px !important;
+    }
+    
+    .logo-text {
+        font-size: 1.3rem !important;
+        margin-left: 0.8rem !important;
+    }
+}
+
+/* 楽器画像のサイズ調整 */
+.instrument-image img {
+    width: 100% !important;
+    height: 200px !important;
+    object-fit: cover !important;
+}
+
+/* ヒーロー画像の調整 */
+.hero-image img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 400px !important;
+    object-fit: cover !important;
+}
