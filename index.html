@@ -594,6 +594,23 @@
         .hero-content h2 {
             font-size: 2.7rem !important; /* 元のvar(--fs-xl)は3.5remなので小さくします */
         }
+
+        /* 楽器画像サイズ修正 - 強制適用 */
+        .instrument-card .instrument-image {
+            height: 350px !important;
+            width: 100% !important;
+            overflow: hidden !important;
+            position: relative !important;
+            display: block !important;
+        }
+        
+        .instrument-card .instrument-image img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            object-position: center !important;
+            display: block !important;
+        }
     </style>
 </head>
 <body>
