@@ -49,6 +49,39 @@
             margin-bottom: 3rem;
         }
         
+        .next-steps {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 3rem;
+            text-align: left;
+        }
+        
+        .next-steps h3 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .next-steps ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .next-steps li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            padding: 0.5rem 0;
+        }
+        
+        .next-steps li i {
+            color: #667eea;
+            margin-right: 1rem;
+            margin-top: 0.2rem;
+            font-size: 1.1rem;
+        }
+        
         .thanks-actions {
             display: flex;
             gap: 1rem;
@@ -94,6 +127,16 @@
                 font-size: 1.1rem;
             }
             
+            .next-steps {
+                padding: 1.5rem;
+                text-align: center;
+            }
+            
+            .next-steps li {
+                justify-content: center;
+                text-align: left;
+            }
+            
             .thanks-actions {
                 flex-direction: column;
                 align-items: center;
@@ -125,7 +168,7 @@
                 <li><a href="index.html#lessons">レッスン</a></li>
                 <li><a href="index.html#price">料金</a></li>
                 <li><a href="about.html">私たちについて</a></li>
-                <li><a href="contact.html">お問い合わせ</a></li>
+                <li><a href="contact.html" class="active">お問い合わせ</a></li>
                 <li><a href="index.html#recruit">採用情報</a></li>
             </ul>
         </nav>
@@ -142,17 +185,39 @@
                 <h1 class="thanks-title">お問い合わせありがとうございました</h1>
                 <div class="thanks-message">
                     <p>お問い合わせを受け付けました。<br>
-                    担当者が内容を確認後、24時間以内にご返信いたします。</p>
-                    <p>しばらくお待ちください。</p>
+                    内容を確認し、24時間以内に担当者よりご返信いたします。</p>
                 </div>
+                
+                <div class="next-steps">
+                    <h3><i class="fas fa-clipboard-list"></i> 今後の流れ</h3>
+                    <ul>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span><strong>確認メール送信</strong><br>お問い合わせ内容の確認メールを自動送信いたします。</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-user-tie"></i>
+                            <span><strong>担当者による内容確認</strong><br>専門スタッフがお問い合わせ内容を詳しく確認いたします。</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-reply"></i>
+                            <span><strong>返信（24時間以内）</strong><br>お問い合わせいただいたメールアドレスに詳しい回答をお送りします。</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-music"></i>
+                            <span><strong>無料体験レッスンのご案内</strong><br>ご希望の方には無料体験レッスンの詳細をご案内いたします。</span>
+                        </li>
+                    </ul>
+                </div>
+                
                 <div class="thanks-actions">
                     <a href="index.html" class="thanks-button">
                         <i class="fas fa-home"></i>
                         ホームに戻る
                     </a>
-                    <a href="index.html#lessons" class="thanks-button secondary">
-                        <i class="fas fa-music"></i>
-                        レッスンを見る
+                    <a href="contact.html" class="thanks-button secondary">
+                        <i class="fas fa-envelope"></i>
+                        お問い合わせページに戻る
                     </a>
                 </div>
             </div>
