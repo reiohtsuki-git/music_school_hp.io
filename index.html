@@ -42,20 +42,20 @@
         .trial-lesson-banner {
             position: fixed;
             top: 70px; /* ヘッダーの下 */
-            left: 50%;
-            transform: translateX(-50%);
+            left: 200px; /* 左側に配置 */
+            transform: none; /* 中央揃えを解除 */
             background: linear-gradient(135deg, #10B981 0%, #059669 100%);
             color: white;
             padding: 12px 24px;
             border-radius: 25px;
             z-index: 999;
             box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
-            animation: slideInBounce 1s ease-out, pulse 2s infinite 1s;
+            animation: slideInBounceLeft 1s ease-out, pulse 2s infinite 1s;
             transition: all 0.3s ease;
         }
         
         .trial-lesson-banner.hidden {
-            transform: translateX(-50%) translateY(-100px);
+            transform: translateX(-300px); /* 左側に隠れる */
             opacity: 0;
             pointer-events: none;
         }
@@ -94,30 +94,30 @@
             opacity: 1;
         }
         
-        /* アニメーション */
-        @keyframes slideInBounce {
+        /* アニメーション（左側から登場） */
+        @keyframes slideInBounceLeft {
             0% {
-                transform: translateX(-50%) translateY(-100px);
+                transform: translateX(-300px);
                 opacity: 0;
             }
             60% {
-                transform: translateX(-50%) translateY(10px);
+                transform: translateX(10px);
                 opacity: 1;
             }
             80% {
-                transform: translateX(-50%) translateY(-5px);
+                transform: translateX(-5px);
             }
             100% {
-                transform: translateX(-50%) translateY(0);
+                transform: translateX(0);
             }
         }
         
         @keyframes pulse {
             0%, 100% {
-                transform: translateX(-50%) scale(1);
+                transform: scale(1);
             }
             50% {
-                transform: translateX(-50%) scale(1.05);
+                transform: scale(1.05);
             }
         }
         
@@ -133,45 +133,65 @@
         }
         
         /* レスポンシブ対応 */
+        @media (max-width: 1200px) {
+            .trial-lesson-banner {
+                left: 150px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .trial-lesson-banner {
+                left: 100px;
+            }
+        }
+        
         @media (max-width: 768px) {
             .trial-lesson-banner {
                 top: 60px;
                 left: 20px;
-                right: 20px;
+                right: auto;
                 transform: none;
                 width: auto;
+                max-width: calc(100vw - 40px);
             }
             
             .trial-lesson-banner.hidden {
-                transform: translateY(-100px);
+                transform: translateX(-100%);
             }
             
-            @keyframes slideInBounce {
+            @keyframes slideInBounceLeft {
                 0% {
-                    transform: translateY(-100px);
+                    transform: translateX(-100%);
                     opacity: 0;
                 }
                 60% {
-                    transform: translateY(10px);
+                    transform: translateX(10px);
                     opacity: 1;
                 }
                 80% {
-                    transform: translateY(-5px);
+                    transform: translateX(-5px);
                 }
                 100% {
-                    transform: translateY(0);
-                }
-            }
-            
-            @keyframes pulse {
-                0%, 100% {
-                    transform: scale(1);
-                }
-                50% {
-                    transform: scale(1.05);
+                    transform: translateX(0);
                 }
             }
         }
+        
+        @media (max-width: 480px) {
+            .trial-lesson-banner {
+                left: 10px;
+                right: 10px;
+                max-width: calc(100vw - 20px);
+                font-size: 12px;
+                padding: 10px 16px;
+            }
+            
+            .trial-content {
+                font-size: 12px;
+                gap: 6px;
+            }
+        }
+        
         /* 新規追加スタイル */
         .hero-quick-links {
             display: flex;
