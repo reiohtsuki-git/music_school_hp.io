@@ -560,6 +560,117 @@
             color: #666;
         }
 
+        /* お問い合わせフォームカードの改善 */
+        .contact-form-container {
+            margin: 2rem 0;
+        }
+        
+        .contact-form-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 255, 0.9) 100%);
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 10px 30px rgba(62, 76, 141, 0.08);
+            border: 1px solid rgba(62, 76, 141, 0.1);
+            position: relative;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-form-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(62, 76, 141, 0.12);
+            border-color: rgba(62, 76, 141, 0.2);
+        }
+        
+        .contact-form-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, #5a6bcf 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 8px 25px rgba(62, 76, 141, 0.2);
+            position: relative;
+        }
+        
+        .contact-form-icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+            top: 0;
+            left: 0;
+        }
+        
+        .contact-form-icon i {
+            font-size: 2.2rem;
+            color: white;
+            z-index: 1;
+            position: relative;
+        }
+        
+        .contact-form-card h3 {
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .contact-form-card p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .contact-form-card {
+                padding: 2rem 1.5rem;
+                border-radius: 15px;
+            }
+            
+            .contact-form-icon {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .contact-form-icon i {
+                font-size: 1.8rem;
+            }
+            
+            .contact-form-card h3 {
+                font-size: 1.4rem;
+            }
+            
+            .contact-form-card p {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .contact-form-card {
+                padding: 1.5rem 1rem;
+            }
+            
+            .contact-form-icon {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .contact-form-icon i {
+                font-size: 1.5rem;
+            }
+        }
+
         /* レスポンシブ対応 */
         @media (max-width: 768px) {
             .recruit-positions {
@@ -1157,10 +1268,15 @@
 
                 <!-- フォームボタン -->
                 <div class="contact-form-container">
-                    <h3>お問い合わせフォーム</h3>
-                    <p>詳細なお問い合わせやご質問は、フォームからお気軽にどうぞ。</p>
-                    <div class="form-submit">
-                        <a href="contact.html" class="submit-button">お問い合わせフォームへ <i class="fas fa-paper-plane"></i></a>
+                    <div class="contact-form-card">
+                        <div class="contact-form-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>お問い合わせフォーム</h3>
+                        <p>詳細なお問い合わせやご質問は、フォームからお気軽にどうぞ。</p>
+                        <div class="form-submit">
+                            <a href="contact.html" class="submit-button">お問い合わせフォームへ <i class="fas fa-paper-plane"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
