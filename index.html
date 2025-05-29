@@ -41,9 +41,9 @@
         /* 無料体験レッスンバナー */
         .trial-lesson-banner {
             position: fixed;
-            top: 70px; /* ヘッダーの下 */
-            left: 200px; /* 左側に配置 */
-            transform: none; /* 中央揃えを解除 */
+            top: 320px; /* 「音楽を、」の真上に配置 */
+            left: 200px;
+            transform: none;
             background: linear-gradient(135deg, #10B981 0%, #059669 100%);
             color: white;
             padding: 12px 24px;
@@ -55,7 +55,7 @@
         }
         
         .trial-lesson-banner.hidden {
-            transform: translateX(-300px); /* 左側に隠れる */
+            transform: translateX(-300px);
             opacity: 0;
             pointer-events: none;
         }
@@ -94,7 +94,7 @@
             opacity: 1;
         }
         
-        /* アニメーション（左側から登場） */
+        /* アニメーション */
         @keyframes slideInBounceLeft {
             0% {
                 transform: translateX(-300px);
@@ -135,19 +135,21 @@
         /* レスポンシブ対応 */
         @media (max-width: 1200px) {
             .trial-lesson-banner {
+                top: 300px;
                 left: 150px;
             }
         }
         
         @media (max-width: 992px) {
             .trial-lesson-banner {
+                top: 280px;
                 left: 100px;
             }
         }
         
         @media (max-width: 768px) {
             .trial-lesson-banner {
-                top: 60px;
+                top: 250px;
                 left: 20px;
                 right: auto;
                 transform: none;
@@ -158,27 +160,11 @@
             .trial-lesson-banner.hidden {
                 transform: translateX(-100%);
             }
-            
-            @keyframes slideInBounceLeft {
-                0% {
-                    transform: translateX(-100%);
-                    opacity: 0;
-                }
-                60% {
-                    transform: translateX(10px);
-                    opacity: 1;
-                }
-                80% {
-                    transform: translateX(-5px);
-                }
-                100% {
-                    transform: translateX(0);
-                }
-            }
         }
         
         @media (max-width: 480px) {
             .trial-lesson-banner {
+                top: 220px;
                 left: 10px;
                 right: 10px;
                 max-width: calc(100vw - 20px);
