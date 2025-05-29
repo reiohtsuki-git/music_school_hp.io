@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Melody Lab音楽教室の利用規約です。レッスンご利用前に必ずお読みください。">
+    <title>利用規約 - Melody Lab音楽教室</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Existing CSS Files -->
+    <link rel="stylesheet" href="header-nav.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile-fix.css">
+    
+    <style>
+        :root {
+            --primary: #3E4C8D;
+            --primary-dark: #2A3574;
+            --secondary: #E2725B;
+            --text-dark: #2C3E50;
+            --text-light: #5A6C7D;
+            --bg-light: #F8F9FF;
+        }
+
+        .terms-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 120px 2rem 4rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .terms-content {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid var(--secondary);
+        }
+
+        .terms-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .terms-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .terms-section h2 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--bg-light);
+            display: flex;
+            align-items: center;
+        }
+
+        .terms-section h2::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 24px;
+            background-color: var(--secondary);
+            margin-right: 12px;
+            border-radius: 3px;
+        }
+
+        .terms-section h3 {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin: 1.5rem 0 0.8rem 0;
+        }
+
+        .terms-section p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .terms-section ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .terms-section li {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .terms-section li::marker {
+            color: var(--secondary);
+        }
+
+        .highlight-box {
+            background: var(--bg-light);
+            border: 1px solid rgba(62, 76, 141, 0.2);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .back-to-home {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .back-to-home .btn {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(62, 76, 141, 0.3);
+        }
+
+        .back-to-home .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(62, 76, 141, 0.4);
+            color: white;
+        }
+
+        .back-to-home .btn i {
+            margin-right: 8px;
+        }
+
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .terms-container {
+                padding: 100px 1rem 2rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .terms-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .terms-section h2 {
+                font-size: 1.2rem;
+            }
+
+            .terms-section h3 {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* ヘッダー調整 */
+        body {
+            padding-top: 80px;
+        }
+
+        .logo-text {
+            color: #4a90e2 !important;
+            font-size: 1.5rem !important;
+            font-weight: bold !important;
+            margin-left: 10px !important;
+        }
+
+        .logo-image {
+            height: 60px !important;
+            width: auto !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="fixed-header">
+        <div class="logo">
+            <a href="index.html" aria-label="Melody Lab ホームページ">
+                <img src="images/music_school_logo_rem.png" alt="Melody Lab" class="logo-image" style="box-shadow: none; border-radius: 0;">
+                <span class="logo-text">Melody Lab</span>
+            </a>
+        </div>
+        <button class="mobile-menu-toggle" aria-label="メニューを開く" aria-expanded="false">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="index.html#home" class="nav-link">ホーム</a></li>
+                <li><a href="index.html#instruments" class="nav-link">楽器</a></li>
+                <li><a href="index.html#lessons" class="nav-link">レッスン</a></li>
+                <li><a href="index.html#price" class="nav-link">料金</a></li>
+                <li><a href="about.html" class="nav-link">私たちについて</a></li>
+                <li><a href="index.html#contact" class="nav-link">お問い合わせ</a></li>
+                <li><a href="index.html#recruit" class="nav-link">採用情報</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="menu-overlay"></div>
+
+    <!-- メインコンテンツ -->
+    <main>
+        <div class="terms-container">
+            <div class="page-header">
+                <h1 class="page-title">利用規約</h1>
+                <p class="page-subtitle">
+                    Melody Lab音楽教室をご利用いただく前に、必ず以下の利用規約をお読みいただき、<br>
+                    内容にご同意いただいた上でサービスをご利用ください。
+                </p>
+            </div>
+
+            <div class="terms-content">
+                <div class="terms-section">
+                    <h2>第1条（適用範囲）</h2>
+                    <p>本利用規約（以下「本規約」）は、Melody Lab音楽教室（以下「当教室」）が提供する音楽レッスンサービス（以下「本サービス」）の利用に関する条件を定めるものです。</p>
+                    <p>受講者は、本サービスを利用することにより、本規約に同意したものとみなします。</p>
+                </div>
+
+                <div class="terms-section">
+                    <h2>第2条（サービス内容）</h2>
+                    <p>当教室は、以下のサービスを提供します：</p>
+                    <ul>
+                        <li>オンライン音楽レッスン（ギター、ベース、DTM、作曲等）</li>
+                        <li>レッスン予約・キャンセルシステム</li>
+                        <li>学習サポート資料の提供</li>
+                        <li>その他当教室が必要と認めるサービス</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h2>第3条（入会・退会）</h2>
+                    <h3>入会について</h3>
+                    <p>本サービスの利用を希望する方は、当教室所定の方法により入会手続きを行い、当教室が承諾した時点で入会が成立します。</p>
+                    
+                    <h3>退会について</h3>
+                    <p>受講者が退会を希望する場合は、退会希望日の1ヶ月前までに当教室へ書面またはメールにて通知するものとします。</p>
+
+                    <div class="highlight-box">
+                        <p><i class="fas fa-exclamation-triangle"></i> 月の途中での退会の場合も、当月分の月謝は全額お支払いいただきます。</p>
+                    </div>
+                </div>
+
+                <div class="terms-section">
+                    <h2>第4条（料金・支払い）</h2>
+                    <h3>料金体系</h3>
+                    <p>料金は当教室のWebサイトに記載された金額とし、事前にお知らせすることなく変更する場合があります。</p>
+                    
+                    <h3>支払い方法</h3>
+                    <ul>
+                        <li>月謝制：毎月前払い（銀行振込・クレジットカード決済）</li>
+                        <li>チケット制：購入時一括払い</li>
+                        <li>入会金：入会時一括払い</li>
+                    </ul>
+
+                    <h3>遅延・滞納</h3>
+                    <p>料金の支払いが遅延した場合、レッスンの受講を停止させていただく場合があります。</p>
+                </div>
+
+                <div class="terms-section">
+                    <h2>第5条（レッスンの予約・キャンセル）</h2>
+                    <h3>予約について</h3>
+                    <p>レッスンの予約は、当教室指定の予約システムまたはメールにて行ってください。</p>
+                    
+                    <h3>キャンセルについて</h3>
+                    <ul>
+                        <li>レッスン前日まで：無料でキャンセル・振替可能</li>
+                        <li>レッスン当日：キャンセル料として料金の50%</li>
+                        <li>無断欠席：キャンセル料として料金の100%</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <p><i class="fas fa-info-circle"></i> 講師の都合によるレッスン休講の場合は、無料で振替レッスンを実施いたします。</p>
+                    </div>
+                </div>
+
+                <div class="terms-section">
+                    <h2>第6条（禁止事項）</h2>
+                    <p>受講者は、以下の行為を行ってはならないものとします：</p>
+                    <ul>
+                        <li>レッスン内容の無断録画・録音・配信</li>
+                        <li>講師への迷惑行為・ハラスメント</li>
+                        <li>虚偽の情報の提供</li>
+                        <li>第三者への迷惑行為</li>
+                        <li>法令に違反する行為</li>
+                        <li>その他当教室が不適切と判断する行為</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h2>第7条（個人情報保護）</h2>
+                    <p>当教室は、受講者の個人情報を適切に管理し、以下の目的以外では使用いたしません：</p>
+                    <ul>
+                        <li>レッスンサービスの提供</li>
+                        <li>料金の請求・決済</li>
+                        <li>サービス向上のためのアンケート・連絡</li>
+                        <li>重要なお知らせの配信</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h2>第8条（免責事項）</h2>
+                    <p>当教室は、以下の事項について責任を負わないものとします：</p>
+                    <ul>
+                        <li>受講者の機器・通信環境による受講障害</li>
+                        <li>自然災害・システム障害等による不可抗力のサービス中断</li>
+                        <li>受講者の練習不足による技術向上の遅れ</li>
+                        <li>その他当教室の故意・重過失によらない損害</li>
+                    </ul>
+                </div>
+
+                <div class="terms-section">
+                    <h2>第9条（規約変更）</h2>
+                    <p>当教室は、必要に応じて本規約を変更することができます。変更後の規約は、当教室のWebサイトに掲載した時点で効力を生じるものとします。</p>
+                    <p>重要な変更については、事前にメール等でお知らせいたします。</p>
+                </div>
+
+                <div class="terms-section">
+                    <h2>第10条（準拠法・管轄裁判所）</h2>
+                    <p>本規約は日本法に準拠し、本規約に関する一切の紛争については、当教室所在地を管轄する裁判所を専属的合意管轄裁判所とします。</p>
+                </div>
+
+                <div class="contact-info">
+                    <h3><i class="fas fa-envelope"></i> お問い合わせ</h3>
+                    <p>本規約に関するご質問は、下記までお気軽にお問い合わせください</p>
+                    <p><strong>melodylab.company@gmail.com</strong></p>
+                    <p style="margin-top: 1rem; font-size: 0.9rem;">
+                        制定日：2025年5月29日<br>
+                        最終更新日：2025年5月29日
+                    </p>
+                </div>
+            </div>
+
+            <div class="back-to-home">
+                <a href="index.html" class="btn">
+                    <i class="fas fa-home"></i>
+                    ホームに戻る
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <img src="images/music_school_logo_rem.png" alt="Melody Lab">
+                    <h3 class="footer-logo-text">Melody Lab</h3>
+                </div>
+                <p class="footer-about">
+                    音楽は、もっと自由で、もっと身近なもの。<br>
+                    あなたのライフスタイルに合わせて学べるオンライン音楽教室です。
+                </p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Twitterをフォロー"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagramをフォロー"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTubeをフォロー"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="LINEで友達追加"><i class="fab fa-line"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">レッスン</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#guitar-lesson"><i class="fas fa-chevron-right"></i> ギターレッスン</a></li>
+                    <li><a href="index.html#bass-lesson"><i class="fas fa-chevron-right"></i> ベースレッスン</a></li>
+                    <li><a href="index.html#dtm-lesson"><i class="fas fa-chevron-right"></i> DTMレッスン</a></li>
+                    <li><a href="index.html#compose-lesson"><i class="fas fa-chevron-right"></i> 作曲レッスン</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">サイトマップ</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#home"><i class="fas fa-chevron-right"></i> ホーム</a></li>
+                    <li><a href="index.html#instruments"><i class="fas fa-chevron-right"></i> 楽器</a></li>
+                    <li><a href="index.html#price"><i class="fas fa-chevron-right"></i> 料金</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> 私たちについて</a></li>
+                    <li><a href="index.html#contact"><i class="fas fa-chevron-right"></i> お問い合わせ</a></li>
+                    <li><a href="index.html#recruit"><i class="fas fa-chevron-right"></i> 採用情報</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-heading">お問い合わせ</h4>
+                <ul class="footer-contact">
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>melodylab.company@gmail.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-links">
+                <a href="terms.html">利用規約</a>
+                <a href="#">サイトポリシー</a>   
+            </div>
+            <p>&copy; 2025 Melody Lab 音楽教室 All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- トップに戻るボタン -->
+    <button id="back-to-top" class="back-to-top" aria-label="トップに戻る">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="header-nav.js"></script>
+    
+    <script>
+        // トップに戻るボタンの機能
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTopButton = document.getElementById('back-to-top');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
