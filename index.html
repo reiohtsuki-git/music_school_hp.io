@@ -38,6 +38,140 @@
     <link rel="stylesheet" href="layout-fix.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
+        /* 無料体験レッスンバナー */
+        .trial-lesson-banner {
+            position: fixed;
+            top: 70px; /* ヘッダーの下 */
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            z-index: 999;
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+            animation: slideInBounce 1s ease-out, pulse 2s infinite 1s;
+            transition: all 0.3s ease;
+        }
+        
+        .trial-lesson-banner.hidden {
+            transform: translateX(-50%) translateY(-100px);
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .trial-content {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .trial-icon {
+            animation: sparkle 1.5s ease-in-out infinite;
+        }
+        
+        .trial-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-left: 8px;
+            padding: 0;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .trial-close:hover {
+            opacity: 1;
+        }
+        
+        /* アニメーション */
+        @keyframes slideInBounce {
+            0% {
+                transform: translateX(-50%) translateY(-100px);
+                opacity: 0;
+            }
+            60% {
+                transform: translateX(-50%) translateY(10px);
+                opacity: 1;
+            }
+            80% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: translateX(-50%) scale(1);
+            }
+            50% {
+                transform: translateX(-50%) scale(1.05);
+            }
+        }
+        
+        @keyframes sparkle {
+            0%, 100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.2) rotate(180deg);
+                opacity: 0.8;
+            }
+        }
+        
+        /* レスポンシブ対応 */
+        @media (max-width: 768px) {
+            .trial-lesson-banner {
+                top: 60px;
+                left: 20px;
+                right: 20px;
+                transform: none;
+                width: auto;
+            }
+            
+            .trial-lesson-banner.hidden {
+                transform: translateY(-100px);
+            }
+            
+            @keyframes slideInBounce {
+                0% {
+                    transform: translateY(-100px);
+                    opacity: 0;
+                }
+                60% {
+                    transform: translateY(10px);
+                    opacity: 1;
+                }
+                80% {
+                    transform: translateY(-5px);
+                }
+                100% {
+                    transform: translateY(0);
+                }
+            }
+            
+            @keyframes pulse {
+                0%, 100% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.05);
+                }
+            }
+        }
         /* 新規追加スタイル */
         .hero-quick-links {
             display: flex;
@@ -1368,6 +1502,73 @@
 
     <script src="script.js"></script>
     <script>
+        // 無料体験レッスンバナー制御機能
+        (function() {
+            'use strict';
+            
+            // DOMが読み込まれた後に実行
+            function initTrialBanner() {
+                const trialBanner = document.getElementById('trial-banner');
+                const trialClose = document.getElementById('trial-close');
+                
+                if (!trialBanner || !trialClose) {
+                    return; // 要素が見つからない場合は何もしない
+                }
+                
+                // 閉じるボタンのクリックイベント
+                trialClose.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    closeBanner();
+                });
+                
+                // バナーを閉じる処理
+                function closeBanner() {
+                    trialBanner.classList.add('hidden');
+                    // ローカルストレージに非表示状態を保存
+                    try {
+                        localStorage.setItem('trialBannerClosed', 'true');
+                    } catch (e) {
+                        console.warn('ローカルストレージに保存できませんでした:', e);
+                    }
+                }
+                
+                // ページ読み込み時の表示制御
+                function checkBannerStatus() {
+                    try {
+                        if (localStorage.getItem('trialBannerClosed') === 'true') {
+                            trialBanner.classList.add('hidden');
+                        }
+                    } catch (e) {
+                        console.warn('ローカルストレージから読み込めませんでした:', e);
+                    }
+                }
+                
+                // 初期化
+                checkBannerStatus();
+                
+                // 5秒後に再度アニメーションを強調（バナーが表示されている場合のみ）
+                setTimeout(() => {
+                    if (!trialBanner.classList.contains('hidden')) {
+                        trialBanner.style.animation = 'slideInBounce 1s ease-out, pulse 2s infinite';
+                    }
+                }, 5000);
+                
+                // ESCキーでバナーを閉じる
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && !trialBanner.classList.contains('hidden')) {
+                        closeBanner();
+                    }
+                });
+            }
+            
+            // DOMContentLoadedイベントで初期化
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initTrialBanner);
+            } else {
+                // すでにDOMが読み込まれている場合
+                initTrialBanner();
+            }
+        })();
         document.addEventListener('DOMContentLoaded', function() {
           // レッスン項目のホバーエフェクト
           const lessonCards = document.querySelectorAll('.custom-lesson-card');
