@@ -40,8 +40,8 @@
     <style>
         /* 無料体験レッスンバナー */
         .trial-lesson-banner {
-            position: fixed;
-            top: 170px; 
+            position: absolute; /* fixedからabsoluteに変更 */
+            top: 170px; /* ヘッダー + 適切な間隔 */
             left: 200px;
             transform: none;
             background: linear-gradient(135deg, #10B981 0%, #059669 100%);
@@ -135,21 +135,21 @@
         /* レスポンシブ対応 */
         @media (max-width: 1200px) {
             .trial-lesson-banner {
-                top: 300px;
+                top: 230px;
                 left: 150px;
             }
         }
         
         @media (max-width: 992px) {
             .trial-lesson-banner {
-                top: 280px;
+                top: 210px;
                 left: 100px;
             }
         }
         
         @media (max-width: 768px) {
             .trial-lesson-banner {
-                top: 250px;
+                top: 190px;
                 left: 20px;
                 right: auto;
                 transform: none;
@@ -164,7 +164,7 @@
         
         @media (max-width: 480px) {
             .trial-lesson-banner {
-                top: 220px;
+                top: 170px;
                 left: 10px;
                 right: 10px;
                 max-width: calc(100vw - 20px);
