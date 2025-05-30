@@ -63,13 +63,17 @@
   z-index: 1;
 }
 
-/* 画像アイコンのスタイル */
+/* 画像アイコンのスタイル - 強制適用 */
 .lesson-icon img {
-  width: 3.5rem;
-  height: 3.5rem;
-  object-fit: contain;
-  position: relative;
-  z-index: 1;
+  width: 3.5rem !important;
+  height: 3.5rem !important;
+  object-fit: contain !important;
+  position: relative !important;
+  z-index: 1 !important;
+  max-width: 3.5rem !important;
+  max-height: 3.5rem !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .lesson-details {
@@ -176,13 +180,15 @@
   }
 
   .lesson-icon i {
-  font-size: 3rem;
-}
+    font-size: 3rem;
+  }
 
-.lesson-icon img {
-  width: 3rem;
-  height: 3rem;
-}
+  .lesson-icon img {
+    width: 3rem !important;
+    height: 3rem !important;
+    max-width: 3rem !important;
+    max-height: 3rem !important;
+  }
 
   .lesson-details h3 {
     font-size: 1.6rem;
