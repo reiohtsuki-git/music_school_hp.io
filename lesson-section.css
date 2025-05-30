@@ -63,6 +63,15 @@
   z-index: 1;
 }
 
+/* 画像アイコンのスタイル */
+.lesson-icon img {
+  width: 3.5rem;
+  height: 3.5rem;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+}
+
 .lesson-details {
   position: relative;
   z-index: 1;
@@ -167,8 +176,13 @@
   }
 
   .lesson-icon i {
-    font-size: 3rem;
-  }
+  font-size: 3rem;
+}
+
+.lesson-icon img {
+  width: 3rem;
+  height: 3rem;
+}
 
   .lesson-details h3 {
     font-size: 1.6rem;
